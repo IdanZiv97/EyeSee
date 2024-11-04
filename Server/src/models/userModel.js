@@ -1,23 +1,31 @@
 import mongoose from "mongoose";
-const types = mongoose.SchemaTypes;
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
     username: {
-        type: types.String,
+        type: String,
         required: true,
         index: true,
         unique: true,
     },
     password: {
-        type: types.String,
+        type: String,
         required: true,
     },
     email: {
-        type: types.String,
+        type: String,
         required: true,
         unique: true,
     },
-    // placeholder for main store
-    // placeholder for stores array
-});
+    mainStore: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Store',
+        required: true,
+    },
+    stores: [{type: mongoose.Schema.Types.ObjectId, ref: 'Store'}]
+
+
+}, { timestamps: true });
+
+const User = mongoose.model('User', userSchema);
+module.exports = User;
