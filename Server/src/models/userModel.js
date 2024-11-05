@@ -20,7 +20,6 @@ const userSchema = new Schema({
     mainStore: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Store',
-        required: true,
     },
     stores: [{type: mongoose.Schema.Types.ObjectId, ref: 'Store'}]
 
@@ -28,4 +27,4 @@ const userSchema = new Schema({
 }, { timestamps: true });
 
 const User = mongoose.model('User', userSchema);
-module.exports = User;
+export default User;

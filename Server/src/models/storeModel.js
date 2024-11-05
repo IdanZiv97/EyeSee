@@ -6,7 +6,7 @@ const storeSchema = new Schema({
         type: String,
         required: true,
     },
-    owner: { type: ObjectId, ref: "User", required: true },
+    owner: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
     reports: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Report',
@@ -14,4 +14,4 @@ const storeSchema = new Schema({
 }, { timestamps: true });
 
 const Store = mongoose.model('Store', storeSchema);
-module.exports = Store;
+export default Store;
