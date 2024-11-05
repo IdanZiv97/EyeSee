@@ -4,9 +4,8 @@ const Schema = mongoose.Schema;
 const storeSchema = new Schema({
     name: {
         type: String,
-        required: true,
     },
-    owner: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
+    owner: { type: mongoose.Schema.Types.ObjectId, ref: "User"},
     reports: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Report',
