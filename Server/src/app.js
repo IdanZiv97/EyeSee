@@ -2,6 +2,9 @@ import dotenv from 'dotenv';
 import express from 'express';
 import cors from 'cors';
 import connectDB from "./util/db.js"
+// TODO: merge all routes to a folder and create index.js for general importing
+import userRoutes from './routes/userRouter.js';
+import storeRoutes from './routes/storeRouter.js'
 
 dotenv.config();
 const app = express();
@@ -10,6 +13,9 @@ app.use(express.json())
 app.use(express.urlencoded({extended: false}));
 
 connectDB();
+
+app.use(storeRoutes);
+app.use(userRoutes);
 
 const PORT = process.env.PORT || 5000;
 
