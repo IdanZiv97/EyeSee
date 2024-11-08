@@ -15,7 +15,7 @@ In this project we have the following script
   },
 '''
 Which allows us to load the server dynamically and change it while we run it.
-Check [Nodemon][https://www.npmjs.com/package/nodemon] official docs
+Check [Nodemon](https://www.npmjs.com/package/nodemon) official docs
 
 ## Connecting to Atlas
 
@@ -28,7 +28,7 @@ MONGO_URI=mongodb+srv://<db_username>:<db_password>@eyeseedemo.bpy4r.mongodb.net
 '''
 
 And replace <db_usernamee> and <db_password> with your username and password.
-The code uses [dotenv][https://www.npmjs.com/package/dotenv] to load the variables for connecting the server
+The code uses [dotenv](https://www.npmjs.com/package/dotenv) to load the variables for connecting the server
 
 ## Testing the Connection
 Once you started the project you need to go to the browser and connect to localhost:4000 and receive the following message:
