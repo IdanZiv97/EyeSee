@@ -1,4 +1,4 @@
-# EyeSee - Server - Feature/Heatmap Images
+# EyeSee - Server - Feature/Auth
 Here is a list of tasks to be done regrading the feature
 
 ## TODO
