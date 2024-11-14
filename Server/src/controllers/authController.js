@@ -38,3 +38,56 @@ export const loginUser = async (req, res) => {
         })
     }
 }
+
+export const signupUser = async (res, req) => {
+    try {
+        const username = req.body.username;
+        const password = req.body.password;
+        const email = req.body.email;
+        const storeName = req.body.storename;
+        // check if the username or email is taken
+        const isExistingUser = User.findOne({$or: [{username: username}, {email: email}]})
+        if (isExistingUser) {
+            if (isExistingUser.username === username) {
+                return res.status(400).json({
+                    success: false,
+                    msg: "Username is already taken"
+                })
+            }
+            if (isExistingUser.email === email) {
+                return res.status(400).json({
+                    success: false,
+                    msg: "Email is already taken"
+                })
+            }
+        }
+        // create the user
+        const salt = await bcrypt.genSalt();
+        const hashedPassword = await bcrypt.hash(password, salt);
+        const newUser = new User({
+            username: username,
+            password: hashedPassword,
+            email: email,
+            mainStore: null,
+            stores: []
+        })
+        await newUser.save();
+        // creating the store and creating the reference in the user
+        const newStore = new Store({name: storeName, owner: newUser._id})
+        await newStore.save();
+        newUser.set('mainStore', newStore._id);
+        newUser.stores.push(newStore._id);
+        await newUser.save();
+        res.status(201).json({
+            sucess: true,
+            msg: "User registered successfuly",
+            userId: newUser._id,
+            storeId: newStore._id
+        })
+    } catch (error) {
+        res.status(400).json({
+            success: false,
+            msg: 'Your request could not be processed. Please try again.'
+        })
+    }
+}
