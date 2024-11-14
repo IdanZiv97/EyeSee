@@ -5,7 +5,13 @@ Here is a list of tasks to be done regrading the feature
 - [ ] User Signup:
     - [ ] Create signup form (including form)
     - [ ] after signup pass the main store_id
-- [ ] Testing
+- [ ] Testing:
+    - [ ] User login (client side)
+    - [ ] User signup (client side)
+    - [ ] User login (server side)
+    - [ ] User signup (server side)
+- [ ] Tokens and Sessions:
+    The goal is to user session and tokens to track users.
 
 ## In Progress
 - [ ] User Login:
