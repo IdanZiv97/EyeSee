@@ -39,14 +39,14 @@ export const loginUser = async (req, res) => {
     }
 }
 
-export const signupUser = async (res, req) => {
+export const signupUser = async (req, res) => {
     try {
         const username = req.body.username;
         const password = req.body.password;
         const email = req.body.email;
         const storeName = req.body.storename;
         // check if the username or email is taken
-        const isExistingUser = User.findOne({$or: [{username: username}, {email: email}]})
+        const isExistingUser = await User.findOne({$or: [{username: username}, {email: email}]})
         if (isExistingUser) {
             if (isExistingUser.username === username) {
                 return res.status(400).json({
