@@ -16,22 +16,22 @@ const fakeUsers = userIds.map(userId => {
     });
 
     return {
-        _id: userId,
+        _id: { $oid: userId.toString() },
         username: faker.internet.username(),
         email: faker.internet.email(),
-        mainStore: userStoreIds[0], // First store is the main store
-        stores: userStoreIds, // All stores owned by this user
+        mainStore: { $oid: userStoreIds[0].toString() }, // First store is the main store
+        stores: userStoreIds.map(storeId => ({ $oid: storeId.toString() })), // All stores owned by this user
     };
 });
 
 // Step 3: Generate data for stores
 const fakeStores = storeIds.map(storeId => ({
-    _id: storeId,
+    _id: { $oid: storeId.toString() },
     name: faker.company.name(),
-    owner: userIds.find(userId =>
-        fakeUsers.some(user => user._id.equals(userId) && user.stores.includes(storeId))
-    ), // Find the owner of this store
-    reports: [] // Initialize reports as an empty array
+    owner: { $oid: userIds.find(userId =>
+        fakeUsers.some(user => user._id.$oid === userId.toString() && user.stores.some(store => store.$oid === storeId.toString()))
+    ).toString() }, // Find the owner of this store
+    reports: [], // Initialize reports as an empty array (to be filled later)
 }));
 
 // Step 4: Functions to generate hourly reports
@@ -87,21 +87,28 @@ const fakeReports = storeIds.flatMap(storeId => {
     const numReports = faker.number.int({ min: 3, max: 5 }); // 3 to 5 reports per store
     const startDate = faker.date.recent(10); // Start date within the last 10 days
 
-    return Array.from({ length: numReports }, (_, i) => ({
-        store: storeId,
-        date: new Date(startDate.getTime() + i * 24 * 60 * 60 * 1000), // Add 'i' days for consecutive dates
-        hourlyReports: generateHourlyTimeSlices(), // Generate hourly reports for this report
-    }));
+    return Array.from({ length: numReports }, (_, i) => {
+        const hourlyReports = generateHourlyTimeSlices(); // Generate hourly reports for this report
+
+        // Convert the date to a timestamp and format it as { "$date": { "$numberLong": "timestamp" } }
+        const formattedDate = new Date(startDate.getTime() + i * 24 * 60 * 60 * 1000); // Add 'i' days for consecutive dates
+        const dateInFormat = {
+            $date: { $numberLong: formattedDate.getTime().toString() }
+        };
+
+        const report = {
+            store: { $oid: storeId.toString() },
+            date: dateInFormat,
+            hourlyReports,
+        };
+
+        // Add report to the store's reports array
+        fakeStores.find(store => store._id.$oid === storeId.toString()).reports.push({ $oid: storeId.toString() });
+        return report;
+    });
 });
 
-// Step 6: Update stores to include references to reports
-storeIds.forEach(storeId => {
-    const storeReports = fakeReports.filter(report => report.store.equals(storeId));
-    const store = fakeStores.find(store => store._id.equals(storeId));
-    store.reports = storeReports.map(report => report.store); // Add report references to the store
-});
-
-// Step 7: Save data to JSON files
+// Step 6: Save data to JSON files
 async function saveDataToJson() {
     try {
         await fs.writeFile('./fakeUsers.json', JSON.stringify(fakeUsers, null, 4));

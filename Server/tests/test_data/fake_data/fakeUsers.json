@@ -1,53 +1,98 @@
 [
     {
-        "_id": "6739e99366ddc49b78d0130a",
-        "username": "Gerald20",
-        "email": "Ebba18@yahoo.com",
-        "mainStore": "6739e99366ddc49b78d0130f",
+        "_id": {
+            "$oid": "6739f020afba9c52059710ed"
+        },
+        "username": "Clement_Lockman7",
+        "email": "Edison_Hills16@hotmail.com",
+        "mainStore": {
+            "$oid": "6739f020afba9c52059710f2"
+        },
         "stores": [
-            "6739e99366ddc49b78d0130f",
-            "6739e99366ddc49b78d01310",
-            "6739e99366ddc49b78d01311"
+            {
+                "$oid": "6739f020afba9c52059710f2"
+            },
+            {
+                "$oid": "6739f020afba9c52059710f3"
+            }
         ]
     },
     {
-        "_id": "6739e99366ddc49b78d0130b",
-        "username": "Dewayne60",
-        "email": "Shanny_Ullrich33@hotmail.com",
-        "mainStore": "6739e99366ddc49b78d01312",
+        "_id": {
+            "$oid": "6739f020afba9c52059710ee"
+        },
+        "username": "Gene22",
+        "email": "Elliott.Larson@hotmail.com",
+        "mainStore": {
+            "$oid": "6739f020afba9c52059710f4"
+        },
         "stores": [
-            "6739e99366ddc49b78d01312",
-            "6739e99366ddc49b78d01313",
-            "6739e99366ddc49b78d01314"
+            {
+                "$oid": "6739f020afba9c52059710f4"
+            },
+            {
+                "$oid": "6739f020afba9c52059710f5"
+            },
+            {
+                "$oid": "6739f020afba9c52059710f6"
+            }
         ]
     },
     {
-        "_id": "6739e99366ddc49b78d0130c",
-        "username": "Elouise28",
-        "email": "Amir.Wisoky-Boehm@hotmail.com",
-        "mainStore": "6739e99366ddc49b78d01315",
+        "_id": {
+            "$oid": "6739f020afba9c52059710ef"
+        },
+        "username": "Lon_Bahringer74",
+        "email": "Eve.Hessel31@yahoo.com",
+        "mainStore": {
+            "$oid": "6739f020afba9c52059710f7"
+        },
         "stores": [
-            "6739e99366ddc49b78d01315"
+            {
+                "$oid": "6739f020afba9c52059710f7"
+            },
+            {
+                "$oid": "6739f020afba9c52059710f8"
+            },
+            {
+                "$oid": "6739f020afba9c52059710f9"
+            }
         ]
     },
     {
-        "_id": "6739e99366ddc49b78d0130d",
-        "username": "Lilla_Hayes",
-        "email": "Easter21@yahoo.com",
-        "mainStore": "6739e99366ddc49b78d01316",
+        "_id": {
+            "$oid": "6739f020afba9c52059710f0"
+        },
+        "username": "Erich_Douglas",
+        "email": "Celine_Orn@gmail.com",
+        "mainStore": {
+            "$oid": "6739f020afba9c52059710fa"
+        },
         "stores": [
-            "6739e99366ddc49b78d01316",
-            "6739e99366ddc49b78d01317",
-            "6739e99366ddc49b78d01318"
+            {
+                "$oid": "6739f020afba9c52059710fa"
+            },
+            {
+                "$oid": "6739f020afba9c52059710fb"
+            }
         ]
     },
     {
-        "_id": "6739e99366ddc49b78d0130e",
-        "username": "Kadin_Beatty",
-        "email": "Dustin55@hotmail.com",
-        "mainStore": "6739e99366ddc49b78d01319",
+        "_id": {
+            "$oid": "6739f020afba9c52059710f1"
+        },
+        "username": "Lew.Christiansen19",
+        "email": "Jeramie.Hickle79@gmail.com",
+        "mainStore": {
+            "$oid": "6739f020afba9c52059710fc"
+        },
         "stores": [
-            "6739e99366ddc49b78d01319"
+            {
+                "$oid": "6739f020afba9c52059710fc"
+            },
+            {
+                "$oid": "6739f020afba9c52059710fd"
+            }
         ]
     }
 ]
