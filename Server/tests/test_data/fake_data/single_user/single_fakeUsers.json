@@ -1,0 +1,20 @@
+[
+    {
+        "_id": {
+            "$oid": "6739f3b018369a2a09389057"
+        },
+        "username": "Floy.Hilpert",
+        "email": "Taryn.Schimmel@gmail.com",
+        "mainStore": {
+            "$oid": "6739f3b018369a2a09389058"
+        },
+        "stores": [
+            {
+                "$oid": "6739f3b018369a2a09389058"
+            },
+            {
+                "$oid": "6739f3b018369a2a09389059"
+            }
+        ]
+    }
+]
