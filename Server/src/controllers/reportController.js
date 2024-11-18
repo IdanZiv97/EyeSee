@@ -28,8 +28,8 @@ export const createReport = async (req, res) => {
  * This request handles the default query of a user.
  * When a user logs to the website and navigate to reports, it automatically fetches the most
  * recent report of his its defined main store
- * @param {userId} req 
- * @param {*} res 
+ * The request includes the user's id.
+ * The response includes the data of the most recent report, as described in the Report schema.
  */
 export const defaultReport = async (req, res) => {
     const userId = req.body.userId;
@@ -45,6 +45,5 @@ export const defaultReport = async (req, res) => {
     // search in reports collection by store_id
     const report = await Report.findOne({store: storeId}).sort({date: -1}).limit(1);
     const data = report.hourlyReports.map((rep) => rep);
-    console.log(data);
     res.status(200).json(data);
 }
