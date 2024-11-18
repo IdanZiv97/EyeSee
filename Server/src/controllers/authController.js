@@ -3,7 +3,19 @@ import bcrypt from 'bcrypt';
 import User from "../models/userModel.js";
 import Store from "../models/storeModel.js";
 
-// route to login
+/**
+ * function that handles the login process.
+ * In order to login the client side should pass the following data in its login request:
+ *  1. username
+ *  2. password
+ * The server checks if the user exists and if the password entred matches the saved password (hashed)
+ * Each response has the success field: true iff the login is successful
+ * When a login fails, or in case of a server related error, the response includes a proper message.
+ * When a login succeeds the response include the following data:
+ *  1. id of the logged in user
+ *  2. username of the logged in user
+ *  3. id of the logged in user's main store
+ */
 export const loginUser = async (req, res) => {
     try {
         const username = req.body.username;
@@ -40,6 +52,21 @@ export const loginUser = async (req, res) => {
     }
 }
 
+/**
+ * function that handles the creation of a new user.
+ * In order to create a new user the client side must present the following data
+ *  1. unique username
+ *  2. unique email
+ *  3. password
+ *  4. first and last name (seperate values)
+ *  5. main store name
+ * The server checks for the uniquenes of relevant values and returns an error message when needed.
+ * Each response has the success field: true iff the sign up is successful
+ * When a sign up fails, or in case of a server related error, the response includes a proper message.
+ * When a sign up succeeds the response include the following data:
+ *  1. id of the newly created user
+ *  2. id of the newly created user's main store
+ */
 export const signupUser = async (req, res) => {
     try {
         const username = req.body.username;
@@ -83,8 +110,8 @@ export const signupUser = async (req, res) => {
         newUser.set('mainStore', newStore._id);
         newUser.stores.push(newStore._id);
         await newUser.save();
-        res.status(201).json({
-            sucess: true,
+        res.status(200).json({
+            success: true,
             msg: "User registered successfuly",
             userId: newUser._id,
             storeId: newStore._id
