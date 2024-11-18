@@ -17,7 +17,6 @@
     - [ ] Read:
         - [ ] Default qurey (client side)
         - [ ] Filter by date (client side)
-        - [ ] Filter by dates (range) (server side)
         - [ ] Filter by dates (range) (client side)
     - [ ] Delete:
         - [ ] Delete entire report
@@ -25,9 +24,6 @@
 ## In Progress
 - [ ] Delete:
     - [ ] Delete entire report
-- [ ] Tests:
-    - [ ] Read:
-        - [ ] Filter by dates (range) (server side)
 
 
 ## Completed
@@ -39,4 +35,5 @@
 - [x] Tests:
     - [x] Read:
         - [x] Defualt qurey (server side)
-        - [x] Filter by date (server side by Idan)
+        - [x] Filter by date (server side)
+        - [x] Filter by dates (range) (server side)
