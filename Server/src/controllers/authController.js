@@ -44,6 +44,8 @@ export const signupUser = async (req, res) => {
     try {
         const username = req.body.username;
         const password = req.body.password;
+        const firstName = req.body.firstname;
+        const lastName = req.body.lastname;
         const email = req.body.email;
         const storeName = req.body.storename;
         // check if the username or email is taken
@@ -67,6 +69,8 @@ export const signupUser = async (req, res) => {
         const hashedPassword = await bcrypt.hash(password, salt);
         const newUser = new User({
             username: username,
+            firstName: firstName,
+            lastName: lastName,
             password: hashedPassword,
             email: email,
             mainStore: null,

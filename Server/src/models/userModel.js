@@ -8,6 +8,8 @@ const userSchema = new Schema({
         index: true,
         unique: true,
     },
+    firstName: { type: String },
+    lastName: { type: String },
     password: {
         type: String,
         required: true,
@@ -21,7 +23,7 @@ const userSchema = new Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Store',
     },
-    stores: [{type: mongoose.Schema.Types.ObjectId, ref: 'Store'}]
+    stores: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Store' }]
 
 
 }, { timestamps: true });
