@@ -25,9 +25,6 @@
 ## In Progress
 - [ ] Delete:
     - [ ] Delete entire report
-- [ ] Read operations:
-    - [ ] Support for filters (per store):
-        - [ ] Filter by dates (range)
 - [ ] Tests:
     - [ ] Read:
         - [ ] Filter by dates (range) (server side)
@@ -38,6 +35,7 @@
     - [x] Default query of main store.
     - [x] Support for filters (per store):
         - [x] Filter by date
+        - [x] Filter by dates (range)
 - [x] Tests:
     - [x] Read:
         - [x] Defualt qurey (server side)
