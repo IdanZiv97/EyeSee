@@ -1,4 +1,5 @@
 import fetch from 'node-fetch';
+import fs from 'fs';
 
 const testDefault = async () => {
     const response = await fetch('http://localhost:4000/report', {
@@ -35,4 +36,22 @@ const testQueryByDate = async () => {
     
 }
 
-testQueryByDate().catch((error) => console.error('Error:', error));
+const testQureyByDates = async () => {
+    const response = await fetch('http://localhost:4000/report/byDates', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            userId: '6739f3b018369a2a09389057',
+            storeName: 'Berge and Sons',
+            start: '2023-11-18',
+            end: '2023-12-30'
+        })
+    })
+    const data = await response.json();
+    console.log(data);
+    
+}
+
+testQureyByDates().catch((error) => console.error('Error:', error));
