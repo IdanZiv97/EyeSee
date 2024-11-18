@@ -23,7 +23,7 @@
     - [ ] Delete entire report
 - Tests:
     - Read:
-        - [ ] Filter by date (server side)
+        - [ ] Filter by date (server side by Idan)
 
 ## Completed
 - [x] Read operations:
