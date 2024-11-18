@@ -28,22 +28,6 @@ function processReport(report) {
         }
     }));
     return transformedReports;
-    // const response = [];
-
-    // const test = subReports[0];
-    // const slice = test.timeSlice;
-    // const total = test.totalCustomers;
-    // const male = test.totalMaleCustomers;
-    // const female = test.totalFemaleCustomers;
-    // const customersByAge = test.customersByAge;
-    // return {
-    //     date: date,
-    //     slice: slice,
-    //     total: total,
-    //     male: male,
-    //     female: female,
-    //     ages: customersByAge
-    // };
 }
 
 export const createReport = async (req, res) => {

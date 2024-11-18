@@ -45,8 +45,8 @@ const testQureyByDates = async () => {
         body: JSON.stringify({
             userId: '6739f3b018369a2a09389057',
             storeName: 'Berge and Sons',
-            start: '2023-11-18',
-            end: '2023-12-30'
+            start: '2024-11-18',
+            end: '2024-12-19'
         })
     })
     const data = await response.json();
