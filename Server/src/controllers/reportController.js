@@ -72,7 +72,29 @@ export const qureyReportByDate = async (req, res) => {
         })
     }
     // check for store
-    
-    // check for proper date format & extract the date
-    // check for valid date
+    const store = user.stores.find((s) => s.name === storeName);
+    if (!store) {
+        return res.status(400).json({
+            success: false,
+            msg: "Store not found"
+        })
+    }
+    // search the date
+    const storeId = store._id;
+    const start = date + 'T00:00:00.000Z'; // creating the proper range
+    const end = date + 'T23:59:59.999Z';
+    const startDate = new Date(start);
+    const endDate = new Date(end);
+    const report = await Report.findOne({
+        store: storeId,
+        date: {$gte: startDate, $lte: endDate}
+    });
+    if (!report) {
+        return res.status(200).json({
+            success: false,
+            msg: "No matching report for the requested date."
+        })
+    }
+    const data = report.hourlyReports.map((rep) => rep);
+    return res.status(200).json(data);
 };
