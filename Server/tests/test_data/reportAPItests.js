@@ -50,8 +50,14 @@ const testQureyByDates = async () => {
         })
     })
     const data = await response.json();
-    console.log(data);
-    
+    var len = data.length;
+    console.log("Number of reports found: ", len);
+    var report1 = data[0];
+    console.log('keys of a data entry: ', Object.keys(report1));
+    var reportId = report1['reportId'];
+    var reportData = report1['transformedReports'][3]
+    console.log('report id: ', reportId);
+    console.log('data sent for each report:\n', Object.keys(reportData));
 }
 
 testQureyByDates().catch((error) => console.error('Error:', error));

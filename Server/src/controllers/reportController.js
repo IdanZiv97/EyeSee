@@ -10,6 +10,7 @@ import Report from "../models/reportModel.js"
  */
 function processReport(report) {
     const date = report.date;
+    const reportId = report._id;
     const subReports = [...report.hourlyReports];
     const transformedReports = subReports.map(hourlyReport => ({
         date: date, // Replace with actual date if needed
@@ -27,7 +28,8 @@ function processReport(report) {
             '60+': hourlyReport.customersByAge?.['60+'] || 0,
         }
     }));
-    return transformedReports;
+    const response = { reportId: reportId, transformedReports: transformedReports };
+    return response;
 }
 
 export const createReport = async (req, res) => {
