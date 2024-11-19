@@ -60,4 +60,23 @@ const testQureyByDates = async () => {
     console.log('data sent for each report:\n', Object.keys(reportData));
 }
 
-testQureyByDates().catch((error) => console.error('Error:', error));
+const testQureyByGender = async () => {
+    const response = await fetch('http://localhost:4000/report/byGender', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            userId: '6739f3b018369a2a09389057',
+            storeName: 'Berge and Sons',
+            gender: 'female',
+            start: '2023-11-30',
+            end: '2025-11-19'
+        })
+    })
+    const data = await response.json();
+    console.log(data);
+    
+}
+
+testQureyByGender().catch((error) => console.error('Error:', error));
