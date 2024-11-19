@@ -9,11 +9,6 @@
     - [ ] Optional: delete a part of the report
 - [ ] Update: the ability to edit the hourly reports (optional)
 - [ ] Tests:
-    - [ ] Read:
-        - [ ] Default qurey (client side)
-        - [ ] Filter by date (client side)
-        - [ ] Filter by range (client side)
-        - [ ] Filter by gender (client side)
     - [ ] Delete:
         - [ ] Delete entire report
 
@@ -23,6 +18,12 @@
 - [ ] Read operations:
     - [ ] Support for filters (per store):
         - [ ] Filter by age
+- [ ] Tests:
+    - [ ] Read:
+        - [ ] Default qurey (client side)
+        - [ ] Filter by date (client side)
+        - [ ] Filter by range (client side)
+        - [ ] Filter by gender (client side)
 
 
 ## Completed
