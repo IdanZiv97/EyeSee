@@ -32,6 +32,12 @@ function processReport(report) {
     return response;
 }
 
+// Create Operations
+
+/**
+ * This method is meant to be invoked by the ML service
+ * @returns 
+ */
 export const createReport = async (req, res) => {
     const storeId = req.body.storeId;
     const subReports = [...req.body.reports];
@@ -49,7 +55,8 @@ export const createReport = async (req, res) => {
     await report.save();
     store.reports.push(report._id);
     await store.save();
-    res.status(201).json({ msg: "Report was added sucssesfuly", reportId: report._id });
+    res.status(200).json({ msg: "Report was added sucssesfuly", reportId: report._id });
+    // TODO: update the client side with a trigger
 }
 
 // Read Operations
@@ -134,6 +141,16 @@ export const qureyReportByDate = async (req, res) => {
  *  2. store name
  *  3. dates = an array of a strings describing the time range in YYYY-MM-DD format
  *     Note: make sure that the start date is earlier than end date!
+ * @returns
+ * The function returns an array of dictionaries (javascript objects).
+ * Each item in the array has two keys
+ * 1. reportId: the id of the report, useful for later use.
+ * 2. transformedReports: an array of all the proceed hourly reports that belong to the main report (as per the schema)
+ * Each entry of the hourly report has the following keys:
+ * 'date', 'slice', 'total', 'male', 'female', 'ages'
+ * Note: ages is a dictionary that describes the demographics of the clients in a specific time slice.
+ * 
+ * Based on this structure of the response further processing of the data is available.
  */
 
 export const qureyReportByDates = async (req, res) => {
@@ -178,6 +195,22 @@ export const qureyReportByDates = async (req, res) => {
     return res.status(200).json(data);
 }
 
+/**
+ * This function handles qureying the reports only by the wanted gender.
+ * In order to handle the request the client side should provide the following information:
+ * 1. gender: one the following string ['male', 'female'] and the function will handle the choice
+ * 2. userId
+ * 3. storen name
+ * 4. start and and end date of form YYYY-MM-DD exactly. Make sure that start date is earlier than end date!!
+ * @returns the response includes an array of reports (if exists).
+ * Each entry is a report document that answer the query parameters
+ * Each entry in the array is a dictionary with the following keys:
+ *  1. _id: the report id, useful for later opertaions (e.g delete the report)
+ *  2. date: the date of the report
+ *  3. hourlyReports: of dictionaries, each has a time slice and the amount of customers
+ * 
+ * Based on this structure of the response further processing of the data is available.
+ */
 export const qureyReportByGender = async (req, res) => {
     const gender = req.body.gender;
     const userId = req.body.userId;
