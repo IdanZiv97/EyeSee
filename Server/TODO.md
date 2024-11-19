@@ -38,4 +38,4 @@
         - [x] Defualt qurey (server side)
         - [x] Filter by date (server side)
         - [x] Filter by dates (range) (server side)
-        = [x] Filter by gender (server side)
+        - [x] Filter by gender (server side)
