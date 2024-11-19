@@ -50,14 +50,15 @@ const testQureyByDates = async () => {
         })
     })
     const data = await response.json();
+    // console.log('DATA:\n', data);
     var len = data.length;
     console.log("Number of reports found: ", len);
-    var report1 = data[0];
-    console.log('keys of a data entry: ', Object.keys(report1));
-    var reportId = report1['reportId'];
-    var reportData = report1['transformedReports'][3]
-    console.log('report id: ', reportId);
-    console.log('data sent for each report:\n', Object.keys(reportData));
+    var keys = Object.keys(data[0]);
+    console.log('keys of each item: ', keys);
+    var transformedReportsKeys = Object.keys(data[0].transformedReports[0])
+    console.log('keys of transformedReports: ', transformedReportsKeys);
+    
+    
 }
 
 const testQureyByGender = async () => {
@@ -75,8 +76,13 @@ const testQureyByGender = async () => {
         })
     })
     const data = await response.json();
-    console.log(data);
+    var len = data.length;
+    var keys = Object.keys(data[0]);
+    console.log('len: ', len);
+    console.log('keys of each entry: ', keys);
+    var dataOfSubReport = data[0]['hourlyReports']
+    console.log('data of a hourly report: ', dataOfSubReport);
     
 }
 
-testQureyByGender().catch((error) => console.error('Error:', error));
+testQureyByDates().catch((error) => console.error('Error:', error));
