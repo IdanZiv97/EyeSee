@@ -2,13 +2,8 @@
 
 ## TODO
 - [ ] Create operations:
-    - [ ] Adding manually from .csv files (or similiar format)
     - [ ] Adding from the ML service
 - [ ] Read operations:
-    - [ ] Support for filters (per store):
-        - [ ] Filter by age
-        - [ ] Filter by dates (range)
-        - [ ] Filter by gender
     - [ ] Aggregation: Support multiple dates
 - [ ] Delete:
     - [ ] Optional: delete a part of the report
@@ -17,13 +12,16 @@
     - [ ] Read:
         - [ ] Default qurey (client side)
         - [ ] Filter by date (client side)
-        - [ ] Filter by dates (range) (client side)
     - [ ] Delete:
         - [ ] Delete entire report
 
 ## In Progress
 - [ ] Delete:
     - [ ] Delete entire report
+- [ ] Read operations:
+    - [ ] Support for filters (per store):
+        - [ ] Filter by age
+        - [ ] Filter by gender
 
 
 ## Completed
