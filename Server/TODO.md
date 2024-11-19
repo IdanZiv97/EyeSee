@@ -6,15 +6,14 @@
 - [ ] Read operations:
     - [ ] Aggregation: Support multiple dates
 - [ ] Delete:
-    - [ ] Optional: delete a part of the report
+    - [ ] Delete entire report
 - [ ] Update: the ability to edit the hourly reports (optional)
 - [ ] Tests:
     - [ ] Delete:
+        - [ ] Delete entire report (server side)
         - [ ] Delete entire report
 
 ## In Progress
-- [ ] Delete:
-    - [ ] Delete entire report
 - [ ] Read operations:
     - [ ] Support for filters (per store):
         - [ ] Filter by age
