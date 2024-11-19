@@ -133,6 +133,7 @@ export const qureyReportByDate = async (req, res) => {
  *  1. user_id
  *  2. store name
  *  3. dates = an array of a strings describing the time range in YYYY-MM-DD format
+ *     Note: make sure that the start date is earlier than end date!
  */
 
 export const qureyReportByDates = async (req, res) => {
@@ -175,4 +176,60 @@ export const qureyReportByDates = async (req, res) => {
     }
     const data = reports.flatMap((report) => processReport(report));
     return res.status(200).json(data);
+}
+
+export const qureyReportByGender = async (req, res) => {
+    const gender = req.body.gender;
+    const userId = req.body.userId;
+    const storeName = req.body.storeName;
+    const date1 = req.body.start;
+    const date2 = req.body.end;
+    // get the store id
+    const user = await User.findById(userId).populate('stores')
+    if (!user) {
+        return res.status(400).json({
+            success: false,
+            msg: "User not found"
+        })
+    }
+    const store = user.stores.find((s) => s.name === storeName);
+    if (!store) {
+        return res.status(400).json({
+            success: false,
+            msg: "Store not found"
+        })
+    }
+    const storeId = store._id;
+    // created the dates range
+    const start = date1 + 'T00:00:00.000Z';
+    const end = date2 + 'T23:59:59.999Z';
+    const startDate = new Date(start);
+    const endDate = new Date(end);
+    // Get all the reports you need by the store
+    const selectedField = gender === 'male' ? 'totalMaleCustomers' : 'totalFemaleCustomers';
+    const reports = await Report.aggregate([
+        {
+            $match: {
+                store: storeId,
+                date: {$gte: startDate, $lte: endDate}
+            }
+        },
+        {
+            $project: {
+                _id: 1,
+                date: 1,
+                hourlyReports: {
+                    timeSlice: 1,
+                    [selectedField]: 1
+                }
+            }
+        }
+    ])
+    if (reports.length === 0) {
+        return res.status(200).json({
+            success: false,
+            msg: "No reports found"
+        })
+    }
+    return res.status(200).json(reports);
 }
