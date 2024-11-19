@@ -12,6 +12,8 @@
     - [ ] Read:
         - [ ] Default qurey (client side)
         - [ ] Filter by date (client side)
+        - [ ] Filter by range (client side)
+        - [ ] Filter by gender (client side)
     - [ ] Delete:
         - [ ] Delete entire report
 
@@ -21,7 +23,6 @@
 - [ ] Read operations:
     - [ ] Support for filters (per store):
         - [ ] Filter by age
-        - [ ] Filter by gender
 
 
 ## Completed
@@ -30,8 +31,10 @@
     - [x] Support for filters (per store):
         - [x] Filter by date
         - [x] Filter by dates (range)
+        - [x] Filter by gender
 - [x] Tests:
     - [x] Read:
         - [x] Defualt qurey (server side)
         - [x] Filter by date (server side)
         - [x] Filter by dates (range) (server side)
+        = [x] Filter by gender (server side)
