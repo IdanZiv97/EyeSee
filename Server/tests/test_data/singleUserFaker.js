@@ -10,6 +10,8 @@ const storeIds = [new mongoose.Types.ObjectId(), new mongoose.Types.ObjectId()];
 const fakeUser = {
     _id: { $oid: userId.toString() },
     username: faker.internet.username(),
+    firstName: faker.person.firstName(),
+    lastName: faker.person.lastName(),
     email: faker.internet.email(),
     mainStore: { $oid: storeIds[0].toString() }, // First store is the main store
     stores: storeIds.map(storeId => ({ $oid: storeId.toString() })), // Both stores owned by this user
@@ -48,12 +50,14 @@ function generateCustomersByAge(totalCustomers) {
 function generateHourlyReport(timeSlice) {
     const totalCustomers = faker.number.int({ min: 0, max: 100 });
     const totalMaleCustomers = faker.number.int({ min: 0, max: totalCustomers });
+    const avgDwellTime = faker.number.int({min: 0, max: 60}); // in minutes
     const totalFemaleCustomers = totalCustomers - totalMaleCustomers;
     const customersByAge = generateCustomersByAge(totalCustomers);
 
     return {
         timeSlice,
         totalCustomers,
+        avgDwellTime,
         totalMaleCustomers,
         totalFemaleCustomers,
         customersByAge,
@@ -84,15 +88,16 @@ const fakeReports = storeIds.flatMap(storeId => {
         const dateInFormat = {
             $date: { $numberLong: formattedDate.getTime().toString() }
         };
-
+        const reportId = new mongoose.Types.ObjectId();
         const report = {
+            _id: { $oid: reportId.toString()},
             store: { $oid: storeId.toString() },
             date: dateInFormat,
             hourlyReports,
         };
 
         // Add report to the store's reports array
-        fakeStores.find(store => store._id.$oid === storeId.toString()).reports.push({ $oid: storeId.toString() });
+        fakeStores.find(store => store._id.$oid === storeId.toString()).reports.push({ $oid: reportId.toString() });
         return report;
     });
 });

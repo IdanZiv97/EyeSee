@@ -1,19 +1,21 @@
 [
     {
         "_id": {
-            "$oid": "6739f3b018369a2a09389057"
+            "$oid": "67405149a52d488597dffe5b"
         },
-        "username": "Floy.Hilpert",
-        "email": "Taryn.Schimmel@gmail.com",
+        "username": "Fermin.Zulauf97",
+        "firstName": "Gabe",
+        "lastName": "Fritsch",
+        "email": "Wanda0@hotmail.com",
         "mainStore": {
-            "$oid": "6739f3b018369a2a09389058"
+            "$oid": "67405149a52d488597dffe5c"
         },
         "stores": [
             {
-                "$oid": "6739f3b018369a2a09389058"
+                "$oid": "67405149a52d488597dffe5c"
             },
             {
-                "$oid": "6739f3b018369a2a09389059"
+                "$oid": "67405149a52d488597dffe5d"
             }
         ]
     }

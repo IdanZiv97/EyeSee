@@ -1,958 +1,205 @@
 [
     {
+        "_id": {
+            "$oid": "67405149a52d488597dffe5e"
+        },
         "store": {
-            "$oid": "6739f3b018369a2a09389058"
+            "$oid": "67405149a52d488597dffe5c"
         },
         "date": {
             "$date": {
-                "$numberLong": "1731831705924"
+                "$numberLong": "1732255454334"
             }
         },
         "hourlyReports": [
             {
-                "timeSlice": "10:00-11:00",
-                "totalCustomers": 19,
-                "totalMaleCustomers": 6,
-                "totalFemaleCustomers": 13,
-                "customersByAge": {
-                    "0-9": 17,
-                    "10-19": 1,
-                    "20-29": 0,
-                    "30-39": 1,
-                    "40-49": 0,
-                    "50-59": 0,
-                    "60+": 0
-                }
-            },
-            {
-                "timeSlice": "11:00-12:00",
-                "totalCustomers": 38,
-                "totalMaleCustomers": 28,
+                "timeSlice": "08:00-09:00",
+                "totalCustomers": 32,
+                "avgDwellTime": 31,
+                "totalMaleCustomers": 22,
                 "totalFemaleCustomers": 10,
                 "customersByAge": {
-                    "0-9": 14,
-                    "10-19": 12,
-                    "20-29": 0,
-                    "30-39": 0,
-                    "40-49": 11,
-                    "50-59": 1,
-                    "60+": 0
-                }
-            },
-            {
-                "timeSlice": "12:00-13:00",
-                "totalCustomers": 9,
-                "totalMaleCustomers": 4,
-                "totalFemaleCustomers": 5,
-                "customersByAge": {
-                    "0-9": 7,
-                    "10-19": 0,
-                    "20-29": 1,
-                    "30-39": 1,
-                    "40-49": 0,
-                    "50-59": 0,
-                    "60+": 0
-                }
-            },
-            {
-                "timeSlice": "13:00-14:00",
-                "totalCustomers": 66,
-                "totalMaleCustomers": 45,
-                "totalFemaleCustomers": 21,
-                "customersByAge": {
-                    "0-9": 41,
-                    "10-19": 17,
-                    "20-29": 4,
-                    "30-39": 2,
-                    "40-49": 2,
-                    "50-59": 0,
-                    "60+": 0
-                }
-            },
-            {
-                "timeSlice": "14:00-15:00",
-                "totalCustomers": 58,
-                "totalMaleCustomers": 45,
-                "totalFemaleCustomers": 13,
-                "customersByAge": {
-                    "0-9": 52,
-                    "10-19": 2,
-                    "20-29": 2,
-                    "30-39": 0,
-                    "40-49": 0,
-                    "50-59": 1,
-                    "60+": 1
-                }
-            },
-            {
-                "timeSlice": "15:00-16:00",
-                "totalCustomers": 21,
-                "totalMaleCustomers": 1,
-                "totalFemaleCustomers": 20,
-                "customersByAge": {
-                    "0-9": 12,
-                    "10-19": 5,
-                    "20-29": 0,
-                    "30-39": 2,
-                    "40-49": 0,
-                    "50-59": 0,
-                    "60+": 2
-                }
-            },
-            {
-                "timeSlice": "16:00-17:00",
-                "totalCustomers": 35,
-                "totalMaleCustomers": 12,
-                "totalFemaleCustomers": 23,
-                "customersByAge": {
-                    "0-9": 22,
-                    "10-19": 3,
-                    "20-29": 7,
+                    "0-9": 1,
+                    "10-19": 4,
+                    "20-29": 25,
                     "30-39": 1,
                     "40-49": 1,
                     "50-59": 0,
-                    "60+": 1
-                }
-            },
-            {
-                "timeSlice": "17:00-18:00",
-                "totalCustomers": 49,
-                "totalMaleCustomers": 19,
-                "totalFemaleCustomers": 30,
-                "customersByAge": {
-                    "0-9": 47,
-                    "10-19": 1,
-                    "20-29": 1,
-                    "30-39": 0,
-                    "40-49": 0,
-                    "50-59": 0,
                     "60+": 0
                 }
             },
             {
-                "timeSlice": "18:00-19:00",
-                "totalCustomers": 23,
+                "timeSlice": "09:00-10:00",
+                "totalCustomers": 33,
+                "avgDwellTime": 5,
                 "totalMaleCustomers": 11,
-                "totalFemaleCustomers": 12,
+                "totalFemaleCustomers": 22,
                 "customersByAge": {
                     "0-9": 4,
-                    "10-19": 5,
-                    "20-29": 9,
-                    "30-39": 0,
-                    "40-49": 0,
-                    "50-59": 1,
-                    "60+": 4
-                }
-            },
-            {
-                "timeSlice": "19:00-20:00",
-                "totalCustomers": 11,
-                "totalMaleCustomers": 11,
-                "totalFemaleCustomers": 0,
-                "customersByAge": {
-                    "0-9": 11,
-                    "10-19": 0,
-                    "20-29": 0,
-                    "30-39": 0,
-                    "40-49": 0,
-                    "50-59": 0,
-                    "60+": 0
-                }
-            },
-            {
-                "timeSlice": "20:00-21:00",
-                "totalCustomers": 24,
-                "totalMaleCustomers": 19,
-                "totalFemaleCustomers": 5,
-                "customersByAge": {
-                    "0-9": 5,
-                    "10-19": 17,
-                    "20-29": 0,
-                    "30-39": 1,
-                    "40-49": 0,
-                    "50-59": 1,
-                    "60+": 0
-                }
-            },
-            {
-                "timeSlice": "21:00-22:00",
-                "totalCustomers": 82,
-                "totalMaleCustomers": 23,
-                "totalFemaleCustomers": 59,
-                "customersByAge": {
-                    "0-9": 53,
-                    "10-19": 13,
-                    "20-29": 0,
-                    "30-39": 12,
-                    "40-49": 2,
+                    "10-19": 12,
+                    "20-29": 7,
+                    "30-39": 7,
+                    "40-49": 1,
                     "50-59": 2,
                     "60+": 0
                 }
-            }
-        ]
-    },
-    {
-        "store": {
-            "$oid": "6739f3b018369a2a09389058"
-        },
-        "date": {
-            "$date": {
-                "$numberLong": "1731918105924"
-            }
-        },
-        "hourlyReports": [
+            },
             {
                 "timeSlice": "10:00-11:00",
-                "totalCustomers": 9,
-                "totalMaleCustomers": 3,
-                "totalFemaleCustomers": 6,
+                "totalCustomers": 76,
+                "avgDwellTime": 3,
+                "totalMaleCustomers": 21,
+                "totalFemaleCustomers": 55,
                 "customersByAge": {
-                    "0-9": 7,
-                    "10-19": 2,
-                    "20-29": 0,
-                    "30-39": 0,
-                    "40-49": 0,
-                    "50-59": 0,
-                    "60+": 0
-                }
-            },
-            {
-                "timeSlice": "11:00-12:00",
-                "totalCustomers": 58,
-                "totalMaleCustomers": 42,
-                "totalFemaleCustomers": 16,
-                "customersByAge": {
-                    "0-9": 24,
-                    "10-19": 22,
-                    "20-29": 8,
-                    "30-39": 0,
-                    "40-49": 3,
-                    "50-59": 0,
-                    "60+": 1
-                }
-            },
-            {
-                "timeSlice": "12:00-13:00",
-                "totalCustomers": 5,
-                "totalMaleCustomers": 0,
-                "totalFemaleCustomers": 5,
-                "customersByAge": {
-                    "0-9": 4,
+                    "0-9": 69,
                     "10-19": 0,
-                    "20-29": 0,
-                    "30-39": 0,
-                    "40-49": 0,
-                    "50-59": 1,
-                    "60+": 0
-                }
-            },
-            {
-                "timeSlice": "13:00-14:00",
-                "totalCustomers": 21,
-                "totalMaleCustomers": 2,
-                "totalFemaleCustomers": 19,
-                "customersByAge": {
-                    "0-9": 17,
-                    "10-19": 3,
-                    "20-29": 0,
-                    "30-39": 0,
-                    "40-49": 1,
-                    "50-59": 0,
-                    "60+": 0
-                }
-            },
-            {
-                "timeSlice": "14:00-15:00",
-                "totalCustomers": 41,
-                "totalMaleCustomers": 29,
-                "totalFemaleCustomers": 12,
-                "customersByAge": {
-                    "0-9": 25,
-                    "10-19": 5,
-                    "20-29": 11,
-                    "30-39": 0,
-                    "40-49": 0,
-                    "50-59": 0,
-                    "60+": 0
-                }
-            },
-            {
-                "timeSlice": "15:00-16:00",
-                "totalCustomers": 80,
-                "totalMaleCustomers": 73,
-                "totalFemaleCustomers": 7,
-                "customersByAge": {
-                    "0-9": 75,
-                    "10-19": 0,
-                    "20-29": 5,
-                    "30-39": 0,
-                    "40-49": 0,
-                    "50-59": 0,
-                    "60+": 0
-                }
-            },
-            {
-                "timeSlice": "16:00-17:00",
-                "totalCustomers": 69,
-                "totalMaleCustomers": 35,
-                "totalFemaleCustomers": 34,
-                "customersByAge": {
-                    "0-9": 35,
-                    "10-19": 20,
-                    "20-29": 5,
+                    "20-29": 2,
                     "30-39": 2,
-                    "40-49": 4,
+                    "40-49": 0,
                     "50-59": 0,
                     "60+": 3
                 }
             },
             {
-                "timeSlice": "17:00-18:00",
-                "totalCustomers": 93,
-                "totalMaleCustomers": 44,
-                "totalFemaleCustomers": 49,
-                "customersByAge": {
-                    "0-9": 32,
-                    "10-19": 11,
-                    "20-29": 40,
-                    "30-39": 8,
-                    "40-49": 1,
-                    "50-59": 0,
-                    "60+": 1
-                }
-            },
-            {
-                "timeSlice": "18:00-19:00",
-                "totalCustomers": 54,
-                "totalMaleCustomers": 16,
-                "totalFemaleCustomers": 38,
-                "customersByAge": {
-                    "0-9": 48,
-                    "10-19": 0,
-                    "20-29": 0,
-                    "30-39": 0,
-                    "40-49": 4,
-                    "50-59": 2,
-                    "60+": 0
-                }
-            },
-            {
-                "timeSlice": "19:00-20:00",
-                "totalCustomers": 60,
-                "totalMaleCustomers": 54,
-                "totalFemaleCustomers": 6,
-                "customersByAge": {
-                    "0-9": 33,
-                    "10-19": 16,
-                    "20-29": 6,
-                    "30-39": 1,
-                    "40-49": 2,
-                    "50-59": 1,
-                    "60+": 1
-                }
-            },
-            {
-                "timeSlice": "20:00-21:00",
-                "totalCustomers": 39,
-                "totalMaleCustomers": 10,
-                "totalFemaleCustomers": 29,
-                "customersByAge": {
-                    "0-9": 35,
-                    "10-19": 0,
-                    "20-29": 0,
-                    "30-39": 3,
-                    "40-49": 1,
-                    "50-59": 0,
-                    "60+": 0
-                }
-            },
-            {
-                "timeSlice": "21:00-22:00",
-                "totalCustomers": 5,
-                "totalMaleCustomers": 5,
-                "totalFemaleCustomers": 0,
-                "customersByAge": {
-                    "0-9": 3,
-                    "10-19": 0,
-                    "20-29": 0,
-                    "30-39": 1,
-                    "40-49": 1,
-                    "50-59": 0,
-                    "60+": 0
-                }
-            }
-        ]
-    },
-    {
-        "store": {
-            "$oid": "6739f3b018369a2a09389058"
-        },
-        "date": {
-            "$date": {
-                "$numberLong": "1732004505924"
-            }
-        },
-        "hourlyReports": [
-            {
-                "timeSlice": "04:00-05:00",
-                "totalCustomers": 8,
-                "totalMaleCustomers": 1,
-                "totalFemaleCustomers": 7,
-                "customersByAge": {
-                    "0-9": 2,
-                    "10-19": 0,
-                    "20-29": 2,
-                    "30-39": 4,
-                    "40-49": 0,
-                    "50-59": 0,
-                    "60+": 0
-                }
-            },
-            {
-                "timeSlice": "05:00-06:00",
-                "totalCustomers": 84,
-                "totalMaleCustomers": 77,
-                "totalFemaleCustomers": 7,
-                "customersByAge": {
-                    "0-9": 62,
-                    "10-19": 5,
-                    "20-29": 0,
-                    "30-39": 5,
-                    "40-49": 8,
-                    "50-59": 0,
-                    "60+": 4
-                }
-            },
-            {
-                "timeSlice": "06:00-07:00",
-                "totalCustomers": 82,
-                "totalMaleCustomers": 47,
-                "totalFemaleCustomers": 35,
-                "customersByAge": {
-                    "0-9": 28,
-                    "10-19": 6,
-                    "20-29": 34,
-                    "30-39": 1,
-                    "40-49": 13,
-                    "50-59": 0,
-                    "60+": 0
-                }
-            },
-            {
-                "timeSlice": "07:00-08:00",
-                "totalCustomers": 80,
-                "totalMaleCustomers": 60,
-                "totalFemaleCustomers": 20,
-                "customersByAge": {
-                    "0-9": 63,
-                    "10-19": 14,
-                    "20-29": 1,
-                    "30-39": 2,
-                    "40-49": 0,
-                    "50-59": 0,
-                    "60+": 0
-                }
-            },
-            {
-                "timeSlice": "08:00-09:00",
-                "totalCustomers": 50,
-                "totalMaleCustomers": 26,
-                "totalFemaleCustomers": 24,
-                "customersByAge": {
-                    "0-9": 36,
-                    "10-19": 5,
-                    "20-29": 5,
-                    "30-39": 4,
-                    "40-49": 0,
-                    "50-59": 0,
-                    "60+": 0
-                }
-            },
-            {
-                "timeSlice": "09:00-10:00",
-                "totalCustomers": 14,
-                "totalMaleCustomers": 12,
-                "totalFemaleCustomers": 2,
-                "customersByAge": {
-                    "0-9": 3,
-                    "10-19": 0,
-                    "20-29": 7,
-                    "30-39": 2,
-                    "40-49": 1,
-                    "50-59": 0,
-                    "60+": 1
-                }
-            },
-            {
-                "timeSlice": "10:00-11:00",
-                "totalCustomers": 57,
-                "totalMaleCustomers": 16,
-                "totalFemaleCustomers": 41,
-                "customersByAge": {
-                    "0-9": 25,
-                    "10-19": 18,
-                    "20-29": 9,
-                    "30-39": 1,
-                    "40-49": 1,
-                    "50-59": 1,
-                    "60+": 2
-                }
-            },
-            {
-                "timeSlice": "11:00-12:00",
-                "totalCustomers": 64,
-                "totalMaleCustomers": 17,
-                "totalFemaleCustomers": 47,
-                "customersByAge": {
-                    "0-9": 50,
-                    "10-19": 1,
-                    "20-29": 8,
-                    "30-39": 2,
-                    "40-49": 3,
-                    "50-59": 0,
-                    "60+": 0
-                }
-            },
-            {
-                "timeSlice": "12:00-13:00",
-                "totalCustomers": 66,
-                "totalMaleCustomers": 24,
-                "totalFemaleCustomers": 42,
-                "customersByAge": {
-                    "0-9": 14,
-                    "10-19": 31,
-                    "20-29": 20,
-                    "30-39": 1,
-                    "40-49": 0,
-                    "50-59": 0,
-                    "60+": 0
-                }
-            },
-            {
-                "timeSlice": "13:00-14:00",
-                "totalCustomers": 71,
-                "totalMaleCustomers": 62,
-                "totalFemaleCustomers": 9,
-                "customersByAge": {
-                    "0-9": 22,
-                    "10-19": 14,
-                    "20-29": 8,
-                    "30-39": 19,
-                    "40-49": 5,
-                    "50-59": 3,
-                    "60+": 0
-                }
-            },
-            {
-                "timeSlice": "14:00-15:00",
-                "totalCustomers": 6,
-                "totalMaleCustomers": 2,
-                "totalFemaleCustomers": 4,
-                "customersByAge": {
-                    "0-9": 4,
-                    "10-19": 2,
-                    "20-29": 0,
-                    "30-39": 0,
-                    "40-49": 0,
-                    "50-59": 0,
-                    "60+": 0
-                }
-            },
-            {
-                "timeSlice": "15:00-16:00",
-                "totalCustomers": 55,
-                "totalMaleCustomers": 25,
-                "totalFemaleCustomers": 30,
-                "customersByAge": {
-                    "0-9": 44,
-                    "10-19": 8,
-                    "20-29": 3,
-                    "30-39": 0,
-                    "40-49": 0,
-                    "50-59": 0,
-                    "60+": 0
-                }
-            }
-        ]
-    },
-    {
-        "store": {
-            "$oid": "6739f3b018369a2a09389058"
-        },
-        "date": {
-            "$date": {
-                "$numberLong": "1732090905924"
-            }
-        },
-        "hourlyReports": [
-            {
-                "timeSlice": "05:00-06:00",
-                "totalCustomers": 24,
-                "totalMaleCustomers": 6,
-                "totalFemaleCustomers": 18,
-                "customersByAge": {
-                    "0-9": 0,
-                    "10-19": 4,
-                    "20-29": 13,
-                    "30-39": 3,
-                    "40-49": 0,
-                    "50-59": 2,
-                    "60+": 2
-                }
-            },
-            {
-                "timeSlice": "06:00-07:00",
-                "totalCustomers": 42,
-                "totalMaleCustomers": 36,
-                "totalFemaleCustomers": 6,
-                "customersByAge": {
-                    "0-9": 35,
-                    "10-19": 6,
-                    "20-29": 0,
-                    "30-39": 1,
-                    "40-49": 0,
-                    "50-59": 0,
-                    "60+": 0
-                }
-            },
-            {
-                "timeSlice": "07:00-08:00",
-                "totalCustomers": 22,
-                "totalMaleCustomers": 15,
-                "totalFemaleCustomers": 7,
-                "customersByAge": {
-                    "0-9": 15,
-                    "10-19": 0,
-                    "20-29": 0,
-                    "30-39": 7,
-                    "40-49": 0,
-                    "50-59": 0,
-                    "60+": 0
-                }
-            },
-            {
-                "timeSlice": "08:00-09:00",
-                "totalCustomers": 52,
-                "totalMaleCustomers": 28,
-                "totalFemaleCustomers": 24,
-                "customersByAge": {
-                    "0-9": 9,
-                    "10-19": 12,
-                    "20-29": 12,
-                    "30-39": 3,
-                    "40-49": 13,
-                    "50-59": 3,
-                    "60+": 0
-                }
-            },
-            {
-                "timeSlice": "09:00-10:00",
-                "totalCustomers": 6,
-                "totalMaleCustomers": 6,
-                "totalFemaleCustomers": 0,
-                "customersByAge": {
-                    "0-9": 3,
-                    "10-19": 2,
-                    "20-29": 1,
-                    "30-39": 0,
-                    "40-49": 0,
-                    "50-59": 0,
-                    "60+": 0
-                }
-            },
-            {
-                "timeSlice": "10:00-11:00",
-                "totalCustomers": 28,
-                "totalMaleCustomers": 9,
-                "totalFemaleCustomers": 19,
-                "customersByAge": {
-                    "0-9": 20,
-                    "10-19": 3,
-                    "20-29": 3,
-                    "30-39": 1,
-                    "40-49": 1,
-                    "50-59": 0,
-                    "60+": 0
-                }
-            },
-            {
                 "timeSlice": "11:00-12:00",
                 "totalCustomers": 13,
-                "totalMaleCustomers": 7,
-                "totalFemaleCustomers": 6,
+                "avgDwellTime": 49,
+                "totalMaleCustomers": 12,
+                "totalFemaleCustomers": 1,
                 "customersByAge": {
-                    "0-9": 0,
+                    "0-9": 6,
                     "10-19": 0,
-                    "20-29": 6,
-                    "30-39": 7,
-                    "40-49": 0,
+                    "20-29": 4,
+                    "30-39": 1,
+                    "40-49": 2,
                     "50-59": 0,
                     "60+": 0
                 }
             },
             {
                 "timeSlice": "12:00-13:00",
-                "totalCustomers": 2,
-                "totalMaleCustomers": 0,
-                "totalFemaleCustomers": 2,
+                "totalCustomers": 89,
+                "avgDwellTime": 22,
+                "totalMaleCustomers": 14,
+                "totalFemaleCustomers": 75,
                 "customersByAge": {
-                    "0-9": 0,
-                    "10-19": 1,
-                    "20-29": 0,
-                    "30-39": 0,
-                    "40-49": 0,
-                    "50-59": 1,
+                    "0-9": 86,
+                    "10-19": 0,
+                    "20-29": 1,
+                    "30-39": 1,
+                    "40-49": 1,
+                    "50-59": 0,
                     "60+": 0
                 }
             },
             {
                 "timeSlice": "13:00-14:00",
-                "totalCustomers": 100,
-                "totalMaleCustomers": 90,
-                "totalFemaleCustomers": 10,
+                "totalCustomers": 93,
+                "avgDwellTime": 46,
+                "totalMaleCustomers": 5,
+                "totalFemaleCustomers": 88,
                 "customersByAge": {
                     "0-9": 44,
-                    "10-19": 55,
-                    "20-29": 1,
+                    "10-19": 23,
+                    "20-29": 13,
                     "30-39": 0,
-                    "40-49": 0,
-                    "50-59": 0,
-                    "60+": 0
+                    "40-49": 8,
+                    "50-59": 2,
+                    "60+": 3
                 }
             },
             {
                 "timeSlice": "14:00-15:00",
-                "totalCustomers": 42,
-                "totalMaleCustomers": 16,
-                "totalFemaleCustomers": 26,
+                "totalCustomers": 71,
+                "avgDwellTime": 53,
+                "totalMaleCustomers": 11,
+                "totalFemaleCustomers": 60,
                 "customersByAge": {
-                    "0-9": 18,
-                    "10-19": 19,
-                    "20-29": 5,
-                    "30-39": 0,
-                    "40-49": 0,
-                    "50-59": 0,
+                    "0-9": 54,
+                    "10-19": 4,
+                    "20-29": 1,
+                    "30-39": 2,
+                    "40-49": 5,
+                    "50-59": 5,
                     "60+": 0
                 }
             },
             {
                 "timeSlice": "15:00-16:00",
                 "totalCustomers": 53,
-                "totalMaleCustomers": 36,
-                "totalFemaleCustomers": 17,
+                "avgDwellTime": 12,
+                "totalMaleCustomers": 49,
+                "totalFemaleCustomers": 4,
                 "customersByAge": {
-                    "0-9": 53,
-                    "10-19": 0,
-                    "20-29": 0,
-                    "30-39": 0,
-                    "40-49": 0,
-                    "50-59": 0,
-                    "60+": 0
-                }
-            },
-            {
-                "timeSlice": "16:00-17:00",
-                "totalCustomers": 75,
-                "totalMaleCustomers": 21,
-                "totalFemaleCustomers": 54,
-                "customersByAge": {
-                    "0-9": 43,
-                    "10-19": 29,
-                    "20-29": 2,
+                    "0-9": 21,
+                    "10-19": 25,
+                    "20-29": 6,
                     "30-39": 1,
                     "40-49": 0,
                     "50-59": 0,
                     "60+": 0
                 }
-            }
-        ]
-    },
-    {
-        "store": {
-            "$oid": "6739f3b018369a2a09389058"
-        },
-        "date": {
-            "$date": {
-                "$numberLong": "1732177305924"
-            }
-        },
-        "hourlyReports": [
-            {
-                "timeSlice": "10:00-11:00",
-                "totalCustomers": 36,
-                "totalMaleCustomers": 14,
-                "totalFemaleCustomers": 22,
-                "customersByAge": {
-                    "0-9": 19,
-                    "10-19": 2,
-                    "20-29": 8,
-                    "30-39": 3,
-                    "40-49": 2,
-                    "50-59": 2,
-                    "60+": 0
-                }
-            },
-            {
-                "timeSlice": "11:00-12:00",
-                "totalCustomers": 78,
-                "totalMaleCustomers": 68,
-                "totalFemaleCustomers": 10,
-                "customersByAge": {
-                    "0-9": 74,
-                    "10-19": 1,
-                    "20-29": 3,
-                    "30-39": 0,
-                    "40-49": 0,
-                    "50-59": 0,
-                    "60+": 0
-                }
-            },
-            {
-                "timeSlice": "12:00-13:00",
-                "totalCustomers": 45,
-                "totalMaleCustomers": 27,
-                "totalFemaleCustomers": 18,
-                "customersByAge": {
-                    "0-9": 45,
-                    "10-19": 0,
-                    "20-29": 0,
-                    "30-39": 0,
-                    "40-49": 0,
-                    "50-59": 0,
-                    "60+": 0
-                }
-            },
-            {
-                "timeSlice": "13:00-14:00",
-                "totalCustomers": 19,
-                "totalMaleCustomers": 6,
-                "totalFemaleCustomers": 13,
-                "customersByAge": {
-                    "0-9": 18,
-                    "10-19": 1,
-                    "20-29": 0,
-                    "30-39": 0,
-                    "40-49": 0,
-                    "50-59": 0,
-                    "60+": 0
-                }
-            },
-            {
-                "timeSlice": "14:00-15:00",
-                "totalCustomers": 7,
-                "totalMaleCustomers": 6,
-                "totalFemaleCustomers": 1,
-                "customersByAge": {
-                    "0-9": 1,
-                    "10-19": 3,
-                    "20-29": 3,
-                    "30-39": 0,
-                    "40-49": 0,
-                    "50-59": 0,
-                    "60+": 0
-                }
-            },
-            {
-                "timeSlice": "15:00-16:00",
-                "totalCustomers": 96,
-                "totalMaleCustomers": 79,
-                "totalFemaleCustomers": 17,
-                "customersByAge": {
-                    "0-9": 67,
-                    "10-19": 21,
-                    "20-29": 2,
-                    "30-39": 4,
-                    "40-49": 1,
-                    "50-59": 0,
-                    "60+": 1
-                }
             },
             {
                 "timeSlice": "16:00-17:00",
-                "totalCustomers": 50,
-                "totalMaleCustomers": 45,
-                "totalFemaleCustomers": 5,
+                "totalCustomers": 9,
+                "avgDwellTime": 56,
+                "totalMaleCustomers": 5,
+                "totalFemaleCustomers": 4,
                 "customersByAge": {
-                    "0-9": 38,
-                    "10-19": 5,
-                    "20-29": 2,
-                    "30-39": 5,
-                    "40-49": 0,
+                    "0-9": 0,
+                    "10-19": 7,
+                    "20-29": 1,
+                    "30-39": 0,
+                    "40-49": 1,
                     "50-59": 0,
                     "60+": 0
                 }
             },
             {
                 "timeSlice": "17:00-18:00",
-                "totalCustomers": 46,
-                "totalMaleCustomers": 35,
-                "totalFemaleCustomers": 11,
+                "totalCustomers": 69,
+                "avgDwellTime": 22,
+                "totalMaleCustomers": 6,
+                "totalFemaleCustomers": 63,
                 "customersByAge": {
-                    "0-9": 24,
-                    "10-19": 16,
-                    "20-29": 1,
-                    "30-39": 0,
-                    "40-49": 0,
-                    "50-59": 5,
+                    "0-9": 17,
+                    "10-19": 30,
+                    "20-29": 12,
+                    "30-39": 3,
+                    "40-49": 4,
+                    "50-59": 3,
                     "60+": 0
                 }
             },
             {
                 "timeSlice": "18:00-19:00",
-                "totalCustomers": 40,
-                "totalMaleCustomers": 31,
+                "totalCustomers": 12,
+                "avgDwellTime": 54,
+                "totalMaleCustomers": 3,
                 "totalFemaleCustomers": 9,
                 "customersByAge": {
                     "0-9": 3,
-                    "10-19": 26,
+                    "10-19": 7,
                     "20-29": 2,
-                    "30-39": 5,
-                    "40-49": 0,
-                    "50-59": 4,
-                    "60+": 0
-                }
-            },
-            {
-                "timeSlice": "19:00-20:00",
-                "totalCustomers": 97,
-                "totalMaleCustomers": 77,
-                "totalFemaleCustomers": 20,
-                "customersByAge": {
-                    "0-9": 4,
-                    "10-19": 24,
-                    "20-29": 13,
-                    "30-39": 25,
-                    "40-49": 8,
-                    "50-59": 16,
-                    "60+": 7
-                }
-            },
-            {
-                "timeSlice": "20:00-21:00",
-                "totalCustomers": 59,
-                "totalMaleCustomers": 19,
-                "totalFemaleCustomers": 40,
-                "customersByAge": {
-                    "0-9": 29,
-                    "10-19": 25,
-                    "20-29": 1,
-                    "30-39": 4,
+                    "30-39": 0,
                     "40-49": 0,
                     "50-59": 0,
                     "60+": 0
                 }
             },
             {
-                "timeSlice": "21:00-22:00",
-                "totalCustomers": 13,
-                "totalMaleCustomers": 12,
-                "totalFemaleCustomers": 1,
+                "timeSlice": "19:00-20:00",
+                "totalCustomers": 59,
+                "avgDwellTime": 47,
+                "totalMaleCustomers": 15,
+                "totalFemaleCustomers": 44,
                 "customersByAge": {
-                    "0-9": 6,
-                    "10-19": 5,
-                    "20-29": 1,
+                    "0-9": 33,
+                    "10-19": 14,
+                    "20-29": 12,
                     "30-39": 0,
-                    "40-49": 1,
+                    "40-49": 0,
                     "50-59": 0,
                     "60+": 0
                 }
@@ -960,25 +207,29 @@
         ]
     },
     {
+        "_id": {
+            "$oid": "67405149a52d488597dffe5f"
+        },
         "store": {
-            "$oid": "6739f3b018369a2a09389059"
+            "$oid": "67405149a52d488597dffe5c"
         },
         "date": {
             "$date": {
-                "$numberLong": "1731826608091"
+                "$numberLong": "1732341854334"
             }
         },
         "hourlyReports": [
             {
                 "timeSlice": "04:00-05:00",
-                "totalCustomers": 10,
-                "totalMaleCustomers": 6,
-                "totalFemaleCustomers": 4,
+                "totalCustomers": 79,
+                "avgDwellTime": 41,
+                "totalMaleCustomers": 78,
+                "totalFemaleCustomers": 1,
                 "customersByAge": {
-                    "0-9": 0,
-                    "10-19": 2,
-                    "20-29": 4,
-                    "30-39": 4,
+                    "0-9": 57,
+                    "10-19": 20,
+                    "20-29": 2,
+                    "30-39": 0,
                     "40-49": 0,
                     "50-59": 0,
                     "60+": 0
@@ -986,14 +237,15 @@
             },
             {
                 "timeSlice": "05:00-06:00",
-                "totalCustomers": 5,
-                "totalMaleCustomers": 2,
-                "totalFemaleCustomers": 3,
+                "totalCustomers": 34,
+                "avgDwellTime": 34,
+                "totalMaleCustomers": 4,
+                "totalFemaleCustomers": 30,
                 "customersByAge": {
-                    "0-9": 1,
-                    "10-19": 2,
-                    "20-29": 0,
-                    "30-39": 2,
+                    "0-9": 0,
+                    "10-19": 30,
+                    "20-29": 3,
+                    "30-39": 1,
                     "40-49": 0,
                     "50-59": 0,
                     "60+": 0
@@ -1001,29 +253,31 @@
             },
             {
                 "timeSlice": "06:00-07:00",
-                "totalCustomers": 10,
+                "totalCustomers": 9,
+                "avgDwellTime": 19,
                 "totalMaleCustomers": 5,
-                "totalFemaleCustomers": 5,
+                "totalFemaleCustomers": 4,
                 "customersByAge": {
-                    "0-9": 4,
-                    "10-19": 2,
-                    "20-29": 1,
-                    "30-39": 2,
-                    "40-49": 0,
+                    "0-9": 8,
+                    "10-19": 0,
+                    "20-29": 0,
+                    "30-39": 0,
+                    "40-49": 1,
                     "50-59": 0,
-                    "60+": 1
+                    "60+": 0
                 }
             },
             {
                 "timeSlice": "07:00-08:00",
-                "totalCustomers": 23,
-                "totalMaleCustomers": 4,
-                "totalFemaleCustomers": 19,
+                "totalCustomers": 69,
+                "avgDwellTime": 3,
+                "totalMaleCustomers": 59,
+                "totalFemaleCustomers": 10,
                 "customersByAge": {
-                    "0-9": 6,
-                    "10-19": 5,
-                    "20-29": 4,
-                    "30-39": 8,
+                    "0-9": 58,
+                    "10-19": 11,
+                    "20-29": 0,
+                    "30-39": 0,
                     "40-49": 0,
                     "50-59": 0,
                     "60+": 0
@@ -1031,29 +285,31 @@
             },
             {
                 "timeSlice": "08:00-09:00",
-                "totalCustomers": 79,
-                "totalMaleCustomers": 7,
-                "totalFemaleCustomers": 72,
+                "totalCustomers": 61,
+                "avgDwellTime": 42,
+                "totalMaleCustomers": 15,
+                "totalFemaleCustomers": 46,
                 "customersByAge": {
-                    "0-9": 55,
-                    "10-19": 21,
-                    "20-29": 0,
-                    "30-39": 2,
-                    "40-49": 1,
+                    "0-9": 48,
+                    "10-19": 12,
+                    "20-29": 1,
+                    "30-39": 0,
+                    "40-49": 0,
                     "50-59": 0,
                     "60+": 0
                 }
             },
             {
                 "timeSlice": "09:00-10:00",
-                "totalCustomers": 76,
-                "totalMaleCustomers": 0,
-                "totalFemaleCustomers": 76,
+                "totalCustomers": 70,
+                "avgDwellTime": 53,
+                "totalMaleCustomers": 59,
+                "totalFemaleCustomers": 11,
                 "customersByAge": {
-                    "0-9": 73,
-                    "10-19": 2,
-                    "20-29": 0,
-                    "30-39": 1,
+                    "0-9": 17,
+                    "10-19": 34,
+                    "20-29": 12,
+                    "30-39": 7,
                     "40-49": 0,
                     "50-59": 0,
                     "60+": 0
@@ -1061,90 +317,96 @@
             },
             {
                 "timeSlice": "10:00-11:00",
-                "totalCustomers": 96,
-                "totalMaleCustomers": 31,
-                "totalFemaleCustomers": 65,
+                "totalCustomers": 74,
+                "avgDwellTime": 9,
+                "totalMaleCustomers": 51,
+                "totalFemaleCustomers": 23,
                 "customersByAge": {
-                    "0-9": 86,
-                    "10-19": 10,
-                    "20-29": 0,
-                    "30-39": 0,
+                    "0-9": 39,
+                    "10-19": 2,
+                    "20-29": 1,
+                    "30-39": 5,
                     "40-49": 0,
-                    "50-59": 0,
+                    "50-59": 27,
                     "60+": 0
                 }
             },
             {
                 "timeSlice": "11:00-12:00",
-                "totalCustomers": 55,
-                "totalMaleCustomers": 40,
-                "totalFemaleCustomers": 15,
+                "totalCustomers": 10,
+                "avgDwellTime": 28,
+                "totalMaleCustomers": 0,
+                "totalFemaleCustomers": 10,
                 "customersByAge": {
-                    "0-9": 35,
-                    "10-19": 15,
-                    "20-29": 1,
+                    "0-9": 6,
+                    "10-19": 4,
+                    "20-29": 0,
                     "30-39": 0,
-                    "40-49": 4,
+                    "40-49": 0,
                     "50-59": 0,
                     "60+": 0
                 }
             },
             {
                 "timeSlice": "12:00-13:00",
-                "totalCustomers": 44,
-                "totalMaleCustomers": 20,
-                "totalFemaleCustomers": 24,
+                "totalCustomers": 66,
+                "avgDwellTime": 27,
+                "totalMaleCustomers": 57,
+                "totalFemaleCustomers": 9,
                 "customersByAge": {
-                    "0-9": 19,
-                    "10-19": 6,
-                    "20-29": 19,
-                    "30-39": 0,
-                    "40-49": 0,
+                    "0-9": 33,
+                    "10-19": 25,
+                    "20-29": 5,
+                    "30-39": 2,
+                    "40-49": 1,
                     "50-59": 0,
                     "60+": 0
                 }
             },
             {
                 "timeSlice": "13:00-14:00",
-                "totalCustomers": 59,
+                "totalCustomers": 6,
+                "avgDwellTime": 27,
                 "totalMaleCustomers": 4,
-                "totalFemaleCustomers": 55,
+                "totalFemaleCustomers": 2,
                 "customersByAge": {
-                    "0-9": 51,
-                    "10-19": 1,
+                    "0-9": 0,
+                    "10-19": 2,
                     "20-29": 1,
-                    "30-39": 3,
-                    "40-49": 0,
+                    "30-39": 1,
+                    "40-49": 2,
                     "50-59": 0,
-                    "60+": 3
-                }
-            },
-            {
-                "timeSlice": "14:00-15:00",
-                "totalCustomers": 19,
-                "totalMaleCustomers": 0,
-                "totalFemaleCustomers": 19,
-                "customersByAge": {
-                    "0-9": 3,
-                    "10-19": 14,
-                    "20-29": 0,
-                    "30-39": 0,
-                    "40-49": 1,
-                    "50-59": 1,
                     "60+": 0
                 }
             },
             {
-                "timeSlice": "15:00-16:00",
+                "timeSlice": "14:00-15:00",
                 "totalCustomers": 39,
-                "totalMaleCustomers": 18,
-                "totalFemaleCustomers": 21,
+                "avgDwellTime": 47,
+                "totalMaleCustomers": 5,
+                "totalFemaleCustomers": 34,
                 "customersByAge": {
-                    "0-9": 5,
-                    "10-19": 21,
-                    "20-29": 6,
-                    "30-39": 6,
-                    "40-49": 0,
+                    "0-9": 12,
+                    "10-19": 6,
+                    "20-29": 11,
+                    "30-39": 1,
+                    "40-49": 2,
+                    "50-59": 2,
+                    "60+": 5
+                }
+            },
+            {
+                "timeSlice": "15:00-16:00",
+                "totalCustomers": 48,
+                "avgDwellTime": 30,
+                "totalMaleCustomers": 23,
+                "totalFemaleCustomers": 25,
+                "customersByAge": {
+                    "0-9": 31,
+                    "10-19": 11,
+                    "20-29": 4,
+                    "30-39": 0,
+                    "40-49": 1,
                     "50-59": 1,
                     "60+": 0
                 }
@@ -1152,23 +414,139 @@
         ]
     },
     {
+        "_id": {
+            "$oid": "67405149a52d488597dffe60"
+        },
         "store": {
-            "$oid": "6739f3b018369a2a09389059"
+            "$oid": "67405149a52d488597dffe5c"
         },
         "date": {
             "$date": {
-                "$numberLong": "1731913008091"
+                "$numberLong": "1732428254334"
             }
         },
         "hourlyReports": [
             {
-                "timeSlice": "00:00-01:00",
-                "totalCustomers": 1,
-                "totalMaleCustomers": 0,
-                "totalFemaleCustomers": 1,
+                "timeSlice": "08:00-09:00",
+                "totalCustomers": 11,
+                "avgDwellTime": 42,
+                "totalMaleCustomers": 1,
+                "totalFemaleCustomers": 10,
                 "customersByAge": {
-                    "0-9": 1,
+                    "0-9": 0,
+                    "10-19": 4,
+                    "20-29": 2,
+                    "30-39": 5,
+                    "40-49": 0,
+                    "50-59": 0,
+                    "60+": 0
+                }
+            },
+            {
+                "timeSlice": "09:00-10:00",
+                "totalCustomers": 84,
+                "avgDwellTime": 42,
+                "totalMaleCustomers": 77,
+                "totalFemaleCustomers": 7,
+                "customersByAge": {
+                    "0-9": 46,
+                    "10-19": 1,
+                    "20-29": 8,
+                    "30-39": 11,
+                    "40-49": 14,
+                    "50-59": 1,
+                    "60+": 3
+                }
+            },
+            {
+                "timeSlice": "10:00-11:00",
+                "totalCustomers": 84,
+                "avgDwellTime": 27,
+                "totalMaleCustomers": 66,
+                "totalFemaleCustomers": 18,
+                "customersByAge": {
+                    "0-9": 65,
+                    "10-19": 7,
+                    "20-29": 9,
+                    "30-39": 0,
+                    "40-49": 3,
+                    "50-59": 0,
+                    "60+": 0
+                }
+            },
+            {
+                "timeSlice": "11:00-12:00",
+                "totalCustomers": 77,
+                "avgDwellTime": 24,
+                "totalMaleCustomers": 33,
+                "totalFemaleCustomers": 44,
+                "customersByAge": {
+                    "0-9": 58,
                     "10-19": 0,
+                    "20-29": 7,
+                    "30-39": 1,
+                    "40-49": 3,
+                    "50-59": 2,
+                    "60+": 6
+                }
+            },
+            {
+                "timeSlice": "12:00-13:00",
+                "totalCustomers": 100,
+                "avgDwellTime": 48,
+                "totalMaleCustomers": 90,
+                "totalFemaleCustomers": 10,
+                "customersByAge": {
+                    "0-9": 21,
+                    "10-19": 64,
+                    "20-29": 13,
+                    "30-39": 1,
+                    "40-49": 0,
+                    "50-59": 1,
+                    "60+": 0
+                }
+            },
+            {
+                "timeSlice": "13:00-14:00",
+                "totalCustomers": 27,
+                "avgDwellTime": 37,
+                "totalMaleCustomers": 18,
+                "totalFemaleCustomers": 9,
+                "customersByAge": {
+                    "0-9": 9,
+                    "10-19": 1,
+                    "20-29": 0,
+                    "30-39": 4,
+                    "40-49": 12,
+                    "50-59": 0,
+                    "60+": 1
+                }
+            },
+            {
+                "timeSlice": "14:00-15:00",
+                "totalCustomers": 65,
+                "avgDwellTime": 2,
+                "totalMaleCustomers": 36,
+                "totalFemaleCustomers": 29,
+                "customersByAge": {
+                    "0-9": 44,
+                    "10-19": 4,
+                    "20-29": 7,
+                    "30-39": 4,
+                    "40-49": 3,
+                    "50-59": 2,
+                    "60+": 1
+                }
+            },
+            {
+                "timeSlice": "15:00-16:00",
+                "totalCustomers": 25,
+                "avgDwellTime": 53,
+                "totalMaleCustomers": 9,
+                "totalFemaleCustomers": 16,
+                "customersByAge": {
+                    "0-9": 2,
+                    "10-19": 23,
                     "20-29": 0,
                     "30-39": 0,
                     "40-49": 0,
@@ -1177,30 +555,111 @@
                 }
             },
             {
-                "timeSlice": "01:00-02:00",
-                "totalCustomers": 11,
-                "totalMaleCustomers": 11,
+                "timeSlice": "16:00-17:00",
+                "totalCustomers": 6,
+                "avgDwellTime": 43,
+                "totalMaleCustomers": 5,
+                "totalFemaleCustomers": 1,
+                "customersByAge": {
+                    "0-9": 4,
+                    "10-19": 1,
+                    "20-29": 1,
+                    "30-39": 0,
+                    "40-49": 0,
+                    "50-59": 0,
+                    "60+": 0
+                }
+            },
+            {
+                "timeSlice": "17:00-18:00",
+                "totalCustomers": 42,
+                "avgDwellTime": 43,
+                "totalMaleCustomers": 35,
+                "totalFemaleCustomers": 7,
+                "customersByAge": {
+                    "0-9": 25,
+                    "10-19": 16,
+                    "20-29": 0,
+                    "30-39": 1,
+                    "40-49": 0,
+                    "50-59": 0,
+                    "60+": 0
+                }
+            },
+            {
+                "timeSlice": "18:00-19:00",
+                "totalCustomers": 24,
+                "avgDwellTime": 58,
+                "totalMaleCustomers": 15,
+                "totalFemaleCustomers": 9,
+                "customersByAge": {
+                    "0-9": 7,
+                    "10-19": 7,
+                    "20-29": 10,
+                    "30-39": 0,
+                    "40-49": 0,
+                    "50-59": 0,
+                    "60+": 0
+                }
+            },
+            {
+                "timeSlice": "19:00-20:00",
+                "totalCustomers": 32,
+                "avgDwellTime": 6,
+                "totalMaleCustomers": 32,
                 "totalFemaleCustomers": 0,
                 "customersByAge": {
-                    "0-9": 2,
-                    "10-19": 1,
-                    "20-29": 2,
-                    "30-39": 2,
+                    "0-9": 29,
+                    "10-19": 3,
+                    "20-29": 0,
+                    "30-39": 0,
+                    "40-49": 0,
+                    "50-59": 0,
+                    "60+": 0
+                }
+            }
+        ]
+    },
+    {
+        "_id": {
+            "$oid": "67405149a52d488597dffe61"
+        },
+        "store": {
+            "$oid": "67405149a52d488597dffe5c"
+        },
+        "date": {
+            "$date": {
+                "$numberLong": "1732514654334"
+            }
+        },
+        "hourlyReports": [
+            {
+                "timeSlice": "01:00-02:00",
+                "totalCustomers": 85,
+                "avgDwellTime": 3,
+                "totalMaleCustomers": 51,
+                "totalFemaleCustomers": 34,
+                "customersByAge": {
+                    "0-9": 54,
+                    "10-19": 11,
+                    "20-29": 13,
+                    "30-39": 4,
                     "40-49": 3,
                     "50-59": 0,
-                    "60+": 1
+                    "60+": 0
                 }
             },
             {
                 "timeSlice": "02:00-03:00",
-                "totalCustomers": 42,
-                "totalMaleCustomers": 0,
-                "totalFemaleCustomers": 42,
+                "totalCustomers": 93,
+                "avgDwellTime": 17,
+                "totalMaleCustomers": 9,
+                "totalFemaleCustomers": 84,
                 "customersByAge": {
-                    "0-9": 1,
-                    "10-19": 37,
+                    "0-9": 85,
+                    "10-19": 5,
                     "20-29": 3,
-                    "30-39": 1,
+                    "30-39": 0,
                     "40-49": 0,
                     "50-59": 0,
                     "60+": 0
@@ -1209,88 +668,94 @@
             {
                 "timeSlice": "03:00-04:00",
                 "totalCustomers": 65,
-                "totalMaleCustomers": 6,
-                "totalFemaleCustomers": 59,
+                "avgDwellTime": 12,
+                "totalMaleCustomers": 55,
+                "totalFemaleCustomers": 10,
                 "customersByAge": {
-                    "0-9": 49,
-                    "10-19": 3,
-                    "20-29": 7,
-                    "30-39": 2,
+                    "0-9": 17,
+                    "10-19": 24,
+                    "20-29": 15,
+                    "30-39": 9,
                     "40-49": 0,
-                    "50-59": 2,
-                    "60+": 2
+                    "50-59": 0,
+                    "60+": 0
                 }
             },
             {
                 "timeSlice": "04:00-05:00",
-                "totalCustomers": 61,
-                "totalMaleCustomers": 21,
-                "totalFemaleCustomers": 40,
+                "totalCustomers": 64,
+                "avgDwellTime": 38,
+                "totalMaleCustomers": 51,
+                "totalFemaleCustomers": 13,
                 "customersByAge": {
-                    "0-9": 57,
-                    "10-19": 2,
+                    "0-9": 45,
+                    "10-19": 19,
                     "20-29": 0,
-                    "30-39": 1,
-                    "40-49": 1,
+                    "30-39": 0,
+                    "40-49": 0,
                     "50-59": 0,
                     "60+": 0
                 }
             },
             {
                 "timeSlice": "05:00-06:00",
-                "totalCustomers": 86,
-                "totalMaleCustomers": 80,
-                "totalFemaleCustomers": 6,
-                "customersByAge": {
-                    "0-9": 22,
-                    "10-19": 48,
-                    "20-29": 9,
-                    "30-39": 0,
-                    "40-49": 5,
-                    "50-59": 1,
-                    "60+": 1
-                }
-            },
-            {
-                "timeSlice": "06:00-07:00",
-                "totalCustomers": 7,
-                "totalMaleCustomers": 7,
+                "totalCustomers": 1,
+                "avgDwellTime": 32,
+                "totalMaleCustomers": 1,
                 "totalFemaleCustomers": 0,
                 "customersByAge": {
                     "0-9": 0,
                     "10-19": 0,
-                    "20-29": 5,
-                    "30-39": 1,
+                    "20-29": 0,
+                    "30-39": 0,
                     "40-49": 0,
                     "50-59": 1,
                     "60+": 0
                 }
             },
             {
-                "timeSlice": "07:00-08:00",
-                "totalCustomers": 83,
-                "totalMaleCustomers": 40,
-                "totalFemaleCustomers": 43,
+                "timeSlice": "06:00-07:00",
+                "totalCustomers": 88,
+                "avgDwellTime": 26,
+                "totalMaleCustomers": 58,
+                "totalFemaleCustomers": 30,
                 "customersByAge": {
-                    "0-9": 43,
-                    "10-19": 14,
-                    "20-29": 15,
-                    "30-39": 2,
-                    "40-49": 5,
-                    "50-59": 1,
-                    "60+": 3
+                    "0-9": 22,
+                    "10-19": 34,
+                    "20-29": 26,
+                    "30-39": 4,
+                    "40-49": 2,
+                    "50-59": 0,
+                    "60+": 0
+                }
+            },
+            {
+                "timeSlice": "07:00-08:00",
+                "totalCustomers": 37,
+                "avgDwellTime": 33,
+                "totalMaleCustomers": 16,
+                "totalFemaleCustomers": 21,
+                "customersByAge": {
+                    "0-9": 35,
+                    "10-19": 0,
+                    "20-29": 1,
+                    "30-39": 1,
+                    "40-49": 0,
+                    "50-59": 0,
+                    "60+": 0
                 }
             },
             {
                 "timeSlice": "08:00-09:00",
-                "totalCustomers": 53,
-                "totalMaleCustomers": 48,
-                "totalFemaleCustomers": 5,
+                "totalCustomers": 75,
+                "avgDwellTime": 42,
+                "totalMaleCustomers": 36,
+                "totalFemaleCustomers": 39,
                 "customersByAge": {
-                    "0-9": 33,
-                    "10-19": 18,
-                    "20-29": 0,
-                    "30-39": 2,
+                    "0-9": 11,
+                    "10-19": 24,
+                    "20-29": 23,
+                    "30-39": 17,
                     "40-49": 0,
                     "50-59": 0,
                     "60+": 0
@@ -1298,29 +763,31 @@
             },
             {
                 "timeSlice": "09:00-10:00",
-                "totalCustomers": 55,
-                "totalMaleCustomers": 41,
-                "totalFemaleCustomers": 14,
+                "totalCustomers": 64,
+                "avgDwellTime": 29,
+                "totalMaleCustomers": 39,
+                "totalFemaleCustomers": 25,
                 "customersByAge": {
-                    "0-9": 8,
-                    "10-19": 13,
-                    "20-29": 32,
+                    "0-9": 9,
+                    "10-19": 51,
+                    "20-29": 1,
                     "30-39": 1,
                     "40-49": 0,
                     "50-59": 1,
-                    "60+": 0
+                    "60+": 1
                 }
             },
             {
                 "timeSlice": "10:00-11:00",
-                "totalCustomers": 84,
-                "totalMaleCustomers": 46,
-                "totalFemaleCustomers": 38,
+                "totalCustomers": 9,
+                "avgDwellTime": 44,
+                "totalMaleCustomers": 2,
+                "totalFemaleCustomers": 7,
                 "customersByAge": {
-                    "0-9": 38,
-                    "10-19": 29,
-                    "20-29": 16,
-                    "30-39": 1,
+                    "0-9": 1,
+                    "10-19": 0,
+                    "20-29": 8,
+                    "30-39": 0,
                     "40-49": 0,
                     "50-59": 0,
                     "60+": 0
@@ -1328,15 +795,32 @@
             },
             {
                 "timeSlice": "11:00-12:00",
-                "totalCustomers": 56,
-                "totalMaleCustomers": 12,
-                "totalFemaleCustomers": 44,
+                "totalCustomers": 55,
+                "avgDwellTime": 32,
+                "totalMaleCustomers": 33,
+                "totalFemaleCustomers": 22,
                 "customersByAge": {
-                    "0-9": 1,
-                    "10-19": 5,
-                    "20-29": 10,
-                    "30-39": 29,
-                    "40-49": 11,
+                    "0-9": 3,
+                    "10-19": 51,
+                    "20-29": 1,
+                    "30-39": 0,
+                    "40-49": 0,
+                    "50-59": 0,
+                    "60+": 0
+                }
+            },
+            {
+                "timeSlice": "12:00-13:00",
+                "totalCustomers": 42,
+                "avgDwellTime": 25,
+                "totalMaleCustomers": 0,
+                "totalFemaleCustomers": 42,
+                "customersByAge": {
+                    "0-9": 4,
+                    "10-19": 31,
+                    "20-29": 6,
+                    "30-39": 0,
+                    "40-49": 1,
                     "50-59": 0,
                     "60+": 0
                 }
@@ -1344,38 +828,648 @@
         ]
     },
     {
+        "_id": {
+            "$oid": "67405149a52d488597dffe62"
+        },
         "store": {
-            "$oid": "6739f3b018369a2a09389059"
+            "$oid": "67405149a52d488597dffe5c"
         },
         "date": {
             "$date": {
-                "$numberLong": "1731999408091"
+                "$numberLong": "1732601054334"
             }
         },
         "hourlyReports": [
             {
-                "timeSlice": "01:00-02:00",
-                "totalCustomers": 85,
-                "totalMaleCustomers": 2,
-                "totalFemaleCustomers": 83,
+                "timeSlice": "10:00-11:00",
+                "totalCustomers": 72,
+                "avgDwellTime": 1,
+                "totalMaleCustomers": 50,
+                "totalFemaleCustomers": 22,
                 "customersByAge": {
-                    "0-9": 7,
-                    "10-19": 14,
-                    "20-29": 36,
-                    "30-39": 26,
+                    "0-9": 39,
+                    "10-19": 10,
+                    "20-29": 1,
+                    "30-39": 5,
+                    "40-49": 9,
+                    "50-59": 4,
+                    "60+": 4
+                }
+            },
+            {
+                "timeSlice": "11:00-12:00",
+                "totalCustomers": 99,
+                "avgDwellTime": 29,
+                "totalMaleCustomers": 4,
+                "totalFemaleCustomers": 95,
+                "customersByAge": {
+                    "0-9": 80,
+                    "10-19": 5,
+                    "20-29": 8,
+                    "30-39": 1,
+                    "40-49": 2,
+                    "50-59": 3,
+                    "60+": 0
+                }
+            },
+            {
+                "timeSlice": "12:00-13:00",
+                "totalCustomers": 46,
+                "avgDwellTime": 59,
+                "totalMaleCustomers": 15,
+                "totalFemaleCustomers": 31,
+                "customersByAge": {
+                    "0-9": 12,
+                    "10-19": 22,
+                    "20-29": 7,
+                    "30-39": 5,
                     "40-49": 0,
-                    "50-59": 1,
+                    "50-59": 0,
+                    "60+": 0
+                }
+            },
+            {
+                "timeSlice": "13:00-14:00",
+                "totalCustomers": 78,
+                "avgDwellTime": 39,
+                "totalMaleCustomers": 19,
+                "totalFemaleCustomers": 59,
+                "customersByAge": {
+                    "0-9": 2,
+                    "10-19": 11,
+                    "20-29": 21,
+                    "30-39": 31,
+                    "40-49": 12,
+                    "50-59": 0,
                     "60+": 1
                 }
             },
             {
-                "timeSlice": "02:00-03:00",
-                "totalCustomers": 33,
-                "totalMaleCustomers": 29,
-                "totalFemaleCustomers": 4,
+                "timeSlice": "14:00-15:00",
+                "totalCustomers": 5,
+                "avgDwellTime": 13,
+                "totalMaleCustomers": 3,
+                "totalFemaleCustomers": 2,
                 "customersByAge": {
-                    "0-9": 26,
+                    "0-9": 2,
+                    "10-19": 1,
+                    "20-29": 0,
+                    "30-39": 2,
+                    "40-49": 0,
+                    "50-59": 0,
+                    "60+": 0
+                }
+            },
+            {
+                "timeSlice": "15:00-16:00",
+                "totalCustomers": 92,
+                "avgDwellTime": 41,
+                "totalMaleCustomers": 17,
+                "totalFemaleCustomers": 75,
+                "customersByAge": {
+                    "0-9": 44,
+                    "10-19": 39,
+                    "20-29": 8,
+                    "30-39": 0,
+                    "40-49": 1,
+                    "50-59": 0,
+                    "60+": 0
+                }
+            },
+            {
+                "timeSlice": "16:00-17:00",
+                "totalCustomers": 29,
+                "avgDwellTime": 25,
+                "totalMaleCustomers": 6,
+                "totalFemaleCustomers": 23,
+                "customersByAge": {
+                    "0-9": 5,
+                    "10-19": 18,
+                    "20-29": 5,
+                    "30-39": 0,
+                    "40-49": 1,
+                    "50-59": 0,
+                    "60+": 0
+                }
+            },
+            {
+                "timeSlice": "17:00-18:00",
+                "totalCustomers": 11,
+                "avgDwellTime": 29,
+                "totalMaleCustomers": 3,
+                "totalFemaleCustomers": 8,
+                "customersByAge": {
+                    "0-9": 11,
+                    "10-19": 0,
+                    "20-29": 0,
+                    "30-39": 0,
+                    "40-49": 0,
+                    "50-59": 0,
+                    "60+": 0
+                }
+            },
+            {
+                "timeSlice": "18:00-19:00",
+                "totalCustomers": 12,
+                "avgDwellTime": 40,
+                "totalMaleCustomers": 7,
+                "totalFemaleCustomers": 5,
+                "customersByAge": {
+                    "0-9": 6,
+                    "10-19": 3,
+                    "20-29": 2,
+                    "30-39": 1,
+                    "40-49": 0,
+                    "50-59": 0,
+                    "60+": 0
+                }
+            },
+            {
+                "timeSlice": "19:00-20:00",
+                "totalCustomers": 42,
+                "avgDwellTime": 9,
+                "totalMaleCustomers": 27,
+                "totalFemaleCustomers": 15,
+                "customersByAge": {
+                    "0-9": 15,
+                    "10-19": 16,
+                    "20-29": 4,
+                    "30-39": 1,
+                    "40-49": 0,
+                    "50-59": 6,
+                    "60+": 0
+                }
+            },
+            {
+                "timeSlice": "20:00-21:00",
+                "totalCustomers": 19,
+                "avgDwellTime": 12,
+                "totalMaleCustomers": 11,
+                "totalFemaleCustomers": 8,
+                "customersByAge": {
+                    "0-9": 13,
+                    "10-19": 5,
+                    "20-29": 1,
+                    "30-39": 0,
+                    "40-49": 0,
+                    "50-59": 0,
+                    "60+": 0
+                }
+            },
+            {
+                "timeSlice": "21:00-22:00",
+                "totalCustomers": 0,
+                "avgDwellTime": 45,
+                "totalMaleCustomers": 0,
+                "totalFemaleCustomers": 0,
+                "customersByAge": {
+                    "0-9": 0,
+                    "10-19": 0,
+                    "20-29": 0,
+                    "30-39": 0,
+                    "40-49": 0,
+                    "50-59": 0,
+                    "60+": 0
+                }
+            }
+        ]
+    },
+    {
+        "_id": {
+            "$oid": "67405149a52d488597dffe63"
+        },
+        "store": {
+            "$oid": "67405149a52d488597dffe5d"
+        },
+        "date": {
+            "$date": {
+                "$numberLong": "1732224184753"
+            }
+        },
+        "hourlyReports": [
+            {
+                "timeSlice": "00:00-01:00",
+                "totalCustomers": 19,
+                "avgDwellTime": 29,
+                "totalMaleCustomers": 12,
+                "totalFemaleCustomers": 7,
+                "customersByAge": {
+                    "0-9": 18,
+                    "10-19": 0,
+                    "20-29": 1,
+                    "30-39": 0,
+                    "40-49": 0,
+                    "50-59": 0,
+                    "60+": 0
+                }
+            },
+            {
+                "timeSlice": "01:00-02:00",
+                "totalCustomers": 18,
+                "avgDwellTime": 4,
+                "totalMaleCustomers": 8,
+                "totalFemaleCustomers": 10,
+                "customersByAge": {
+                    "0-9": 12,
+                    "10-19": 3,
+                    "20-29": 1,
+                    "30-39": 0,
+                    "40-49": 0,
+                    "50-59": 2,
+                    "60+": 0
+                }
+            },
+            {
+                "timeSlice": "02:00-03:00",
+                "totalCustomers": 56,
+                "avgDwellTime": 28,
+                "totalMaleCustomers": 49,
+                "totalFemaleCustomers": 7,
+                "customersByAge": {
+                    "0-9": 7,
+                    "10-19": 10,
+                    "20-29": 31,
+                    "30-39": 6,
+                    "40-49": 1,
+                    "50-59": 0,
+                    "60+": 1
+                }
+            },
+            {
+                "timeSlice": "03:00-04:00",
+                "totalCustomers": 100,
+                "avgDwellTime": 9,
+                "totalMaleCustomers": 31,
+                "totalFemaleCustomers": 69,
+                "customersByAge": {
+                    "0-9": 100,
+                    "10-19": 0,
+                    "20-29": 0,
+                    "30-39": 0,
+                    "40-49": 0,
+                    "50-59": 0,
+                    "60+": 0
+                }
+            },
+            {
+                "timeSlice": "04:00-05:00",
+                "totalCustomers": 28,
+                "avgDwellTime": 14,
+                "totalMaleCustomers": 15,
+                "totalFemaleCustomers": 13,
+                "customersByAge": {
+                    "0-9": 28,
+                    "10-19": 0,
+                    "20-29": 0,
+                    "30-39": 0,
+                    "40-49": 0,
+                    "50-59": 0,
+                    "60+": 0
+                }
+            },
+            {
+                "timeSlice": "05:00-06:00",
+                "totalCustomers": 40,
+                "avgDwellTime": 57,
+                "totalMaleCustomers": 8,
+                "totalFemaleCustomers": 32,
+                "customersByAge": {
+                    "0-9": 33,
                     "10-19": 7,
+                    "20-29": 0,
+                    "30-39": 0,
+                    "40-49": 0,
+                    "50-59": 0,
+                    "60+": 0
+                }
+            },
+            {
+                "timeSlice": "06:00-07:00",
+                "totalCustomers": 75,
+                "avgDwellTime": 36,
+                "totalMaleCustomers": 41,
+                "totalFemaleCustomers": 34,
+                "customersByAge": {
+                    "0-9": 29,
+                    "10-19": 4,
+                    "20-29": 35,
+                    "30-39": 0,
+                    "40-49": 6,
+                    "50-59": 0,
+                    "60+": 1
+                }
+            },
+            {
+                "timeSlice": "07:00-08:00",
+                "totalCustomers": 25,
+                "avgDwellTime": 21,
+                "totalMaleCustomers": 9,
+                "totalFemaleCustomers": 16,
+                "customersByAge": {
+                    "0-9": 13,
+                    "10-19": 12,
+                    "20-29": 0,
+                    "30-39": 0,
+                    "40-49": 0,
+                    "50-59": 0,
+                    "60+": 0
+                }
+            },
+            {
+                "timeSlice": "08:00-09:00",
+                "totalCustomers": 20,
+                "avgDwellTime": 51,
+                "totalMaleCustomers": 5,
+                "totalFemaleCustomers": 15,
+                "customersByAge": {
+                    "0-9": 20,
+                    "10-19": 0,
+                    "20-29": 0,
+                    "30-39": 0,
+                    "40-49": 0,
+                    "50-59": 0,
+                    "60+": 0
+                }
+            },
+            {
+                "timeSlice": "09:00-10:00",
+                "totalCustomers": 80,
+                "avgDwellTime": 60,
+                "totalMaleCustomers": 33,
+                "totalFemaleCustomers": 47,
+                "customersByAge": {
+                    "0-9": 52,
+                    "10-19": 20,
+                    "20-29": 0,
+                    "30-39": 6,
+                    "40-49": 2,
+                    "50-59": 0,
+                    "60+": 0
+                }
+            },
+            {
+                "timeSlice": "10:00-11:00",
+                "totalCustomers": 31,
+                "avgDwellTime": 10,
+                "totalMaleCustomers": 4,
+                "totalFemaleCustomers": 27,
+                "customersByAge": {
+                    "0-9": 15,
+                    "10-19": 10,
+                    "20-29": 6,
+                    "30-39": 0,
+                    "40-49": 0,
+                    "50-59": 0,
+                    "60+": 0
+                }
+            },
+            {
+                "timeSlice": "11:00-12:00",
+                "totalCustomers": 72,
+                "avgDwellTime": 18,
+                "totalMaleCustomers": 25,
+                "totalFemaleCustomers": 47,
+                "customersByAge": {
+                    "0-9": 47,
+                    "10-19": 4,
+                    "20-29": 13,
+                    "30-39": 3,
+                    "40-49": 4,
+                    "50-59": 0,
+                    "60+": 1
+                }
+            }
+        ]
+    },
+    {
+        "_id": {
+            "$oid": "67405149a52d488597dffe64"
+        },
+        "store": {
+            "$oid": "67405149a52d488597dffe5d"
+        },
+        "date": {
+            "$date": {
+                "$numberLong": "1732310584753"
+            }
+        },
+        "hourlyReports": [
+            {
+                "timeSlice": "00:00-01:00",
+                "totalCustomers": 74,
+                "avgDwellTime": 8,
+                "totalMaleCustomers": 36,
+                "totalFemaleCustomers": 38,
+                "customersByAge": {
+                    "0-9": 31,
+                    "10-19": 4,
+                    "20-29": 15,
+                    "30-39": 6,
+                    "40-49": 14,
+                    "50-59": 0,
+                    "60+": 4
+                }
+            },
+            {
+                "timeSlice": "01:00-02:00",
+                "totalCustomers": 42,
+                "avgDwellTime": 28,
+                "totalMaleCustomers": 32,
+                "totalFemaleCustomers": 10,
+                "customersByAge": {
+                    "0-9": 0,
+                    "10-19": 37,
+                    "20-29": 4,
+                    "30-39": 1,
+                    "40-49": 0,
+                    "50-59": 0,
+                    "60+": 0
+                }
+            },
+            {
+                "timeSlice": "02:00-03:00",
+                "totalCustomers": 38,
+                "avgDwellTime": 47,
+                "totalMaleCustomers": 2,
+                "totalFemaleCustomers": 36,
+                "customersByAge": {
+                    "0-9": 0,
+                    "10-19": 18,
+                    "20-29": 4,
+                    "30-39": 2,
+                    "40-49": 10,
+                    "50-59": 0,
+                    "60+": 4
+                }
+            },
+            {
+                "timeSlice": "03:00-04:00",
+                "totalCustomers": 89,
+                "avgDwellTime": 28,
+                "totalMaleCustomers": 16,
+                "totalFemaleCustomers": 73,
+                "customersByAge": {
+                    "0-9": 85,
+                    "10-19": 2,
+                    "20-29": 2,
+                    "30-39": 0,
+                    "40-49": 0,
+                    "50-59": 0,
+                    "60+": 0
+                }
+            },
+            {
+                "timeSlice": "04:00-05:00",
+                "totalCustomers": 13,
+                "avgDwellTime": 27,
+                "totalMaleCustomers": 4,
+                "totalFemaleCustomers": 9,
+                "customersByAge": {
+                    "0-9": 12,
+                    "10-19": 1,
+                    "20-29": 0,
+                    "30-39": 0,
+                    "40-49": 0,
+                    "50-59": 0,
+                    "60+": 0
+                }
+            },
+            {
+                "timeSlice": "05:00-06:00",
+                "totalCustomers": 91,
+                "avgDwellTime": 41,
+                "totalMaleCustomers": 82,
+                "totalFemaleCustomers": 9,
+                "customersByAge": {
+                    "0-9": 67,
+                    "10-19": 1,
+                    "20-29": 4,
+                    "30-39": 15,
+                    "40-49": 2,
+                    "50-59": 2,
+                    "60+": 0
+                }
+            },
+            {
+                "timeSlice": "06:00-07:00",
+                "totalCustomers": 44,
+                "avgDwellTime": 50,
+                "totalMaleCustomers": 33,
+                "totalFemaleCustomers": 11,
+                "customersByAge": {
+                    "0-9": 44,
+                    "10-19": 0,
+                    "20-29": 0,
+                    "30-39": 0,
+                    "40-49": 0,
+                    "50-59": 0,
+                    "60+": 0
+                }
+            },
+            {
+                "timeSlice": "07:00-08:00",
+                "totalCustomers": 91,
+                "avgDwellTime": 24,
+                "totalMaleCustomers": 38,
+                "totalFemaleCustomers": 53,
+                "customersByAge": {
+                    "0-9": 43,
+                    "10-19": 18,
+                    "20-29": 10,
+                    "30-39": 9,
+                    "40-49": 4,
+                    "50-59": 7,
+                    "60+": 0
+                }
+            },
+            {
+                "timeSlice": "08:00-09:00",
+                "totalCustomers": 63,
+                "avgDwellTime": 36,
+                "totalMaleCustomers": 42,
+                "totalFemaleCustomers": 21,
+                "customersByAge": {
+                    "0-9": 58,
+                    "10-19": 4,
+                    "20-29": 0,
+                    "30-39": 1,
+                    "40-49": 0,
+                    "50-59": 0,
+                    "60+": 0
+                }
+            },
+            {
+                "timeSlice": "09:00-10:00",
+                "totalCustomers": 2,
+                "avgDwellTime": 54,
+                "totalMaleCustomers": 0,
+                "totalFemaleCustomers": 2,
+                "customersByAge": {
+                    "0-9": 1,
+                    "10-19": 0,
+                    "20-29": 1,
+                    "30-39": 0,
+                    "40-49": 0,
+                    "50-59": 0,
+                    "60+": 0
+                }
+            },
+            {
+                "timeSlice": "10:00-11:00",
+                "totalCustomers": 0,
+                "avgDwellTime": 51,
+                "totalMaleCustomers": 0,
+                "totalFemaleCustomers": 0,
+                "customersByAge": {
+                    "0-9": 0,
+                    "10-19": 0,
+                    "20-29": 0,
+                    "30-39": 0,
+                    "40-49": 0,
+                    "50-59": 0,
+                    "60+": 0
+                }
+            },
+            {
+                "timeSlice": "11:00-12:00",
+                "totalCustomers": 97,
+                "avgDwellTime": 17,
+                "totalMaleCustomers": 26,
+                "totalFemaleCustomers": 71,
+                "customersByAge": {
+                    "0-9": 14,
+                    "10-19": 21,
+                    "20-29": 52,
+                    "30-39": 8,
+                    "40-49": 2,
+                    "50-59": 0,
+                    "60+": 0
+                }
+            }
+        ]
+    },
+    {
+        "_id": {
+            "$oid": "67405149a52d488597dffe65"
+        },
+        "store": {
+            "$oid": "67405149a52d488597dffe5d"
+        },
+        "date": {
+            "$date": {
+                "$numberLong": "1732396984753"
+            }
+        },
+        "hourlyReports": [
+            {
+                "timeSlice": "02:00-03:00",
+                "totalCustomers": 40,
+                "avgDwellTime": 1,
+                "totalMaleCustomers": 2,
+                "totalFemaleCustomers": 38,
+                "customersByAge": {
+                    "0-9": 39,
+                    "10-19": 1,
                     "20-29": 0,
                     "30-39": 0,
                     "40-49": 0,
@@ -1385,425 +1479,12 @@
             },
             {
                 "timeSlice": "03:00-04:00",
-                "totalCustomers": 73,
-                "totalMaleCustomers": 22,
-                "totalFemaleCustomers": 51,
-                "customersByAge": {
-                    "0-9": 17,
-                    "10-19": 1,
-                    "20-29": 1,
-                    "30-39": 2,
-                    "40-49": 46,
-                    "50-59": 1,
-                    "60+": 5
-                }
-            },
-            {
-                "timeSlice": "04:00-05:00",
-                "totalCustomers": 96,
-                "totalMaleCustomers": 14,
-                "totalFemaleCustomers": 82,
-                "customersByAge": {
-                    "0-9": 36,
-                    "10-19": 39,
-                    "20-29": 10,
-                    "30-39": 9,
-                    "40-49": 0,
-                    "50-59": 2,
-                    "60+": 0
-                }
-            },
-            {
-                "timeSlice": "05:00-06:00",
-                "totalCustomers": 36,
-                "totalMaleCustomers": 31,
-                "totalFemaleCustomers": 5,
-                "customersByAge": {
-                    "0-9": 2,
-                    "10-19": 18,
-                    "20-29": 5,
-                    "30-39": 10,
-                    "40-49": 1,
-                    "50-59": 0,
-                    "60+": 0
-                }
-            },
-            {
-                "timeSlice": "06:00-07:00",
-                "totalCustomers": 69,
-                "totalMaleCustomers": 47,
-                "totalFemaleCustomers": 22,
-                "customersByAge": {
-                    "0-9": 38,
-                    "10-19": 31,
-                    "20-29": 0,
-                    "30-39": 0,
-                    "40-49": 0,
-                    "50-59": 0,
-                    "60+": 0
-                }
-            },
-            {
-                "timeSlice": "07:00-08:00",
-                "totalCustomers": 86,
-                "totalMaleCustomers": 0,
-                "totalFemaleCustomers": 86,
-                "customersByAge": {
-                    "0-9": 85,
-                    "10-19": 0,
-                    "20-29": 0,
-                    "30-39": 1,
-                    "40-49": 0,
-                    "50-59": 0,
-                    "60+": 0
-                }
-            },
-            {
-                "timeSlice": "08:00-09:00",
-                "totalCustomers": 18,
-                "totalMaleCustomers": 10,
-                "totalFemaleCustomers": 8,
-                "customersByAge": {
-                    "0-9": 11,
-                    "10-19": 6,
-                    "20-29": 0,
-                    "30-39": 0,
-                    "40-49": 0,
-                    "50-59": 0,
-                    "60+": 1
-                }
-            },
-            {
-                "timeSlice": "09:00-10:00",
-                "totalCustomers": 58,
-                "totalMaleCustomers": 20,
-                "totalFemaleCustomers": 38,
-                "customersByAge": {
-                    "0-9": 12,
-                    "10-19": 43,
-                    "20-29": 1,
-                    "30-39": 2,
-                    "40-49": 0,
-                    "50-59": 0,
-                    "60+": 0
-                }
-            },
-            {
-                "timeSlice": "10:00-11:00",
-                "totalCustomers": 31,
-                "totalMaleCustomers": 8,
+                "totalCustomers": 88,
+                "avgDwellTime": 36,
+                "totalMaleCustomers": 65,
                 "totalFemaleCustomers": 23,
                 "customersByAge": {
-                    "0-9": 18,
-                    "10-19": 5,
-                    "20-29": 4,
-                    "30-39": 2,
-                    "40-49": 2,
-                    "50-59": 0,
-                    "60+": 0
-                }
-            },
-            {
-                "timeSlice": "11:00-12:00",
-                "totalCustomers": 7,
-                "totalMaleCustomers": 7,
-                "totalFemaleCustomers": 0,
-                "customersByAge": {
-                    "0-9": 1,
-                    "10-19": 4,
-                    "20-29": 1,
-                    "30-39": 1,
-                    "40-49": 0,
-                    "50-59": 0,
-                    "60+": 0
-                }
-            },
-            {
-                "timeSlice": "12:00-13:00",
-                "totalCustomers": 67,
-                "totalMaleCustomers": 5,
-                "totalFemaleCustomers": 62,
-                "customersByAge": {
-                    "0-9": 29,
-                    "10-19": 6,
-                    "20-29": 29,
-                    "30-39": 1,
-                    "40-49": 0,
-                    "50-59": 0,
-                    "60+": 2
-                }
-            }
-        ]
-    },
-    {
-        "store": {
-            "$oid": "6739f3b018369a2a09389059"
-        },
-        "date": {
-            "$date": {
-                "$numberLong": "1732085808091"
-            }
-        },
-        "hourlyReports": [
-            {
-                "timeSlice": "08:00-09:00",
-                "totalCustomers": 20,
-                "totalMaleCustomers": 3,
-                "totalFemaleCustomers": 17,
-                "customersByAge": {
-                    "0-9": 18,
-                    "10-19": 0,
-                    "20-29": 1,
-                    "30-39": 0,
-                    "40-49": 1,
-                    "50-59": 0,
-                    "60+": 0
-                }
-            },
-            {
-                "timeSlice": "09:00-10:00",
-                "totalCustomers": 23,
-                "totalMaleCustomers": 4,
-                "totalFemaleCustomers": 19,
-                "customersByAge": {
-                    "0-9": 7,
-                    "10-19": 6,
-                    "20-29": 2,
-                    "30-39": 2,
-                    "40-49": 0,
-                    "50-59": 2,
-                    "60+": 4
-                }
-            },
-            {
-                "timeSlice": "10:00-11:00",
-                "totalCustomers": 82,
-                "totalMaleCustomers": 81,
-                "totalFemaleCustomers": 1,
-                "customersByAge": {
-                    "0-9": 10,
-                    "10-19": 20,
-                    "20-29": 2,
-                    "30-39": 18,
-                    "40-49": 12,
-                    "50-59": 6,
-                    "60+": 14
-                }
-            },
-            {
-                "timeSlice": "11:00-12:00",
-                "totalCustomers": 92,
-                "totalMaleCustomers": 43,
-                "totalFemaleCustomers": 49,
-                "customersByAge": {
-                    "0-9": 33,
-                    "10-19": 40,
-                    "20-29": 1,
-                    "30-39": 0,
-                    "40-49": 0,
-                    "50-59": 8,
-                    "60+": 10
-                }
-            },
-            {
-                "timeSlice": "12:00-13:00",
-                "totalCustomers": 19,
-                "totalMaleCustomers": 3,
-                "totalFemaleCustomers": 16,
-                "customersByAge": {
-                    "0-9": 3,
-                    "10-19": 5,
-                    "20-29": 1,
-                    "30-39": 10,
-                    "40-49": 0,
-                    "50-59": 0,
-                    "60+": 0
-                }
-            },
-            {
-                "timeSlice": "13:00-14:00",
-                "totalCustomers": 60,
-                "totalMaleCustomers": 46,
-                "totalFemaleCustomers": 14,
-                "customersByAge": {
-                    "0-9": 6,
-                    "10-19": 19,
-                    "20-29": 0,
-                    "30-39": 15,
-                    "40-49": 2,
-                    "50-59": 1,
-                    "60+": 17
-                }
-            },
-            {
-                "timeSlice": "14:00-15:00",
-                "totalCustomers": 90,
-                "totalMaleCustomers": 63,
-                "totalFemaleCustomers": 27,
-                "customersByAge": {
-                    "0-9": 81,
-                    "10-19": 3,
-                    "20-29": 6,
-                    "30-39": 0,
-                    "40-49": 0,
-                    "50-59": 0,
-                    "60+": 0
-                }
-            },
-            {
-                "timeSlice": "15:00-16:00",
-                "totalCustomers": 51,
-                "totalMaleCustomers": 14,
-                "totalFemaleCustomers": 37,
-                "customersByAge": {
-                    "0-9": 23,
-                    "10-19": 21,
-                    "20-29": 2,
-                    "30-39": 5,
-                    "40-49": 0,
-                    "50-59": 0,
-                    "60+": 0
-                }
-            },
-            {
-                "timeSlice": "16:00-17:00",
-                "totalCustomers": 48,
-                "totalMaleCustomers": 43,
-                "totalFemaleCustomers": 5,
-                "customersByAge": {
-                    "0-9": 8,
-                    "10-19": 40,
-                    "20-29": 0,
-                    "30-39": 0,
-                    "40-49": 0,
-                    "50-59": 0,
-                    "60+": 0
-                }
-            },
-            {
-                "timeSlice": "17:00-18:00",
-                "totalCustomers": 41,
-                "totalMaleCustomers": 38,
-                "totalFemaleCustomers": 3,
-                "customersByAge": {
-                    "0-9": 16,
-                    "10-19": 11,
-                    "20-29": 0,
-                    "30-39": 5,
-                    "40-49": 2,
-                    "50-59": 1,
-                    "60+": 6
-                }
-            },
-            {
-                "timeSlice": "18:00-19:00",
-                "totalCustomers": 94,
-                "totalMaleCustomers": 67,
-                "totalFemaleCustomers": 27,
-                "customersByAge": {
-                    "0-9": 52,
-                    "10-19": 33,
-                    "20-29": 2,
-                    "30-39": 4,
-                    "40-49": 3,
-                    "50-59": 0,
-                    "60+": 0
-                }
-            },
-            {
-                "timeSlice": "19:00-20:00",
-                "totalCustomers": 0,
-                "totalMaleCustomers": 0,
-                "totalFemaleCustomers": 0,
-                "customersByAge": {
-                    "0-9": 0,
-                    "10-19": 0,
-                    "20-29": 0,
-                    "30-39": 0,
-                    "40-49": 0,
-                    "50-59": 0,
-                    "60+": 0
-                }
-            }
-        ]
-    },
-    {
-        "store": {
-            "$oid": "6739f3b018369a2a09389059"
-        },
-        "date": {
-            "$date": {
-                "$numberLong": "1732172208091"
-            }
-        },
-        "hourlyReports": [
-            {
-                "timeSlice": "08:00-09:00",
-                "totalCustomers": 17,
-                "totalMaleCustomers": 1,
-                "totalFemaleCustomers": 16,
-                "customersByAge": {
-                    "0-9": 0,
-                    "10-19": 17,
-                    "20-29": 0,
-                    "30-39": 0,
-                    "40-49": 0,
-                    "50-59": 0,
-                    "60+": 0
-                }
-            },
-            {
-                "timeSlice": "09:00-10:00",
-                "totalCustomers": 76,
-                "totalMaleCustomers": 74,
-                "totalFemaleCustomers": 2,
-                "customersByAge": {
-                    "0-9": 18,
-                    "10-19": 10,
-                    "20-29": 18,
-                    "30-39": 22,
-                    "40-49": 5,
-                    "50-59": 1,
-                    "60+": 2
-                }
-            },
-            {
-                "timeSlice": "10:00-11:00",
-                "totalCustomers": 44,
-                "totalMaleCustomers": 5,
-                "totalFemaleCustomers": 39,
-                "customersByAge": {
-                    "0-9": 6,
-                    "10-19": 3,
-                    "20-29": 8,
-                    "30-39": 27,
-                    "40-49": 0,
-                    "50-59": 0,
-                    "60+": 0
-                }
-            },
-            {
-                "timeSlice": "11:00-12:00",
-                "totalCustomers": 16,
-                "totalMaleCustomers": 1,
-                "totalFemaleCustomers": 15,
-                "customersByAge": {
-                    "0-9": 14,
-                    "10-19": 0,
-                    "20-29": 1,
-                    "30-39": 0,
-                    "40-49": 1,
-                    "50-59": 0,
-                    "60+": 0
-                }
-            },
-            {
-                "timeSlice": "12:00-13:00",
-                "totalCustomers": 17,
-                "totalMaleCustomers": 16,
-                "totalFemaleCustomers": 1,
-                "customersByAge": {
-                    "0-9": 5,
+                    "0-9": 76,
                     "10-19": 8,
                     "20-29": 2,
                     "30-39": 1,
@@ -1813,13 +1494,412 @@
                 }
             },
             {
-                "timeSlice": "13:00-14:00",
-                "totalCustomers": 27,
-                "totalMaleCustomers": 9,
+                "timeSlice": "04:00-05:00",
+                "totalCustomers": 74,
+                "avgDwellTime": 7,
+                "totalMaleCustomers": 40,
+                "totalFemaleCustomers": 34,
+                "customersByAge": {
+                    "0-9": 65,
+                    "10-19": 7,
+                    "20-29": 0,
+                    "30-39": 1,
+                    "40-49": 0,
+                    "50-59": 1,
+                    "60+": 0
+                }
+            },
+            {
+                "timeSlice": "05:00-06:00",
+                "totalCustomers": 83,
+                "avgDwellTime": 45,
+                "totalMaleCustomers": 25,
+                "totalFemaleCustomers": 58,
+                "customersByAge": {
+                    "0-9": 36,
+                    "10-19": 5,
+                    "20-29": 26,
+                    "30-39": 9,
+                    "40-49": 3,
+                    "50-59": 3,
+                    "60+": 1
+                }
+            },
+            {
+                "timeSlice": "06:00-07:00",
+                "totalCustomers": 39,
+                "avgDwellTime": 4,
+                "totalMaleCustomers": 35,
+                "totalFemaleCustomers": 4,
+                "customersByAge": {
+                    "0-9": 23,
+                    "10-19": 16,
+                    "20-29": 0,
+                    "30-39": 0,
+                    "40-49": 0,
+                    "50-59": 0,
+                    "60+": 0
+                }
+            },
+            {
+                "timeSlice": "07:00-08:00",
+                "totalCustomers": 9,
+                "avgDwellTime": 5,
+                "totalMaleCustomers": 1,
+                "totalFemaleCustomers": 8,
+                "customersByAge": {
+                    "0-9": 1,
+                    "10-19": 1,
+                    "20-29": 4,
+                    "30-39": 3,
+                    "40-49": 0,
+                    "50-59": 0,
+                    "60+": 0
+                }
+            },
+            {
+                "timeSlice": "08:00-09:00",
+                "totalCustomers": 26,
+                "avgDwellTime": 30,
+                "totalMaleCustomers": 12,
+                "totalFemaleCustomers": 14,
+                "customersByAge": {
+                    "0-9": 23,
+                    "10-19": 3,
+                    "20-29": 0,
+                    "30-39": 0,
+                    "40-49": 0,
+                    "50-59": 0,
+                    "60+": 0
+                }
+            },
+            {
+                "timeSlice": "09:00-10:00",
+                "totalCustomers": 11,
+                "avgDwellTime": 2,
+                "totalMaleCustomers": 10,
+                "totalFemaleCustomers": 1,
+                "customersByAge": {
+                    "0-9": 8,
+                    "10-19": 0,
+                    "20-29": 0,
+                    "30-39": 3,
+                    "40-49": 0,
+                    "50-59": 0,
+                    "60+": 0
+                }
+            },
+            {
+                "timeSlice": "10:00-11:00",
+                "totalCustomers": 52,
+                "avgDwellTime": 55,
+                "totalMaleCustomers": 47,
+                "totalFemaleCustomers": 5,
+                "customersByAge": {
+                    "0-9": 40,
+                    "10-19": 11,
+                    "20-29": 1,
+                    "30-39": 0,
+                    "40-49": 0,
+                    "50-59": 0,
+                    "60+": 0
+                }
+            },
+            {
+                "timeSlice": "11:00-12:00",
+                "totalCustomers": 90,
+                "avgDwellTime": 1,
+                "totalMaleCustomers": 72,
                 "totalFemaleCustomers": 18,
                 "customersByAge": {
                     "0-9": 20,
-                    "10-19": 7,
+                    "10-19": 19,
+                    "20-29": 21,
+                    "30-39": 14,
+                    "40-49": 15,
+                    "50-59": 1,
+                    "60+": 0
+                }
+            },
+            {
+                "timeSlice": "12:00-13:00",
+                "totalCustomers": 46,
+                "avgDwellTime": 0,
+                "totalMaleCustomers": 21,
+                "totalFemaleCustomers": 25,
+                "customersByAge": {
+                    "0-9": 7,
+                    "10-19": 34,
+                    "20-29": 1,
+                    "30-39": 0,
+                    "40-49": 3,
+                    "50-59": 1,
+                    "60+": 0
+                }
+            },
+            {
+                "timeSlice": "13:00-14:00",
+                "totalCustomers": 100,
+                "avgDwellTime": 50,
+                "totalMaleCustomers": 39,
+                "totalFemaleCustomers": 61,
+                "customersByAge": {
+                    "0-9": 76,
+                    "10-19": 6,
+                    "20-29": 6,
+                    "30-39": 7,
+                    "40-49": 4,
+                    "50-59": 1,
+                    "60+": 0
+                }
+            }
+        ]
+    },
+    {
+        "_id": {
+            "$oid": "67405149a52d488597dffe66"
+        },
+        "store": {
+            "$oid": "67405149a52d488597dffe5d"
+        },
+        "date": {
+            "$date": {
+                "$numberLong": "1732483384753"
+            }
+        },
+        "hourlyReports": [
+            {
+                "timeSlice": "00:00-01:00",
+                "totalCustomers": 6,
+                "avgDwellTime": 41,
+                "totalMaleCustomers": 2,
+                "totalFemaleCustomers": 4,
+                "customersByAge": {
+                    "0-9": 0,
+                    "10-19": 6,
+                    "20-29": 0,
+                    "30-39": 0,
+                    "40-49": 0,
+                    "50-59": 0,
+                    "60+": 0
+                }
+            },
+            {
+                "timeSlice": "01:00-02:00",
+                "totalCustomers": 77,
+                "avgDwellTime": 15,
+                "totalMaleCustomers": 18,
+                "totalFemaleCustomers": 59,
+                "customersByAge": {
+                    "0-9": 22,
+                    "10-19": 26,
+                    "20-29": 7,
+                    "30-39": 21,
+                    "40-49": 1,
+                    "50-59": 0,
+                    "60+": 0
+                }
+            },
+            {
+                "timeSlice": "02:00-03:00",
+                "totalCustomers": 67,
+                "avgDwellTime": 0,
+                "totalMaleCustomers": 6,
+                "totalFemaleCustomers": 61,
+                "customersByAge": {
+                    "0-9": 23,
+                    "10-19": 35,
+                    "20-29": 3,
+                    "30-39": 5,
+                    "40-49": 1,
+                    "50-59": 0,
+                    "60+": 0
+                }
+            },
+            {
+                "timeSlice": "03:00-04:00",
+                "totalCustomers": 26,
+                "avgDwellTime": 52,
+                "totalMaleCustomers": 20,
+                "totalFemaleCustomers": 6,
+                "customersByAge": {
+                    "0-9": 1,
+                    "10-19": 13,
+                    "20-29": 4,
+                    "30-39": 3,
+                    "40-49": 0,
+                    "50-59": 1,
+                    "60+": 4
+                }
+            },
+            {
+                "timeSlice": "04:00-05:00",
+                "totalCustomers": 0,
+                "avgDwellTime": 33,
+                "totalMaleCustomers": 0,
+                "totalFemaleCustomers": 0,
+                "customersByAge": {
+                    "0-9": 0,
+                    "10-19": 0,
+                    "20-29": 0,
+                    "30-39": 0,
+                    "40-49": 0,
+                    "50-59": 0,
+                    "60+": 0
+                }
+            },
+            {
+                "timeSlice": "05:00-06:00",
+                "totalCustomers": 70,
+                "avgDwellTime": 13,
+                "totalMaleCustomers": 69,
+                "totalFemaleCustomers": 1,
+                "customersByAge": {
+                    "0-9": 38,
+                    "10-19": 23,
+                    "20-29": 2,
+                    "30-39": 4,
+                    "40-49": 1,
+                    "50-59": 2,
+                    "60+": 0
+                }
+            },
+            {
+                "timeSlice": "06:00-07:00",
+                "totalCustomers": 81,
+                "avgDwellTime": 18,
+                "totalMaleCustomers": 18,
+                "totalFemaleCustomers": 63,
+                "customersByAge": {
+                    "0-9": 1,
+                    "10-19": 73,
+                    "20-29": 5,
+                    "30-39": 1,
+                    "40-49": 0,
+                    "50-59": 0,
+                    "60+": 1
+                }
+            },
+            {
+                "timeSlice": "07:00-08:00",
+                "totalCustomers": 70,
+                "avgDwellTime": 21,
+                "totalMaleCustomers": 26,
+                "totalFemaleCustomers": 44,
+                "customersByAge": {
+                    "0-9": 46,
+                    "10-19": 16,
+                    "20-29": 8,
+                    "30-39": 0,
+                    "40-49": 0,
+                    "50-59": 0,
+                    "60+": 0
+                }
+            },
+            {
+                "timeSlice": "08:00-09:00",
+                "totalCustomers": 26,
+                "avgDwellTime": 52,
+                "totalMaleCustomers": 3,
+                "totalFemaleCustomers": 23,
+                "customersByAge": {
+                    "0-9": 7,
+                    "10-19": 0,
+                    "20-29": 14,
+                    "30-39": 5,
+                    "40-49": 0,
+                    "50-59": 0,
+                    "60+": 0
+                }
+            },
+            {
+                "timeSlice": "09:00-10:00",
+                "totalCustomers": 54,
+                "avgDwellTime": 50,
+                "totalMaleCustomers": 24,
+                "totalFemaleCustomers": 30,
+                "customersByAge": {
+                    "0-9": 51,
+                    "10-19": 1,
+                    "20-29": 2,
+                    "30-39": 0,
+                    "40-49": 0,
+                    "50-59": 0,
+                    "60+": 0
+                }
+            },
+            {
+                "timeSlice": "10:00-11:00",
+                "totalCustomers": 64,
+                "avgDwellTime": 26,
+                "totalMaleCustomers": 62,
+                "totalFemaleCustomers": 2,
+                "customersByAge": {
+                    "0-9": 62,
+                    "10-19": 2,
+                    "20-29": 0,
+                    "30-39": 0,
+                    "40-49": 0,
+                    "50-59": 0,
+                    "60+": 0
+                }
+            },
+            {
+                "timeSlice": "11:00-12:00",
+                "totalCustomers": 83,
+                "avgDwellTime": 60,
+                "totalMaleCustomers": 12,
+                "totalFemaleCustomers": 71,
+                "customersByAge": {
+                    "0-9": 46,
+                    "10-19": 3,
+                    "20-29": 34,
+                    "30-39": 0,
+                    "40-49": 0,
+                    "50-59": 0,
+                    "60+": 0
+                }
+            }
+        ]
+    },
+    {
+        "_id": {
+            "$oid": "67405149a52d488597dffe67"
+        },
+        "store": {
+            "$oid": "67405149a52d488597dffe5d"
+        },
+        "date": {
+            "$date": {
+                "$numberLong": "1732569784753"
+            }
+        },
+        "hourlyReports": [
+            {
+                "timeSlice": "12:00-13:00",
+                "totalCustomers": 21,
+                "avgDwellTime": 44,
+                "totalMaleCustomers": 15,
+                "totalFemaleCustomers": 6,
+                "customersByAge": {
+                    "0-9": 10,
+                    "10-19": 3,
+                    "20-29": 8,
+                    "30-39": 0,
+                    "40-49": 0,
+                    "50-59": 0,
+                    "60+": 0
+                }
+            },
+            {
+                "timeSlice": "13:00-14:00",
+                "totalCustomers": 5,
+                "avgDwellTime": 29,
+                "totalMaleCustomers": 3,
+                "totalFemaleCustomers": 2,
+                "customersByAge": {
+                    "0-9": 4,
+                    "10-19": 1,
                     "20-29": 0,
                     "30-39": 0,
                     "40-49": 0,
@@ -1829,12 +1909,45 @@
             },
             {
                 "timeSlice": "14:00-15:00",
-                "totalCustomers": 74,
-                "totalMaleCustomers": 10,
-                "totalFemaleCustomers": 64,
+                "totalCustomers": 98,
+                "avgDwellTime": 47,
+                "totalMaleCustomers": 71,
+                "totalFemaleCustomers": 27,
                 "customersByAge": {
-                    "0-9": 35,
-                    "10-19": 39,
+                    "0-9": 51,
+                    "10-19": 22,
+                    "20-29": 13,
+                    "30-39": 2,
+                    "40-49": 3,
+                    "50-59": 4,
+                    "60+": 3
+                }
+            },
+            {
+                "timeSlice": "15:00-16:00",
+                "totalCustomers": 47,
+                "avgDwellTime": 37,
+                "totalMaleCustomers": 8,
+                "totalFemaleCustomers": 39,
+                "customersByAge": {
+                    "0-9": 22,
+                    "10-19": 17,
+                    "20-29": 0,
+                    "30-39": 0,
+                    "40-49": 5,
+                    "50-59": 2,
+                    "60+": 1
+                }
+            },
+            {
+                "timeSlice": "16:00-17:00",
+                "totalCustomers": 3,
+                "avgDwellTime": 56,
+                "totalMaleCustomers": 3,
+                "totalFemaleCustomers": 0,
+                "customersByAge": {
+                    "0-9": 1,
+                    "10-19": 2,
                     "20-29": 0,
                     "30-39": 0,
                     "40-49": 0,
@@ -1843,58 +1956,14 @@
                 }
             },
             {
-                "timeSlice": "15:00-16:00",
-                "totalCustomers": 77,
-                "totalMaleCustomers": 32,
-                "totalFemaleCustomers": 45,
-                "customersByAge": {
-                    "0-9": 35,
-                    "10-19": 10,
-                    "20-29": 16,
-                    "30-39": 9,
-                    "40-49": 4,
-                    "50-59": 3,
-                    "60+": 0
-                }
-            },
-            {
-                "timeSlice": "16:00-17:00",
-                "totalCustomers": 19,
-                "totalMaleCustomers": 3,
-                "totalFemaleCustomers": 16,
-                "customersByAge": {
-                    "0-9": 10,
-                    "10-19": 1,
-                    "20-29": 5,
-                    "30-39": 0,
-                    "40-49": 0,
-                    "50-59": 3,
-                    "60+": 0
-                }
-            },
-            {
                 "timeSlice": "17:00-18:00",
-                "totalCustomers": 63,
-                "totalMaleCustomers": 8,
-                "totalFemaleCustomers": 55,
+                "totalCustomers": 22,
+                "avgDwellTime": 5,
+                "totalMaleCustomers": 14,
+                "totalFemaleCustomers": 8,
                 "customersByAge": {
-                    "0-9": 37,
-                    "10-19": 24,
-                    "20-29": 1,
-                    "30-39": 0,
-                    "40-49": 0,
-                    "50-59": 0,
-                    "60+": 1
-                }
-            },
-            {
-                "timeSlice": "18:00-19:00",
-                "totalCustomers": 58,
-                "totalMaleCustomers": 18,
-                "totalFemaleCustomers": 40,
-                "customersByAge": {
-                    "0-9": 54,
-                    "10-19": 0,
+                    "0-9": 1,
+                    "10-19": 17,
                     "20-29": 4,
                     "30-39": 0,
                     "40-49": 0,
@@ -1903,18 +1972,99 @@
                 }
             },
             {
-                "timeSlice": "19:00-20:00",
-                "totalCustomers": 89,
-                "totalMaleCustomers": 42,
-                "totalFemaleCustomers": 47,
+                "timeSlice": "18:00-19:00",
+                "totalCustomers": 90,
+                "avgDwellTime": 23,
+                "totalMaleCustomers": 37,
+                "totalFemaleCustomers": 53,
                 "customersByAge": {
-                    "0-9": 10,
-                    "10-19": 5,
-                    "20-29": 54,
+                    "0-9": 90,
+                    "10-19": 0,
+                    "20-29": 0,
+                    "30-39": 0,
+                    "40-49": 0,
+                    "50-59": 0,
+                    "60+": 0
+                }
+            },
+            {
+                "timeSlice": "19:00-20:00",
+                "totalCustomers": 61,
+                "avgDwellTime": 53,
+                "totalMaleCustomers": 5,
+                "totalFemaleCustomers": 56,
+                "customersByAge": {
+                    "0-9": 15,
+                    "10-19": 36,
+                    "20-29": 1,
+                    "30-39": 8,
+                    "40-49": 0,
+                    "50-59": 1,
+                    "60+": 0
+                }
+            },
+            {
+                "timeSlice": "20:00-21:00",
+                "totalCustomers": 30,
+                "avgDwellTime": 50,
+                "totalMaleCustomers": 29,
+                "totalFemaleCustomers": 1,
+                "customersByAge": {
+                    "0-9": 20,
+                    "10-19": 7,
+                    "20-29": 0,
                     "30-39": 2,
                     "40-49": 1,
-                    "50-59": 13,
-                    "60+": 4
+                    "50-59": 0,
+                    "60+": 0
+                }
+            },
+            {
+                "timeSlice": "21:00-22:00",
+                "totalCustomers": 53,
+                "avgDwellTime": 36,
+                "totalMaleCustomers": 44,
+                "totalFemaleCustomers": 9,
+                "customersByAge": {
+                    "0-9": 35,
+                    "10-19": 18,
+                    "20-29": 0,
+                    "30-39": 0,
+                    "40-49": 0,
+                    "50-59": 0,
+                    "60+": 0
+                }
+            },
+            {
+                "timeSlice": "22:00-23:00",
+                "totalCustomers": 97,
+                "avgDwellTime": 58,
+                "totalMaleCustomers": 50,
+                "totalFemaleCustomers": 47,
+                "customersByAge": {
+                    "0-9": 66,
+                    "10-19": 16,
+                    "20-29": 6,
+                    "30-39": 0,
+                    "40-49": 6,
+                    "50-59": 0,
+                    "60+": 3
+                }
+            },
+            {
+                "timeSlice": "23:00-00:00",
+                "totalCustomers": 45,
+                "avgDwellTime": 13,
+                "totalMaleCustomers": 20,
+                "totalFemaleCustomers": 25,
+                "customersByAge": {
+                    "0-9": 15,
+                    "10-19": 20,
+                    "20-29": 1,
+                    "30-39": 9,
+                    "40-49": 0,
+                    "50-59": 0,
+                    "60+": 0
                 }
             }
         ]
