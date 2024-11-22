@@ -4,9 +4,6 @@
 - [ ] Schema Change:
     - [ ] Update reports to include hourly dwell time'
     - [ ] Update the queries accordingly
-- [ ] Generate fake data:
-    - [ ] Bug fix: the reports of each store does not have an id and ref
-    - [ ] Add dwell time
 - [ ] Create operations:
     - [ ] Adding from the ML service
 - [ ] Read operations:
@@ -23,17 +20,13 @@
 
 ## In Progress
 - [ ] Schema Change:
-    - [ ] Update reports to include hourly dwell time'
     - [ ] Update the queries accordingly
-- [ ] Generate fake data:
-    - [ ] Bug fix: the reports of each store does not have an id and ref
-    - [ ] Add dwell time
 - [ ] Tests:
     - [ ] Read:
-        - [ ] Default qurey (client side)
-        - [ ] Filter by date (client side)
-        - [ ] Filter by range (client side)
-        - [ ] Filter by gender (client side)
+        - [ ] Default qurey (client side) - by Yonatan
+        - [ ] Filter by date (client side) - by Yonatan
+        - [ ] Filter by range (client side) - by Yonatan
+        - [ ] Filter by gender (client side) - by Yonatan
 
 
 ## Completed
@@ -43,6 +36,11 @@
         - [x] Filter by date
         - [x] Filter by dates (range)
         - [x] Filter by gender
+- [ ] Schema Change:
+    - [x] Update reports to include hourly dwell time
+- [x] Generate fake data:
+    - [x] Bug fix: the reports of each store does not have an id and ref
+    - [x] Add dwell time
 - [x] Tests:
     - [x] Read:
         - [x] Defualt qurey (server side)
