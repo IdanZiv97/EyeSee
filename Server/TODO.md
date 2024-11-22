@@ -1,10 +1,18 @@
 # EyeSee - Reports API TODO
 
 ## TODO
+- [ ] Schema Change:
+    - [ ] Update reports to include hourly dwell time'
+    - [ ] Update the queries accordingly
+- [ ] Generate fake data:
+    - [ ] Bug fix: the reports of each store does not have an id and ref
+    - [ ] Add dwell time
 - [ ] Create operations:
     - [ ] Adding from the ML service
 - [ ] Read operations:
     - [ ] Aggregation: Support multiple dates
+    - [ ] Support for filters (per store):
+        - [ ] Filter by age
 - [ ] Delete:
     - [ ] Delete entire report
 - [ ] Update: the ability to edit the hourly reports (optional)
@@ -14,9 +22,12 @@
         - [ ] Delete entire report
 
 ## In Progress
-- [ ] Read operations:
-    - [ ] Support for filters (per store):
-        - [ ] Filter by age
+- [ ] Schema Change:
+    - [ ] Update reports to include hourly dwell time'
+    - [ ] Update the queries accordingly
+- [ ] Generate fake data:
+    - [ ] Bug fix: the reports of each store does not have an id and ref
+    - [ ] Add dwell time
 - [ ] Tests:
     - [ ] Read:
         - [ ] Default qurey (client side)
