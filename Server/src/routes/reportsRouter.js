@@ -1,5 +1,5 @@
 import express from 'express';
-import { createReport, defaultReport, qureyReportByDate, qureyReportByDates, qureyReportByGender} from '../controllers/reportController.js';
+import { createReport, defaultReport, qureyReportByDate, qureyReportByDates, qureyReportByGender, qureyReportByAges} from '../controllers/reportController.js';
 
 const router = express.Router();
 

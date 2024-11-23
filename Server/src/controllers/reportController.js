@@ -78,7 +78,7 @@ export const defaultReport = async (req, res) => {
             msg: "User not found"
         })
     }
-    const store = user.mainStore;
+    const storeId = user.mainStore._id;
     // search in reports collection by store_id
     const report = await Report.findOne({ store: storeId }).sort({ date: -1 }).limit(1);
     const data = report.hourlyReports.map((rep) => rep);
@@ -191,7 +191,7 @@ export const qureyReportByDates = async (req, res) => {
             msg: "No reports found"
         })
     }
-    const data = reports.flatMap((report) => processReport(report));
+    const data = reports.flatMap((report) => report);
     return res.status(200).json(data);
 }
 
