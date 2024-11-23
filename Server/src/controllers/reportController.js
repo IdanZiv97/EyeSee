@@ -266,3 +266,56 @@ export const qureyReportByGender = async (req, res) => {
     }
     return res.status(200).json(reports);
 }
+
+export const qureyReportByAges = async (req, res) => {
+    const userId = req.body.userId;
+    const storeName = req.body.storeName;
+    const date1 = req.body.start;
+    const date2 = req.body.end;
+    // get the store id
+    const user = await User.findById(userId).populate('stores')
+    if (!user) {
+        return res.status(400).json({
+            success: false,
+            msg: "User not found"
+        })
+    }
+    const store = user.stores.find((s) => s.name === storeName);
+    if (!store) {
+        return res.status(400).json({
+            success: false,
+            msg: "Store not found"
+        })
+    }
+    const storeId = store._id;
+    // created the dates range
+    const start = date1 + 'T00:00:00.000Z';
+    const end = date2 + 'T23:59:59.999Z';
+    const startDate = new Date(start);
+    const endDate = new Date(end);
+    const reports = await Report.aggregate([
+        {
+            $match: {
+                store: storeId,
+                date: {$gte: startDate, $lte: endDate}
+            }
+        },
+        {
+            $project: {
+                _id: 1,
+                date: 1,
+                hourlyReports: {
+                    timeSlice: 1,
+                    customersByAge: 1
+                }
+            }
+        }
+    ])
+    if (reports.length === 0) {
+        return res.status(200).json({
+            success: false,
+            msg: "No reports found"
+        })
+    }
+    return res.status(200).json(reports);
+}

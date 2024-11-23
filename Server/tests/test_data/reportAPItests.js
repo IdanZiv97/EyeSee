@@ -85,4 +85,23 @@ const testQureyByGender = async () => {
     
 }
 
-testQureyByDates().catch((error) => console.error('Error:', error));
+const testQueryByAges = async () => {
+    const response = await fetch('http://localhost:4000/report/byAges', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            userId: '67405149a52d488597dffe5b',
+            storeName: 'Vandervort - Schiller',
+            start: '2024-11-22',
+            end: '2024-11-22'
+        })
+    })
+    const data = await response.json();
+    console.log('DATA:\n', data);
+    console.log('Hourly Reports:\n', data[0].hourlyReports);
+    
+}
+
+testQueryByAges().catch((error) => console.error('Error:', error));
