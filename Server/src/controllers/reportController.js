@@ -67,6 +67,9 @@ export const createReport = async (req, res) => {
  * recent report of his its defined main store
  * The request includes the user's id.
  * The response includes the data of the most recent report, as described in the Report schema.
+* The data has two keys:
+ * 1. date: the date of the most recent report
+ * 2. data: the hourly reports
  */
 export const defaultReport = async (req, res) => {
     const userId = req.body.userId;
@@ -81,8 +84,9 @@ export const defaultReport = async (req, res) => {
     const storeId = user.mainStore._id;
     // search in reports collection by store_id
     const report = await Report.findOne({ store: storeId }).sort({ date: -1 }).limit(1);
+const date = report.date;
     const data = report.hourlyReports.map((rep) => rep);
-    res.status(200).json(data);
+    res.status(200).json({date: date, data: data});
 };
 
 /**
@@ -244,7 +248,7 @@ export const qureyReportByGender = async (req, res) => {
         {
             $match: {
                 store: storeId,
-                date: {$gte: startDate, $lte: endDate}
+                date: { $gte: startDate, $lte: endDate }
             }
         },
         {
@@ -297,7 +301,7 @@ export const qureyReportByAges = async (req, res) => {
         {
             $match: {
                 store: storeId,
-                date: {$gte: startDate, $lte: endDate}
+                date: { $gte: startDate, $lte: endDate }
             }
         },
         {
