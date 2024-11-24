@@ -6,7 +6,17 @@ import Report from "../models/reportModel.js"
 // Helper functions
 
 /**
- * This method breaks apart each hourly report to an object you can print and look
+ * This method breaks apart each hourly report to an object you can print and have easy access to the data.
+ * The return valui is a dictionary with two keys:
+ *  1. reportId: the id of the report
+ *  2. hourlyReports: an array of transformed reports, as specified below.
+ * Each hourly report is a JSON with the following keys:
+ *  1. date: The date of the report, in 'YYYY-MM-DD' format
+ *  2. slice: The hour in the day, in 'HH:00-HH:00' format
+ *  3. total: the total customers that were in the shop in that time slice
+ *  4. male+female: the portion of the total customers by gender
+ *  5. avgDwellTime: the average time (in minutes) that a customer spent in the store in a given hour
+ *  6. age classes: each age group has its own entry.
  */
 function processReport(report) {
     const date = report.date.toISOString().substring(0, 10);
@@ -35,6 +45,7 @@ function processReport(report) {
 
 /**
  * This method is meant to be invoked by the ML service
+ * Waiting for the ML service to be operational
  * @returns 
  */
 export const createReport = async (req, res) => {
@@ -63,12 +74,10 @@ export const createReport = async (req, res) => {
 /**
  * This request handles the default query of a user.
  * When a user logs to the website and navigate to reports, it automatically fetches the most
- * recent report of his its defined main store
+ * recent report of his defined main store.
  * The request includes the user's id.
  * The response includes the data of the most recent report, as described in the Report schema.
- * The data has two keys:
- * 1. date: the date of the most recent report
- * 2. data: the hourly reports
+ * The format of the data is a specified in the documentation of processReport function.
  */
 export const defaultReport = async (req, res) => {
     const userId = req.body.userId;
@@ -83,77 +92,25 @@ export const defaultReport = async (req, res) => {
     const storeId = user.mainStore._id;
     // search in reports collection by store_id
     const report = await Report.findOne({ store: storeId }).sort({ date: -1 }).limit(1);
-    const date = report.date;
     const data = processReport(report);
     res.status(200).json(data);
 };
 
-/**
- * This method allows us to query the stores reports by date.
- * In order to do so we need to recieve from the client side the following info:
- *  1. user_id: to gather the data related to the user
- *  2. store_id: to get the relevant store
- *  3. date: to get the relvant date
- * @param {} req 
- * @param {*} res 
- */
-export const qureyReportByDate = async (req, res) => {
-    const userId = req.body.userId;
-    const storeName = req.body.storeName;
-    const date = req.body.date;
-    // check for user
-    const user = await User.findById(userId).populate('stores');
-    if (!user) {
-        return res.status(400).json({
-            success: false,
-            msg: "User not find one."
-        })
-    }
-    // check for store
-    const store = user.stores.find((s) => s.name === storeName);
-    if (!store) {
-        return res.status(400).json({
-            success: false,
-            msg: "Store not found"
-        })
-    }
-    // search the date
-    const storeId = store._id;
-    const start = date + 'T00:00:00.000Z'; // creating the proper range
-    const end = date + 'T23:59:59.999Z';
-    const startDate = new Date(start);
-    const endDate = new Date(end);
-    const report = await Report.findOne({
-        store: storeId,
-        date: { $gte: startDate, $lte: endDate }
-    });
-    if (!report) {
-        return res.status(200).json({
-            success: false,
-            msg: "No matching report for the requested date."
-        })
-    }
-    const data = report.hourlyReports.map((rep) => rep);
-    return res.status(200).json(data);
-};
 
 /**
- * Same as qureying by a specific date but now the range is from a given date
+ * Function to handle querying reports by given date(s)
  * The user should pass the following information:
- *  1. user_id
- *  2. store name
- *  3. dates = an array of a strings describing the time range in YYYY-MM-DD format
+ *  1. userId
+ *  2. storeName
+ *  3. start: date of the format YYYY-MM-DD
+ *  4. end: date of the format YYYY-MM-DD
  *     Note: make sure that the start date is earlier than end date!
  * @returns
  * The function returns an array of dictionaries (javascript objects).
- * Each item in the array has two keys
- * 1. reportId: the id of the report, useful for later use.
- * 2. transformedReports: an array of all the proceed hourly reports that belong to the main report (as per the schema)
- * Each entry of the hourly report has the following keys:
- * 'date', 'slice', 'total', 'male', 'female', 'ages'
- * Note: ages is a dictionary that describes the demographics of the clients in a specific time slice.
- * 
- * Based on this structure of the response further processing of the data is available.
+ * Each dictionary has two keys
+ *  1. reportId: the id of the report
+ *  2. hourlyReports: an array of the reports hourly reports. the structure of each report is as specified
+ *      in the documentation of processReport function.
  */
 
 export const qureyReportByDates = async (req, res) => {
