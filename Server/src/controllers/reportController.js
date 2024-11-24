@@ -67,7 +67,7 @@ export const createReport = async (req, res) => {
  * recent report of his its defined main store
  * The request includes the user's id.
  * The response includes the data of the most recent report, as described in the Report schema.
-* The data has two keys:
+ * The data has two keys:
  * 1. date: the date of the most recent report
  * 2. data: the hourly reports
  */
@@ -84,9 +84,9 @@ export const defaultReport = async (req, res) => {
     const storeId = user.mainStore._id;
     // search in reports collection by store_id
     const report = await Report.findOne({ store: storeId }).sort({ date: -1 }).limit(1);
-const date = report.date;
+    const date = report.date;
     const data = report.hourlyReports.map((rep) => rep);
-    res.status(200).json({date: date, data: data});
+    res.status(200).json({ date: date, data: data });
 };
 
 /**
@@ -322,4 +322,45 @@ export const qureyReportByAges = async (req, res) => {
         })
     }
     return res.status(200).json(reports);
+}
+
+// Delete Operations
+/**
+ * This function handles the delete request given id of the requested report.
+ * A report should be delete from the reports collection and also from the relevant store.
+ * The function return a success message with proper msg regarding any success or failure
+ * @returns 
+ */
+export const deleteReport = async (req, res) => {
+    // I assume that the user sends report id that it is from its own store
+    try {
+        const reportId = req.body.reportId;
+        // Find the reprot
+        const requestedReport = await Report.findById(reportId);
+        if (!requestedReport) {
+            return res.status(400).json({
+                success: false,
+                msg: "Report not found"
+            })
+        }
+        // delete the report
+        const deletedReport = await Report.findOneAndDelete({ _id: requestedReport._id });
+        if (!deletedReport) {
+            return res.status(400).json({
+                success: false,
+                msg: "Failed to find the requested report"
+            })
+        }
+        return res.status(200).json({
+            success: true,
+            msg: "Report deleted successfuly"
+        })
+    } catch (error) {
+        console.log("Failed to delete report: ", error);
+        return res.status(400).json({
+            success: false,
+            msg: "An error occurred while deleting the report. Try again later"
+        });
+    }
+    // perform the delete command
 }
