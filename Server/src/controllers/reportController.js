@@ -194,7 +194,7 @@ export const qureyReportByDates = async (req, res) => {
             msg: "No reports found"
         })
     }
-    const data = reports.flatMap((report) => report);
+    const data = reports.flatMap((report) => processReport(report));
     return res.status(200).json(data);
 }
 

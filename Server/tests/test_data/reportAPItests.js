@@ -45,7 +45,7 @@ const testQureyByDates = async () => {
         },
         body: JSON.stringify({
             userId: '67405149a52d488597dffe5b',
-            storeName: 'Vandervort - Schiller',
+            storeName: 'Medhurst and Sons',
             start: '2024-11-22',
             end: '2024-11-23'
         })
@@ -58,7 +58,10 @@ const testQureyByDates = async () => {
     console.log('keys of each item: ', keys);
     var transformedReportsKeys = Object.keys(data[0].hourlyReports[0])
     console.log('keys of hourlyReports: ', transformedReportsKeys);
-    console.log('ages: ', data[0].hourlyReports[7].customersByAge);
+var sample = data[1].hourlyReports[5]
+    console.log('sample:\n',sample);
+    
+    //     console.log('ages: ', data[0].hourlyReports[7].customersByAge);
     
     
 }
@@ -119,4 +122,4 @@ const testDeleteReport = async () => {
     console.log('DATA:\n', data);
 }
 
-testDefault().catch((error) => console.error('Error:', error));
+testQureyByDates().catch((error) => console.error('Error:', error));
