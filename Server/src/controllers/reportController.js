@@ -19,14 +19,14 @@ function processReport(report) {
         male: hourlyReport.totalMaleCustomers || 0,
         female: hourlyReport.totalFemaleCustomers || 0,
         avgDwellTime: hourlyReport.avgDwellTime || 0,
-            '0-9': hourlyReport.customersByAge?.get('0-9') || 0,
-            '10-19': hourlyReport.customersByAge?.get('10-19') || 0,
-            '20-29': hourlyReport.customersByAge?.get('20-29') || 0,
-            '30-39': hourlyReport.customersByAge?.get('30-39') || 0,
-            '40-49': hourlyReport.customersByAge?.get('40-49') || 0,
-            '50-59': hourlyReport.customersByAge?.get('50-59') || 0,
-            '60+': hourlyReport.customersByAge?.get('60+') || 0,
-            }));
+        '0-9': hourlyReport.customersByAge?.get('0-9') || 0,
+        '10-19': hourlyReport.customersByAge?.get('10-19') || 0,
+        '20-29': hourlyReport.customersByAge?.get('20-29') || 0,
+        '30-39': hourlyReport.customersByAge?.get('30-39') || 0,
+        '40-49': hourlyReport.customersByAge?.get('40-49') || 0,
+        '50-59': hourlyReport.customersByAge?.get('50-59') || 0,
+        '60+': hourlyReport.customersByAge?.get('60+') || 0,
+    }));
     const response = { reportId: reportId, hourlyReports: transformedReports };
     return response;
 }
@@ -362,4 +362,60 @@ export const deleteReport = async (req, res) => {
         });
     }
     // perform the delete command
+}
+/**
+ * This function handles the delete operation.
+ * It receives an array of strings: the id of the reports.
+ * It returns a success status and a proper message
+ */
+export const deleteReports = async (req, res) => {
+        // get the reports
+        const reportsIds = req.body.reportsIds;
+        // check for valid foramt
+        if (!Array.isArray(reportsIds) || reportsIds.length < 1) {
+            return res.status(400).json({
+                success: false,
+                msg: "Please pass a valid array of IDs"
+            });
+        }
+        // find all the reports
+        var failedToDelete = [];
+        var missingFlag = false;
+        var failureFlag = true;
+        for (const reportId of reportsIds) {
+            try {
+                const requestedReport = await Report.findById(reportId);
+                if (!requestedReport) {
+                    const temp = {
+                        reportId: reportId,
+                        error: "Could not find report"
+                    }
+                    if (!missingFlag) {missingFlag = true;}
+                    failedToDelete.push(temp);
+                }
+                const deletedReport = await Report.findOneAndDelete({ _id: requestedReport._id });
+            } catch (error) {
+                const temp = {
+                    reprotId: reportId,
+                    error: "Failed to delete report"
+                }
+                if (!failureFlag) {failureFlag = true;}
+                failedToDelete.push(temp);
+            }
+        }
+        if (failedToDelete.length === 0) {
+            return res.status(200).json({
+                success: true,
+                missingReports: missingFlag,
+                failureToDelete: failureFlag,
+                reports: failedToDelete
+            })
+        } else {
+            return res.status(400).json({
+                success: false,
+                missingReports: missingFlag,
+                failureToDelete: failureFlag,
+                reports: failedToDelete
+            })
+        }
 }

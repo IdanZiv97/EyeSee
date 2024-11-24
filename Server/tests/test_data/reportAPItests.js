@@ -58,12 +58,8 @@ const testQureyByDates = async () => {
     console.log('keys of each item: ', keys);
     var transformedReportsKeys = Object.keys(data[0].hourlyReports[0])
     console.log('keys of hourlyReports: ', transformedReportsKeys);
-var sample = data[1].hourlyReports[5]
+    var sample = data[1].hourlyReports[5]
     console.log('sample:\n',sample);
-    
-    //     console.log('ages: ', data[0].hourlyReports[7].customersByAge);
-    
-    
 }
 
 const testQureyByGender = async () => {
