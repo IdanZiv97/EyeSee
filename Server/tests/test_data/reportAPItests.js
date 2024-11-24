@@ -8,7 +8,7 @@ const testDefault = async () => {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            userId: '67405149a52d488597dffe5c'
+            userId: '67405149a52d488597dffe5b'
         }),
     });
 
@@ -119,4 +119,4 @@ const testDeleteReport = async () => {
     console.log('DATA:\n', data);
 }
 
-testDeleteReport().catch((error) => console.error('Error:', error));
+testDefault().catch((error) => console.error('Error:', error));

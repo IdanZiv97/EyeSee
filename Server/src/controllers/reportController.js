@@ -9,7 +9,7 @@ import Report from "../models/reportModel.js"
  * This method breaks apart each hourly report to an object you can print and look
  */
 function processReport(report) {
-    const date = report.date;
+    const date = report.date.toISOString().substring(0, 10);
     const reportId = report._id;
     const subReports = [...report.hourlyReports];
     const transformedReports = subReports.map(hourlyReport => ({
@@ -18,17 +18,16 @@ function processReport(report) {
         total: hourlyReport.totalCustomers || 0, // Default to 0 if not present
         male: hourlyReport.totalMaleCustomers || 0,
         female: hourlyReport.totalFemaleCustomers || 0,
-        ages: {
-            '0-9': hourlyReport.customersByAge?.['0-9'] || 0,
-            '10-19': hourlyReport.customersByAge?.['10-19'] || 0,
-            '20-29': hourlyReport.customersByAge?.['20-29'] || 0,
-            '30-39': hourlyReport.customersByAge?.['30-39'] || 0,
-            '40-49': hourlyReport.customersByAge?.['40-49'] || 0,
-            '50-59': hourlyReport.customersByAge?.['50-59'] || 0,
-            '60+': hourlyReport.customersByAge?.['60+'] || 0,
-        }
-    }));
-    const response = { reportId: reportId, transformedReports: transformedReports };
+        avgDwellTime: hourlyReport.avgDwellTime || 0,
+            '0-9': hourlyReport.customersByAge?.get('0-9') || 0,
+            '10-19': hourlyReport.customersByAge?.get('10-19') || 0,
+            '20-29': hourlyReport.customersByAge?.get('20-29') || 0,
+            '30-39': hourlyReport.customersByAge?.get('30-39') || 0,
+            '40-49': hourlyReport.customersByAge?.get('40-49') || 0,
+            '50-59': hourlyReport.customersByAge?.get('50-59') || 0,
+            '60+': hourlyReport.customersByAge?.get('60+') || 0,
+            }));
+    const response = { reportId: reportId, hourlyReports: transformedReports };
     return response;
 }
 
@@ -85,8 +84,8 @@ export const defaultReport = async (req, res) => {
     // search in reports collection by store_id
     const report = await Report.findOne({ store: storeId }).sort({ date: -1 }).limit(1);
     const date = report.date;
-    const data = report.hourlyReports.map((rep) => rep);
-    res.status(200).json({ date: date, data: data });
+    const data = processReport(report);
+    res.status(200).json(data);
 };
 
 /**
