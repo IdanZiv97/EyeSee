@@ -1,14 +1,6 @@
 # EyeSee - Reports API TODO
 
 ## TODO
-- [ ] Create operations:
-    - [ ] Adding from the ML service
-- [ ] Read operations:
-    - [ ] Aggregation: Support multiple dates
-- [ ] Tests:
-    - [ ] Delete:
-        - [ ] Delete reports (client side) - by Yonatan
-        - [ ] Delete entire report (client side) - by Yonatan
 
 ## In Progress
 - [ ] Tests:
@@ -18,9 +10,13 @@
         - [ ] Filter by range (client side) - by Yonatan
         - [ ] Filter by gender (client side) - by Yonatan
     - [ ] Delete:
-        - [ ] Delete reports (server side)
+        - [ ] Delete reports (client side) - by Yonatan
+        - [ ] Delete entire report (client side) - by Yonatan
+        
 
 ## Completed
+- [x] Create operations:
+    - [x] Adding from the ML service
 - [x] Read operations:
     - [x] Default query of main store.
     - [x] Support for filters (per store):

@@ -338,7 +338,7 @@ export const deleteReports = async (req, res) => {
         // find all the reports
         var failedToDelete = [];
         var missingFlag = false;
-        var failureFlag = true;
+        var failureFlag = false;
         for (const reportId of reportsIds) {
             try {
                 const requestedReport = await Report.findById(reportId);
@@ -349,6 +349,7 @@ export const deleteReports = async (req, res) => {
                     }
                     if (!missingFlag) {missingFlag = true;}
                     failedToDelete.push(temp);
+                    continue;
                 }
                 const deletedReport = await Report.findOneAndDelete({ _id: requestedReport._id });
             } catch (error) {

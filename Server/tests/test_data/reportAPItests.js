@@ -118,4 +118,18 @@ const testDeleteReport = async () => {
     console.log('DATA:\n', data);
 }
 
-testQureyByDates().catch((error) => console.error('Error:', error));
+const testDeleteReports = async () => {
+    const response = await fetch('http://localhost:4000/report/delReports', {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            reportsIds: ['67405149a52d488597dffe5f', '67405149a52d488597dffe67'],
+        })
+    })
+    const data = await response.json();
+    console.log('DATA:\n', data);
+}
+
+testDeleteReports().catch((error) => console.error('Error:', error));
