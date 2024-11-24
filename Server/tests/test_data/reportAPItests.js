@@ -8,19 +8,13 @@ const testDefault = async () => {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            userId: '67405149a52d488597dffe5b'
+            userId: '67405149a52d488597dffe5c'
         }),
     });
 
     const data = await response.json();
     console.log(data);
     console.log('keys: ', Object.keys(data));
-    
-    console.log("2nd keys: ", Object.keys(data.transformedReports[0]));
-
-    console.log('ages: ', data.transformedReports[6].ages);
-    
-    
 }
 
 /**
@@ -111,4 +105,18 @@ const testQueryByAges = async () => {
     
 }
 
-testQueryByAges().catch((error) => console.error('Error:', error));
+const testDeleteReport = async () => {
+    const response = await fetch('http://localhost:4000/report/del', {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            reportId: '67405149a52d488597dffe5e',
+        })
+    })
+    const data = await response.json();
+    console.log('DATA:\n', data);
+}
+
+testDeleteReport().catch((error) => console.error('Error:', error));

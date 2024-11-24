@@ -5,8 +5,6 @@
     - [ ] Adding from the ML service
 - [ ] Read operations:
     - [ ] Aggregation: Support multiple dates
-- [ ] Delete:
-    - [ ] Delete reports
 - [ ] Tests:
     - [ ] Delete:
         - [ ] Delete reports (server side)
@@ -20,9 +18,9 @@
         - [ ] Filter by range (client side) - by Yonatan
         - [ ] Filter by gender (client side) - by Yonatan
     - [ ] Delete:
-        - [ ] Delete entire report (server side)
         - [ ] Delete entire report (client side) - by Yonatan
-
+- [ ] Delete:
+    - [ ] Delete reports
 
 ## Completed
 - [x] Read operations:
@@ -46,3 +44,5 @@
         - [x] Filter by date (server side)
         - [x] Filter by dates (range) (server side)
         - [x] Filter by gender (server side)
+    - [x] Delete:
+        - [x] Delete entire report (server side)
