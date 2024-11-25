@@ -1,2 +1,2 @@
-# EyeSee - Server
-Server portion of EyeSee
+# EyeSee - Server - feature/stores
+Working on logic of handling changes to the stores of a user.
