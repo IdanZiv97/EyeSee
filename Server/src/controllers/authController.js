@@ -21,7 +21,7 @@ export const loginUser = async (req, res) => {
         const username = req.body.username;
         const password = req.body.password;
         // check if user exists
-        const user = await User.findOne({ username });
+        const user = await User.findOne({ username }).populate('stores', 'name');
         if (!user) {
             return res.status(400).json({
                 success: false,
@@ -37,12 +37,15 @@ export const loginUser = async (req, res) => {
                 msg: "Username and/or password not valid"
             })
         }
+        // find the stores by name and pass them
+        const storesNames = user.stores.map((store) => store.name);
         // create the proper response
         res.status(200).json({
             success: true,
             userId: user.id,
             username: user.username,
-            mainStoreId: user.mainStore
+            mainStoreId: user.mainStore,
+            stores: storesNames
         })
     } catch (error) {
         res.status(400).json({
@@ -65,7 +68,7 @@ export const loginUser = async (req, res) => {
  * When a sign up fails, or in case of a server related error, the response includes a proper message.
  * When a sign up succeeds the response include the following data:
  *  1. id of the newly created user
- *  2. id of the newly created user's main store
+ *  2. id of the newly created user's main store and name
  */
 export const signupUser = async (req, res) => {
     try {
@@ -114,7 +117,8 @@ export const signupUser = async (req, res) => {
             success: true,
             msg: "User registered successfuly",
             userId: newUser._id,
-            storeId: newStore._id
+            storeId: newStore._id,
+            storeName: newStore.name
         })
     } catch (error) {
         res.status(400).json({

@@ -1,24 +1,39 @@
-# EyeSee - Server - Feature/Auth
-Here is a list of tasks to be done regrading the feature
+# EyeSee - Reports API TODO
 
 ## TODO
-- [ ] Testing:
-    - [ ] User login (client side)
-    - [ ] User signup (client side)
-- [ ] Tokens and Sessions:
-    The goal is to use session and tokens to track users.
 
 ## In Progress
 
 ## Completed
-- [ ] Testing:
-    - [x] User signup (server side)
-    - [x] User login (server side)
-- [x] User Signup:
-    - [x] Create signup form (including form)
-    - [x] after signup pass the main store_id
-- [x] User Login:
-    - [x] check if user exists
-    - [x] check if password matches
-    - [x] change user model to save the hash value of the password as a security measure.
-    - [x] after login send the proper 
+- [x] Create operations:
+    - [x] Adding from the ML service
+- [x] Read operations:
+    - [x] Default query of main store.
+    - [x] Support for filters (per store):
+        - [x] Filter by date
+        - [x] Filter by dates (range)
+        - [x] Filter by gender
+        - [x] Filter by age
+- [x] Schema Change:
+    - [x] Update reports to include hourly dwell time
+    - [x] Update the queries accordingly
+- [x] Generate fake data:
+    - [x] Bug fix: the reports of each store does not have an id and ref
+    - [x] Add dwell time
+- [x] Delete:
+    - [x] Delete the entire 
+    - [x] Delete reports
+- [x] Tests:
+    - [x] Read:
+        - [x] Defualt qurey (server side)
+        - [x] Default qurey (client side) - by Yonatan
+        - [x] Filter by date (server side)
+        - [x] Filter by date (client side) - by Yonatan
+        - [x] Filter by dates (range) (server side)
+        - [x] Filter by range (client side) - by Yonatan
+        - [x] Filter by gender (server side)
+        - [x] Filter by gender (client side) - by Yonatan
+    - [x] Delete:
+        - [x] Delete entire report (server side)
+            - [x] Delete reports (client side) - by Yonatan
+        - [x] Delete entire report (client side) - by Yonatan

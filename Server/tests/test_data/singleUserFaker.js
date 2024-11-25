@@ -2,35 +2,26 @@ import fs from 'fs/promises';
 import { faker } from '@faker-js/faker';
 import mongoose from 'mongoose';
 
-// Step 1: Generate fake ObjectIds for users and stores
-const userIds = Array.from({ length: 5 }, () => new mongoose.Types.ObjectId());
-const storeIds = [];
+// Step 1: Create a single user with two stores
+const userId = new mongoose.Types.ObjectId();
+const storeIds = [new mongoose.Types.ObjectId(), new mongoose.Types.ObjectId()];
 
-// Step 2: Generate data for users
-const fakeUsers = userIds.map(userId => {
-    const numStores = faker.number.int({ min: 1, max: 3 }); // 1 to 3 stores per user
-    const userStoreIds = Array.from({ length: numStores }, () => {
-        const storeId = new mongoose.Types.ObjectId();
-        storeIds.push(storeId); // Collect store IDs
-        return storeId;
-    });
+// Step 2: Generate a single user with two stores
+const fakeUser = {
+    _id: { $oid: userId.toString() },
+    username: faker.internet.username(),
+    firstName: faker.person.firstName(),
+    lastName: faker.person.lastName(),
+    email: faker.internet.email(),
+    mainStore: { $oid: storeIds[0].toString() }, // First store is the main store
+    stores: storeIds.map(storeId => ({ $oid: storeId.toString() })), // Both stores owned by this user
+};
 
-    return {
-        _id: { $oid: userId.toString() },
-        username: faker.internet.username(),
-        email: faker.internet.email(),
-        mainStore: { $oid: userStoreIds[0].toString() }, // First store is the main store
-        stores: userStoreIds.map(storeId => ({ $oid: storeId.toString() })), // All stores owned by this user
-    };
-});
-
-// Step 3: Generate data for stores
+// Step 3: Generate stores for this user
 const fakeStores = storeIds.map(storeId => ({
     _id: { $oid: storeId.toString() },
     name: faker.company.name(),
-    owner: { $oid: userIds.find(userId =>
-        fakeUsers.some(user => user._id.$oid === userId.toString() && user.stores.some(store => store.$oid === storeId.toString()))
-    ).toString() }, // Find the owner of this store
+    owner: { $oid: userId.toString() }, // Owner is the single user
     reports: [], // Initialize reports as an empty array (to be filled later)
 }));
 
@@ -59,12 +50,14 @@ function generateCustomersByAge(totalCustomers) {
 function generateHourlyReport(timeSlice) {
     const totalCustomers = faker.number.int({ min: 0, max: 100 });
     const totalMaleCustomers = faker.number.int({ min: 0, max: totalCustomers });
+    const avgDwellTime = faker.number.int({min: 0, max: 60}); // in minutes
     const totalFemaleCustomers = totalCustomers - totalMaleCustomers;
     const customersByAge = generateCustomersByAge(totalCustomers);
 
     return {
         timeSlice,
         totalCustomers,
+        avgDwellTime,
         totalMaleCustomers,
         totalFemaleCustomers,
         customersByAge,
@@ -82,9 +75,9 @@ function generateHourlyTimeSlices() {
     });
 }
 
-// Step 5: Generate data for reports with consecutive dates
+// Step 5: Generate reports with consecutive dates for each store
 const fakeReports = storeIds.flatMap(storeId => {
-    const numReports = faker.number.int({ min: 3, max: 5 }); // 3 to 5 reports per store
+    const numReports = 5; // 5 reports per store
     const startDate = faker.date.recent(10); // Start date within the last 10 days
 
     return Array.from({ length: numReports }, (_, i) => {
@@ -95,15 +88,16 @@ const fakeReports = storeIds.flatMap(storeId => {
         const dateInFormat = {
             $date: { $numberLong: formattedDate.getTime().toString() }
         };
-
+        const reportId = new mongoose.Types.ObjectId();
         const report = {
+            _id: { $oid: reportId.toString()},
             store: { $oid: storeId.toString() },
             date: dateInFormat,
             hourlyReports,
         };
 
         // Add report to the store's reports array
-        fakeStores.find(store => store._id.$oid === storeId.toString()).reports.push({ $oid: storeId.toString() });
+        fakeStores.find(store => store._id.$oid === storeId.toString()).reports.push({ $oid: reportId.toString() });
         return report;
     });
 });
@@ -111,14 +105,14 @@ const fakeReports = storeIds.flatMap(storeId => {
 // Step 6: Save data to JSON files
 async function saveDataToJson() {
     try {
-        await fs.writeFile('./fakeUsers.json', JSON.stringify(fakeUsers, null, 4));
-        console.log('Fake users saved to fakeUsers.json');
+        await fs.writeFile('./single_fakeUsers.json', JSON.stringify([fakeUser], null, 4));
+        console.log('Single fake user saved to single_fakeUsers.json');
         
-        await fs.writeFile('./fakeStores.json', JSON.stringify(fakeStores, null, 4));
-        console.log('Fake stores saved to fakeStores.json');
+        await fs.writeFile('./single_fakeStores.json', JSON.stringify(fakeStores, null, 4));
+        console.log('Single fake stores saved to single_fakeStores.json');
         
-        await fs.writeFile('./fakeReports.json', JSON.stringify(fakeReports, null, 4));
-        console.log('Fake reports saved to fakeReports.json');
+        await fs.writeFile('./single_fakeReports.json', JSON.stringify(fakeReports, null, 4));
+        console.log('Single fake reports saved to single_fakeReports.json');
     } catch (error) {
         console.error('Error saving data to JSON files:', error);
     }

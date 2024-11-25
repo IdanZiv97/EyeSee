@@ -6,6 +6,8 @@ const hourlyReportSchema = new Schema({
     timeSlice: {type: String},
     // total number of customers
     totalCustomers: {type: Number},
+    // avg dwell time - the amount of time spent in the store
+    avgDwellTime: {type: Number},
     // numbers by gender
     totalMaleCustomers: {type: Number},
     totalFemaleCustomers: {type: Number},
