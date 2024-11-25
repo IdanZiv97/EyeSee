@@ -1,0 +1,23 @@
+[
+    {
+        "_id": {
+            "$oid": "67448d410b5ddf2f8ffb834f"
+        },
+        "username": "Verla.Homenick",
+        "firstName": "Alisha",
+        "lastName": "Cruickshank",
+        "password": "$2b$10$2ws55Hag6e8krbBxTWWoouKPjVM5JyrvyzrHR5qYpyZRDDwLH6TzO",
+        "email": "Chasity.Purdy83@yahoo.com",
+        "mainStore": {
+            "$oid": "67448d410b5ddf2f8ffb8350"
+        },
+        "stores": [
+            {
+                "$oid": "67448d410b5ddf2f8ffb8350"
+            },
+            {
+                "$oid": "67448d410b5ddf2f8ffb8351"
+            }
+        ]
+    }
+]

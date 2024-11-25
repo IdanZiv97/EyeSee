@@ -8,8 +8,8 @@ const loginUser = async () => {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            username: 'idanziv',
-            password: '210797'
+            username: 'Verla.Homenick',
+            password: 'ljc4ZYzeJfA_nN3'
         }),
     });
 
