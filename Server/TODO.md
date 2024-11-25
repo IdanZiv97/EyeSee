@@ -9,14 +9,15 @@ Implementing Yonatan's API calls
     - [ ] Weekly Number of Customers - by Yonatan
 
 ## In Progress
-- [ ] Testing:
-    - [ ] Average Dwell Time Per Day (Weekly Scope) (server side) - by Idan
-    - [ ] Average Dwell Time Per Month (Yearly Scope) (server side) - by Idan
-    - [ ] Monthly Number of Customers (server side) - by Idan
-    - [ ] Weekly Number of Customers (server side) - by Idan
+
 ## Completed
 - [x] Created Data
 - [x] Average Dwell Time Per Day (Weekly Scope)
 - [x] Average Dwell Time Per Month (Yearly Scope)
 - [x] Monthly Number of Customers
 - [x] Weekly Number of Customers
+- [x] Testing:
+    - [x] Average Dwell Time Per Day (Weekly Scope) (server side) - by Idan
+    - [x] Average Dwell Time Per Month (Yearly Scope) (server side) - by Idan
+    - [x] Monthly Number of Customers (server side) - by Idan
+    - [x] Weekly Number of Customers (server side) - by Idan
