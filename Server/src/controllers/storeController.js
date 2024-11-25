@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 import User from '../models/userModel.js';
 import Store from '../models/storeModel.js'
+import Report from "../models/reportModel.js";
 
 /**
  * 
@@ -64,7 +65,60 @@ export const createStore = async (req, res) => {
     }
 };
 
-
+/**
+ * Function to handle the deletion of a store.
+ * The function needs to recive the userId and storeName
+ * In case of an error it will set success to false and add proper error message
+ * Otherwise it will set success to true and pass the following data
+ *  1. storesNames: all the stores reamining
+ *  2. msg: a prompt to display
+ * All of the above are data I think the client side would need to continue.
+ */
+export const deleteStore = async (req, res) => {
+    try {
+        const userId = req.body.userId;
+        const storeName = req.body.userId;
+        // find the user
+        const user = await User.findById(userId).populate('stores');
+        if (!user) {
+            return res.status(400).json({
+                success: false,
+                error: "User not found, please try again"
+            })
+        }
+        // detrmine if the store exists
+        const existingStore = user.stores.some(store => store.name === storeName);
+        if (!existingStore) {
+            return res.status(400).json({
+                success: false,
+                error: "Could not find the store, try again"
+            });
+        }
+        const isMainStore = user.stores.find((s) => s._id === user.mainStore);
+        const numOfStores = user.stores.length;
+        const storeId = existingStore._id;
+        // delete all the reports
+        await Report.deleteMany({ store: storeId });
+        // update the user
+        await User.findByIdAndUpdate(storeId, { $pull: { stores: storeId } });
+        // if main store
+        if (isMainStore) {
+            user.set("mainStore", user.stores[0])
+            await user.save();
+        }
+        const storesNames = user.stores.map((s) => s.name);
+        return res.status(200).json({
+            success: true,
+            storesNames: storesNames,
+            msg: "Store removed successfuly"
+        })
+    } catch (error) {
+        return res.status(400).json({
+            success: false,
+            msg: "Failed to add a new store, try again later."
+        })
+    }
+}
 
 
 

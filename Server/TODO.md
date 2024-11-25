@@ -14,7 +14,7 @@
     - [ ] Edit store [rename only] (client side) - by Yonatan
 
 # In Progress
-- [ ] Delete store
 
 # Completed
 - [x] Add store
+- [x] Delete store
