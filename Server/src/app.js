@@ -6,6 +6,7 @@ import connectDB from "./util/db.js"
 import authRoutes from './routes/authRouter.js'
 import storeRoutes from './routes/storeRouter.js'
 import reportRoutes from './routes/reportsRouter.js'
+import dashboardRoutes from './routes/dashboardRouter.js'
 
 dotenv.config();
 const app = express();
@@ -18,6 +19,7 @@ connectDB();
 app.use(storeRoutes);
 app.use(authRoutes)
 app.use(reportRoutes);
+app.use(dashboardRoutes);
 
 const PORT = process.env.PORT || 5000;
 
