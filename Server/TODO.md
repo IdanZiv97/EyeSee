@@ -3,16 +3,6 @@
 ## TODO
 
 ## In Progress
-- [ ] Tests:
-    - [ ] Read:
-        - [ ] Default qurey (client side) - by Yonatan
-        - [ ] Filter by date (client side) - by Yonatan
-        - [ ] Filter by range (client side) - by Yonatan
-        - [ ] Filter by gender (client side) - by Yonatan
-    - [ ] Delete:
-        - [ ] Delete reports (client side) - by Yonatan
-        - [ ] Delete entire report (client side) - by Yonatan
-        
 
 ## Completed
 - [x] Create operations:
@@ -36,8 +26,14 @@
 - [x] Tests:
     - [x] Read:
         - [x] Defualt qurey (server side)
+        - [x] Default qurey (client side) - by Yonatan
         - [x] Filter by date (server side)
+        - [x] Filter by date (client side) - by Yonatan
         - [x] Filter by dates (range) (server side)
+        - [x] Filter by range (client side) - by Yonatan
         - [x] Filter by gender (server side)
+        - [x] Filter by gender (client side) - by Yonatan
     - [x] Delete:
         - [x] Delete entire report (server side)
+            - [x] Delete reports (client side) - by Yonatan
+        - [x] Delete entire report (client side) - by Yonatan
