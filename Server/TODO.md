@@ -1,7 +1,6 @@
 # EyeSee - Server - feature/stores TODO
 
 # TODO
-- [ ] Add store
 - [ ] Delete store
 - [ ] Edit store (rename only)
 - Testing:
@@ -13,5 +12,6 @@
     - [ ] Edit store [rename only] (client side) - by Yonatan
 
 # In Progress
+- [ ] Add store
 
 # Completed
