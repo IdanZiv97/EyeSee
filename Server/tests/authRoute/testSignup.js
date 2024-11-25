@@ -8,7 +8,7 @@ const signupUser = async () => {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            username: 'notidanziv',
+            username: 'idanziv',
             password: '210797',
             email: 'idan@gmail.com',
             storename: "Mongo"

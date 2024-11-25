@@ -9,7 +9,7 @@ const createStore = async () => {
         },
         body: JSON.stringify({
             storeName: 'EyeSee HQ',
-            userId: '672a2dcd00a36bf4365a203e'
+            userId: '6744422933c4d8f5122e23da'
         }),
     });
     const data = await response.json();
