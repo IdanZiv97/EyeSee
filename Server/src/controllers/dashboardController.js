@@ -19,6 +19,19 @@ function calcualteAvgDwellTime(report) {
 }
 
 /**
+ * This functio calcualtes the total number of customers in the past week
+ */
+function calcualteTotalCustomers(report) {
+    const date = report.date.toISOString().split('T')[0];
+    const hourlyReports = [...report.hourlyReports];
+    const totalCustomers = hourlyReports.reduce(
+        (sum , hourlyReport) => sum + hourlyReport.totalCustomers, 0);
+    return {date: date, data: totalCustomers};
+}
+
+/*************** API  ***************/
+
+/**
  * This function creates 
  * @param {*} req 
  * @param {*} res 
@@ -209,9 +222,9 @@ export const getMonthlyTotalCustomers = async (req, res) => {
                     totalCustomers: 1
                 }
             },
-            {$sort: {date: 1}}
+            { $sort: { date: 1 } }
         ])
-        const data = reports.map((rep) => ({date: rep.date, totalCustomers: rep.totalCustomers}))
+        const data = reports.map((rep) => ({ date: rep.date, totalCustomers: rep.totalCustomers }))
         return res.json({
             success: true,
             data: data
@@ -219,5 +232,40 @@ export const getMonthlyTotalCustomers = async (req, res) => {
     } catch (error) {
         console.error('Error:', error);
 
+    }
+}
+
+export const getWeeklyTotalCustomers = async (req, res) => {
+    try {
+
+        const userId = req.body.userId;
+        const storeName = req.body.storeName;
+        // get user
+        const user = await User.findById(userId).populate('stores');
+        if (!user) {
+            return res.status(400).json({
+                success: false,
+                msg: "Couldn't find user, try again."
+            })
+        }
+        // check for the store in the user
+        const store = user.stores.find((s) => s.name === storeName);
+        if (!store) {
+            return res.status(400).json({
+                success: false,
+                msg: "Couldn't find store, try again"
+            })
+        }
+        // get the last 7 days worth of reports
+        const storeId = store._id;
+        const reports = await Report.find({ store: storeId }).sort({ date: -1 }).limit(7);
+        const data = reports.map((rep) => calcualteTotalCustomers(rep));
+        return res.status(200).json({
+            success: true,
+            data: data
+        });
+    } catch (error) {
+        console.error('Error:', error);
+        
     }
 }
