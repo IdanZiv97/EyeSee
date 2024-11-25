@@ -1,0 +1,22 @@
+[
+    {
+        "_id": {
+            "$oid": "674432e372d0d42bd44e52f7"
+        },
+        "username": "Shaun_Ryan36",
+        "firstName": "Corbin",
+        "lastName": "Jones",
+        "email": "Lourdes86@hotmail.com",
+        "mainStore": {
+            "$oid": "674432e372d0d42bd44e52f8"
+        },
+        "stores": [
+            {
+                "$oid": "674432e372d0d42bd44e52f8"
+            },
+            {
+                "$oid": "674432e372d0d42bd44e52f9"
+            }
+        ]
+    }
+]

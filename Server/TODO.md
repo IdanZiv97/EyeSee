@@ -17,6 +17,8 @@ Implementing Yonatan's API calls
     - [ ] Weekly Number of Customers - by Yonatan
 
 ## In Progress
-- [ ] Created Data
+- [ ] Average Dwell Time Per Month (Yearly Scope)
+- [ ] Average Dwell Time Per Day (Weekly Scope)
 
 ## Completed
+- [x] Created Data
