@@ -13,9 +13,10 @@
 
 # In Progress
 - [ ] Testing:
-    - [ ] Add store (server side) - by Idan
     - [ ] Delete store (server side) - by Idan
 
 # Completed
+- [x] Testing:
+    - [x] Add store (server side) - by Idan
 - [x] Add store
 - [x] Delete store

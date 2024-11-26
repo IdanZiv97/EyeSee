@@ -48,7 +48,7 @@ export const createStore = async (req, res) => {
         }
         user.stores.push(newStore._id);
         await user.save()
-        const storesNames = user.stores.map((store) => store.name);
+        const storesNames = (await user.populate('stores')).stores.map((s) => s.name);
         res.status(200).json({
             success: true,
             newStoreId: newStore._id,
