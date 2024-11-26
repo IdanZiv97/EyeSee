@@ -129,6 +129,12 @@ export const deleteStore = async (req, res) => {
     }
 }
 
+/**
+ * Handles the changing of a store's name.
+ * It needs the userId, storeName [the store you wish to change its name], newName [the name you choose]
+ * The client side should check for basic valid names (length, no special character, no empty strings and such)
+ * The function return a success value depending on the success of the process and a proper message
+ */
 export const updateStore = async (req, res) => {
     try {
         const userId = req.body.userId;
