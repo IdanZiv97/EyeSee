@@ -77,7 +77,7 @@ export const createStore = async (req, res) => {
 export const deleteStore = async (req, res) => {
     try {
         const userId = req.body.userId;
-        const storeName = req.body.userId;
+        const storeName = req.body.storeName;
         // find the user
         const user = await User.findById(userId).populate('stores');
         if (!user) {
@@ -87,26 +87,28 @@ export const deleteStore = async (req, res) => {
             })
         }
         // detrmine if the store exists
-        const existingStore = user.stores.some(store => store.name === storeName);
+        const existingStore = user.stores.find(store => store.name === storeName);
         if (!existingStore) {
             return res.status(400).json({
                 success: false,
                 error: "Could not find the store, try again"
             });
         }
-        const isMainStore = user.stores.find((s) => s._id === user.mainStore);
+        const storeId = existingStore._id; 
+        const isMainStore = storeId.equals(user.mainStore);
         const numOfStores = user.stores.length;
-        const storeId = existingStore._id;
         // delete all the reports
-        await Report.deleteMany({ store: storeId });
+        await Store.findByIdAndDelete(storeId);
+        const result = await Report.deleteMany({ store: storeId });
         // update the user
-        await User.findByIdAndUpdate(storeId, { $pull: { stores: storeId } });
+        await User.findByIdAndUpdate(userId, { $pull: { stores: storeId } });
         // if main store
         if (isMainStore) {
-            user.set("mainStore", user.stores[0])
+            user.set("mainStore", (await user.populate('stores'))[0]);
             await user.save();
         }
-        const storesNames = user.stores.map((s) => s.name);
+        const storesNames = (await user.populate('stores')).stores.map((s) => s.name);
+
         return res.status(200).json({
             success: true,
             storesNames: storesNames,
