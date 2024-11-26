@@ -28,7 +28,7 @@ const testDeleteStore = async () => {
         },
         body: JSON.stringify({
             userId: '6745ad4bb4114903043134d0',
-            storeName: 'Davis Inc'
+            storeName: 'Effertz - Batz'
         })
     })
 
@@ -37,4 +37,4 @@ const testDeleteStore = async () => {
     
 }
 
-testDeleteStore().catch((error) => console.error('Error:', error));
+testAddStore().catch((error) => console.error('Error:', error));
