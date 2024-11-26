@@ -37,4 +37,22 @@ const testDeleteStore = async () => {
     
 }
 
-testAddStore().catch((error) => console.error('Error:', error));
+const testUpdateStore = async () => {
+    const response = await fetch('http://localhost:4000/store/update', {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            userId: '6745ad4bb4114903043134d0',
+            storeName: 'Effertz - Batz',
+            newName: 'Davis Inc'
+        })
+    })
+    const data = await response.json();
+    console.log('DATE:', data);
+    
+    
+}
+
+testUpdateStore().catch((error) => console.error('Error:', error));
