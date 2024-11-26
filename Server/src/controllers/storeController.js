@@ -95,7 +95,7 @@ export const deleteStore = async (req, res) => {
                 error: "Could not find the store, try again"
             });
         }
-        const storeId = existingStore._id; 
+        const storeId = existingStore._id;
         const isMainStore = storeId.equals(user.mainStore);
         // delete all the reports
         await Store.findByIdAndDelete(storeId);
@@ -105,7 +105,7 @@ export const deleteStore = async (req, res) => {
         // if main store
         if (isMainStore) {
             // load the updated user
-            const updatedUser = await User.findById(userId).populate('stores'); 
+            const updatedUser = await User.findById(userId).populate('stores');
             if (updatedUser.stores.length > 0) { // in case a store to choose from
                 updatedUser.set('mainStore', updatedUser.stores[0]._id);
                 await updatedUser.save();
@@ -129,6 +129,49 @@ export const deleteStore = async (req, res) => {
     }
 }
 
-
-
+export const updateStore = async (req, res) => {
+    try {
+        const userId = req.body.userId;
+        const storeName = req.body.storeName;
+        const newName = req.body.newName;
+        // check that the user is found and stuff
+        const user = await User.findById(userId).populate('stores');
+        if (!user) {
+            return res.status(400).json({
+                success: false,
+                msg: "Couldn't find user, try again."
+            })
+        }
+        const existingStore = user.stores.find((s) => s.name === storeName);
+        if (!existingStore) {
+            const msg = "Couldn't find store with name " + storeName + ", try again.";
+            return res.status(400).json({
+                success: false,
+                msg: msg
+            })
+        }
+        // Check if name is taken
+        const nameTaken = user.stores.some((s) => s.name === newName);
+        if (nameTaken) {
+            const msg = newName + " is already taken, choose a new name."
+            return res.status(400).json({
+                success: false,
+                msg: msg
+            })
+        }
+        // now we just need to update the store
+        const storeId = existingStore._id;
+        await Store.findByIdAndUpdate(storeId, {name: newName});
+        const msg = "Name of store \'" + storeName + "\' changed to \'" + newName + "\', successfuly";
+        return res.status(200).json({
+            success: true,
+            msg: msg
+        })
+    } catch(error) {
+        return res.status(400).json({
+            success: false,
+            msg: "Failed to change store's name, try again later."
+        })
+    }
+;}
 
