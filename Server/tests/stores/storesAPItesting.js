@@ -20,4 +20,21 @@ const testAddStore = async () => {
     console.log('DATA:\n', data);
 }
 
-testAddStore().catch((error) => console.error('Error:', error));
+const testDeleteStore = async () => {
+    const response = await fetch('http://localhost:4000/store/delete', {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            userId: '6745ad4bb4114903043134d0',
+            storeName: 'Davis Inc'
+        })
+    })
+
+    const data = await response.json();
+    console.log('DATA:\n', data);
+    
+}
+
+testDeleteStore().catch((error) => console.error('Error:', error));

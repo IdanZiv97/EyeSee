@@ -80,6 +80,7 @@ export const deleteStore = async (req, res) => {
         const storeName = req.body.storeName;
         // find the user
         const user = await User.findById(userId).populate('stores');
+        const numOfStores = user.stores.length;
         if (!user) {
             return res.status(400).json({
                 success: false,
@@ -96,7 +97,6 @@ export const deleteStore = async (req, res) => {
         }
         const storeId = existingStore._id; 
         const isMainStore = storeId.equals(user.mainStore);
-        const numOfStores = user.stores.length;
         // delete all the reports
         await Store.findByIdAndDelete(storeId);
         const result = await Report.deleteMany({ store: storeId });
@@ -104,8 +104,15 @@ export const deleteStore = async (req, res) => {
         await User.findByIdAndUpdate(userId, { $pull: { stores: storeId } });
         // if main store
         if (isMainStore) {
-            user.set("mainStore", (await user.populate('stores'))[0]);
-            await user.save();
+            // load the updated user
+            const updatedUser = await User.findById(userId).populate('stores'); 
+            if (updatedUser.stores.length > 0) { // in case a store to choose from
+                updatedUser.set('mainStore', updatedUser.stores[0]._id);
+                await updatedUser.save();
+            } else {
+                updatedUser.set('mainStore', null);
+                await updatedUser.save();
+            }
         }
         const storesNames = (await user.populate('stores')).stores.map((s) => s.name);
 
