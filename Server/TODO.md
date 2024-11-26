@@ -1,7 +1,6 @@
 # EyeSee - Server - feature/stores TODO
 
 # TODO
-- [ ] Change the main store of a user
 - [ ] Edit store (rename only)
 - Testing:
     - [ ] Add store (client side) - by Yonatan
