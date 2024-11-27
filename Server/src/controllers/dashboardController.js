@@ -147,7 +147,7 @@ export const getAverageDwellTimeMonthly = async (req, res) => {
         ]);
         const data = reports.map((rep) => ({ date: rep.date, avgDwellTime: rep.avgDwellTime }));
         return res.status(200).json({
-            sucess: true,
+            success: true,
             data: data
         })
     } catch (error) {

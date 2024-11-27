@@ -7,8 +7,8 @@ const testWeeklyDwellTime = async () => {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            userId: '674432e372d0d42bd44e52f7',
-            storeName: 'Macejkovic and Sons'
+            userId: '67448d410b5ddf2f8ffb834f',
+            storeName: 'Quitzon, Schimmel and Lemke'
         }),
     });
 
@@ -24,8 +24,8 @@ const testMonthlyDwellTime = async () => {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            userId: '674432e372d0d42bd44e52f7',
-            storeName: 'Macejkovic and Sons'
+            userId: '67448d410b5ddf2f8ffb834f',
+            storeName: 'Quitzon, Schimmel and Lemke'
         }),
     });
 
@@ -41,8 +41,8 @@ const testMonthlyTotalCustomers = async () => {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            userId: '674432e372d0d42bd44e52f7',
-            storeName: 'Macejkovic and Sons'
+            userId: '67448d410b5ddf2f8ffb834f',
+            storeName: 'Quitzon, Schimmel and Lemke'
         }),
     });
 
@@ -58,8 +58,8 @@ const testWeeklyTotalCustomers = async () => {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            userId: '674432e372d0d42bd44e52f7',
-            storeName: 'Macejkovic and Sons'
+            userId: '67448d410b5ddf2f8ffb834f',
+            storeName: 'Quitzon, Schimmel and Lemke'
         }),
     });
 
