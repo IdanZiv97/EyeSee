@@ -81,7 +81,7 @@ export const createReport = async (req, res) => {
  */
 export const defaultReport = async (req, res) => {
     const userId = req.body.userId;
-    const storeName = req.bodyName;
+    const storeName = req.body.storeName;
     // fetch the user
     const user = await User.findById(userId).populate('stores');
     if (!user) {
