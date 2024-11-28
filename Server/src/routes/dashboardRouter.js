@@ -3,7 +3,7 @@ import {
     getAverageDwellTimeWeekly, getAverageDwellTimeMonthly,
     getMonthlyTotalCustomers, getWeeklyTotalCustomers,
     getMonthlyTotalGenderDistribution, getWeeklyTotalGenderDistribution,
-    getMonthlyTotalAgeDistribution
+    getMonthlyTotalAgeDistribution, getAnalytcis
 } from "../controllers/dashboardController.js"
 
 
@@ -15,5 +15,6 @@ router.post('/api/customers/weekly', getWeeklyTotalCustomers);
 router.post('/api/gender-distribution/monthly', getMonthlyTotalGenderDistribution);
 router.post('/api/gender-distribution/weekly', getWeeklyTotalGenderDistribution);
 router.post('/api/age-distribution/monthly', getMonthlyTotalAgeDistribution);
+router.post('/api/dashboard/analytics', getAnalytcis);
 
 export default router;

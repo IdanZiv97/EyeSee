@@ -133,7 +133,23 @@ const testMonthlyAgeDistribution = async () => {
     console.log('Keys of the data entry in the response: ', Object.keys(data.data[0]));
     const randomAges = data.data[0].distribution;
     console.log("random cusomters by age:", randomAges);
-    
+
+}
+
+const testAnalytics = async () => {
+    const response = await fetch('http://localhost:4000/api/dashboard/analytics', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            userId: '67448d410b5ddf2f8ffb834f',
+            storeName: 'Schulist LLC'
+        }),
+    });
+
+    const data = await response.json();
+    console.log(data);
 }
 
 console.log("Testing\n\n");
@@ -148,10 +164,12 @@ console.log("Testing\n\n");
 // await testMonthlyTotalCustomers().catch((error) => console.error('Error:', error));
 // console.log("Testing Weekly");
 // await testWeeklyTotalCustomers().catch((error) => console.error('Error:', error));
-console.log("Testing Gender Distribution");
-console.log("Testing Monthly");
-await testMonthlyGenderDistribution();
-console.log("Testing Weekly");
-await testWeeklyGenderDistribution();
-console.log("Testing Age Distribution");
-await testMonthlyAgeDistribution();
+// console.log("Testing Gender Distribution");
+// console.log("Testing Monthly");
+// await testMonthlyGenderDistribution();
+// console.log("Testing Weekly");
+// await testWeeklyGenderDistribution();
+// console.log("Testing Age Distribution");
+// await testMonthlyAgeDistribution();
+console.log("Testing Analytics");
+await testAnalytics();

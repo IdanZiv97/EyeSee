@@ -517,7 +517,7 @@ export const getMonthlyTotalAgeDistribution = async (req, res) => {
                 $sort: { date: 1 }
             }
         ]);
-        const data = reports.map((rep) => ({date: rep.date, distribution: rep.customersByAge}));
+        const data = reports.map((rep) => ({ date: rep.date, distribution: rep.customersByAge }));
         // const results = await Report.aggregate([
         //     {
         //         $match: {
@@ -554,4 +554,70 @@ export const getMonthlyTotalAgeDistribution = async (req, res) => {
             error: 'Iternal server error'
         })
     }
+}
+
+// Analytics
+
+export const getAnalytcis = async (req, res) => {
+    // get params
+    const userId = req.body.userId;
+    const storeName = req.body.userId;
+    // find the user and store
+    const user = await User.findById(userId).populate('stores');
+    if (!user) {
+        return res.status(400).json({
+            success: false,
+            msg: "Couldn't find user, try again."
+        })
+    }
+    // check for the store in the user
+    const store = user.stores.find((s) => s.name === storeName);
+    if (!store) {
+        return res.status(400).json({
+            success: false,
+            msg: "Couldn't find store, try again"
+        })
+    }
+    const storeId = store._id;
+    // Set the daily intervals
+    const today = new Date();
+    const yesterday = new Date(today);
+    yesterday.setDate(today.getDate() - 1);
+    // Set the weekly intervals
+    const endOfCurrentWeek = new Date();
+    const startOfCurrentWeek = new Date(endOfCurrentWeek);
+    startOfCurrentWeek.setDate(endOfCurrentWeek.getDate() - 6); // including today
+    // previuous week
+    const endOfPreviousWeek = new Date(startOfCurrentWeek);
+    const startOfPreviousWeek = new Date(endOfPreviousWeek);
+    startOfPreviousWeek.setDate(endOfPreviousWeek.getDate() - 7);
+
+    // aggregate the data neccessary
+    const todayReport = await Report.aggregate([
+        {
+            $match: { store: storeId, date: { $gte: new Date(today.setHours(0, 0, 0, 0)), $lte: new Date(today.setHours(23, 59, 59, 59)) } }
+        },
+        { $unwind: "$hourlyReports" },
+        {
+            $group: {
+                _id: { date: "$date" },
+                avgDwellTime: { $avg: "$hourlyReports.avgDwellTime" },
+                totalCustomers: { $sum: "$hourlyReports.totalCustomers" },
+            },
+        }
+    ]);
+    const yesterdayReport = await Report.aggregate([
+        {
+            $match: { store: storeId, date: { $gte: new Date(yesterday.setHours(0, 0, 0, 0)), $lte: new Date(yesterday.setHours(23, 59, 59, 59)) } }
+        },
+        { $unwind: "$hourlyReports" },
+        {
+            $group: {
+                _id: { date: "$date" },
+                avgDwellTime: { $avg: "$hourlyReports.avgDwellTime" },
+                totalCustomers: { $sum: "$hourlyReports.totalCustomers" },
+            }
+        }
+    ])
+    return res.json({ todayReport, yesterdayReport });
 }
