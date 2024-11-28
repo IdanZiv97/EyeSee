@@ -2,13 +2,15 @@
 Implementing Yonatan's API calls
 
 ## TODO
+- [ ] Modify the dashboard to support most recent reports and not by dates
+## In Progress
 - [ ] Testing:
     - [ ] Gender Customer Count (client side) - by Yonatan
     - [ ] Ages Customer Count (client side) - by Yonatan
-    - [x] Analytcis:
+    - [ ] Analytcis:
         - [ ] Daily comparison (client side) - by Yonatan
         - [ ] Weekly comparison (client side) - by Yonatan
-## In Progress
+
 ## Completed
 - [x] Ages Customer Count
 - [x] Created Data
