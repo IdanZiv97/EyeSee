@@ -77,7 +77,7 @@ function generateHourlyReport(timeSlice) {
 
 // Generate all hourly time slices for a report
 function generateHourlyTimeSlices() {
-    const startHour = faker.number.int({ min: 7, max:  10}); // Determine the start of the work day
+    const startHour = faker.number.int({ min: 7, max: 10 }); // Determine the start of the work day
     return Array.from({ length: 12 }, (_, index) => {
         const start = (startHour + index) % 24;
         const end = (start + 1) % 24;
@@ -87,21 +87,30 @@ function generateHourlyTimeSlices() {
 }
 
 // Step 5: Generate reports with consecutive dates for each store
-const fakeReports = storeIds.flatMap(storeId => {
-    const numReports = 365; // A whole year worth of reports
-    const startDate = new Date('2023-11-25T00:00:00Z'); // Start a year from now
 
-    return Array.from({ length: numReports }, (_, i) => {
+// Update the start date to one year ago
+const startDate = new Date();
+startDate.setFullYear(startDate.getFullYear() - 1); // Set the start date to 1 year ago
+
+// Calculate the number of days between the start date and the end of this year
+const endDate = new Date();
+endDate.setMonth(11); // December
+endDate.setDate(31); // Last day of the year
+
+const totalReports = Math.floor((endDate - startDate) / (24 * 60 * 60 * 1000)); // Calculate the total number of reports
+
+const fakeReports = storeIds.flatMap(storeId => {
+    return Array.from({ length: totalReports }, (_, i) => {
         const hourlyReports = generateHourlyTimeSlices(); // Generate hourly reports for this report
 
-        // Convert the date to a timestamp and format it as { "$date": { "$numberLong": "timestamp" } }
-        const formattedDate = new Date(startDate.getTime() + i * 24 * 60 * 60 * 1000); // Add 'i' days for consecutive dates
+        // Add 'i' days to the start date to generate consecutive dates
+        const formattedDate = new Date(startDate.getTime() + i * 24 * 60 * 60 * 1000); 
         const dateInFormat = {
             $date: { $numberLong: formattedDate.getTime().toString() }
         };
         const reportId = new mongoose.Types.ObjectId();
         const report = {
-            _id: { $oid: reportId.toString()},
+            _id: { $oid: reportId.toString() },
             store: { $oid: storeId.toString() },
             date: dateInFormat,
             hourlyReports,
