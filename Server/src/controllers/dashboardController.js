@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 import User from "../models/userModel.js"
 import Store from "../models/storeModel.js"
 import Report from "../models/reportModel.js"
+import { report } from "node:process";
 
 // Helper fucntions:
 
@@ -51,14 +52,24 @@ function calculateDifference(currentValue, prevValue) {
     const isLoss = difference >= 0 ? false : true;
     difference = Math.abs(difference);
     if (isLoss) {
-        const percentage =  parseFloat(((prevValue / currentValue) - 1).toFixed(2));
-        return {diff: difference, percentage: percentage, isLoss: isLoss}
+        const percentage = parseFloat(((prevValue / currentValue) - 1).toFixed(2));
+        return { diff: difference, percentage: percentage, isLoss: isLoss }
     } else {
         const percentage = parseFloat(((currentValue / prevValue) - 1).toFixed(2));
-        return {diff: difference, percentage: percentage, isLoss: isLoss}
+        return { diff: difference, percentage: percentage, isLoss: isLoss }
     }
 }
+
+/**
+ * This function helps to extract the data from a group of reports
+ */
 /*************** API  ***************/
+function extractStats(reports) {
+    const total = reports.reduce((total, report) => total + report.totalCustomers, 0);
+    var avgDwell = reports.reduce((total, report) => total + report.avgDwellTime, 0);
+    avgDwell = avgDwell / reports.length;
+    return {totalCustomers: total, avgDwellTime: avgDwell};
+}
 
 /**
  * This function creates 
@@ -597,91 +608,54 @@ export const getAnalytcis = async (req, res) => {
     }
     const storeId = store._id;
     // Set the daily intervals
-    const today = new Date();
-    const yesterday = new Date(today);
-    yesterday.setDate(today.getDate() - 1);
-    // Set the weekly intervals
-    const endOfCurrentWeek = new Date();
-    const startOfCurrentWeek = new Date(endOfCurrentWeek);
-    startOfCurrentWeek.setDate(endOfCurrentWeek.getDate() - 6); // including today
-    // previuous week
-    const endOfPreviousWeek = new Date(startOfCurrentWeek);
-    const startOfPreviousWeek = new Date(endOfPreviousWeek);
-    startOfPreviousWeek.setDate(endOfPreviousWeek.getDate() - 7);
-
-    // aggregate the data neccessary
-    const todayReport = await Report.aggregate([
-        {
-            $match: { store: storeId, date: { $gte: new Date(today.setHours(0, 0, 0, 0)), $lte: new Date(today.setHours(23, 59, 59, 59)) } }
-        },
+    const reports = await Report.aggregate([
+        { $match: { store: storeId } },
+        { $sort: { date: -1 } },
+        { $limit: 14 },
         { $unwind: "$hourlyReports" },
         {
             $group: {
-                _id: { date: "$date" },
-                avgDwellTime: { $avg: "$hourlyReports.avgDwellTime" },
+                _id: {date: "$date"},
                 totalCustomers: { $sum: "$hourlyReports.totalCustomers" },
-            },
-        }
-    ]);
-    const yesterdayReport = await Report.aggregate([
-        {
-            $match: { store: storeId, date: { $gte: new Date(yesterday.setHours(0, 0, 0, 0)), $lte: new Date(yesterday.setHours(23, 59, 59, 59)) } }
-        },
-        { $unwind: "$hourlyReports" },
-        {
-            $group: {
-                _id: { date: "$date" },
                 avgDwellTime: { $avg: "$hourlyReports.avgDwellTime" },
-                totalCustomers: { $sum: "$hourlyReports.totalCustomers" },
             }
-        }
+        },
+        {
+            $project: {
+                _id: 0,
+                date: "$_id",
+                totalCustomers: 1,
+                avgDwellTime: 1
+            }
+        },
     ])
-    const thisWeek = await Report.aggregate([
-        {
-            $match: { store: storeId, date: { $gte: new Date(startOfCurrentWeek.setHours(0, 0, 0, 0)), $lte: new Date(endOfCurrentWeek.setHours(23, 59, 59, 59)) } }
-        },
-        { $unwind: "$hourlyReports" },
-        {
-            $group: {
-                _id: {
-                    year: { $year: "$date" },
-                    month: { $month: "$date" }
-                },
-                avgDwellTime: { $avg: "$hourlyReports.avgDwellTime" },
-                totalCustomers: { $sum: "$hourlyReports.totalCustomers" },
-            }
-        },
-    ]);
-    const lastWeek = await Report.aggregate([
-        {
-            $match: { store: storeId, date: { $gte: new Date(startOfPreviousWeek.setHours(0, 0, 0, 0)), $lte: new Date(endOfPreviousWeek.setHours(23, 59, 59, 59)) } }
-        },
-        { $unwind: "$hourlyReports" },
-        {
-            $group: {
-                _id: {
-                    year: { $year: "$date" },
-                    month: { $month: "$date" }
-                },
-                avgDwellTime: { $avg: "$hourlyReports.avgDwellTime" },
-                totalCustomers: { $sum: "$hourlyReports.totalCustomers" },
-            }
-        }
-    ]);
+    const data = reports.map((rep) => {
+        const date = rep.date.date.toISOString().split('T')[0];
+        const total = rep.totalCustomers;
+        const avgDwell = rep.avgDwellTime
+        return {date: date, totalCustomers: total, avgDwellTime: avgDwell}
+    })
+    data.sort((a, b) => new Date(b.date) - new Date(a.date)); // sort by dates
+    // Create reports by time intervals
+    const todayReport = data[0];
+    const yesterdayReport = data[1];
+    const thisWeek = extractStats(data.slice(0, 7));
+    const lastWeek = extractStats(data.slice(7));
+
     // handle daily comparison
-    const dailyTotalCustomerDiff = calculateDifference(todayReport[0].totalCustomers, yesterdayReport[0].totalCustomers);
-    const dailyAvgDwellTimeDiff = calculateDifference(todayReport[0].avgDwellTime, yesterdayReport[0].avgDwellTime);
+    const dailyTotalCustomerDiff = calculateDifference(todayReport.totalCustomers, yesterdayReport.totalCustomers);
+    const dailyAvgDwellTimeDiff = calculateDifference(todayReport.avgDwellTime, yesterdayReport.avgDwellTime);
     //handle weekly comparison
-    const weeklyTotalCustomersDiff = calculateDifference(thisWeek[0].totalCustomers, lastWeek[0].totalCustomers);
-    const weeklyAvgDwellTimeDiff = calculateDifference(thisWeek[0].avgDwellTime, lastWeek[0].avgDwellTime);
-    const data = {
+    const weeklyTotalCustomersDiff = calculateDifference(thisWeek.totalCustomers, lastWeek.totalCustomers);
+    const weeklyAvgDwellTimeDiff = calculateDifference(thisWeek.avgDwellTime, lastWeek.avgDwellTime);
+    const packet = {
         dailyTotal: dailyTotalCustomerDiff,
         dailyDwell: dailyAvgDwellTimeDiff,
         weeklyTotal: weeklyTotalCustomersDiff,
         weeklyDwell: weeklyAvgDwellTimeDiff
     }
-    return res.status(200).json({
+    return res.json({
         success: true,
-        data: data
-    });
+        data: packet
+    })
 }
