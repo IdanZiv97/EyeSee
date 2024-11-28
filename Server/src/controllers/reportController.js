@@ -81,19 +81,30 @@ export const createReport = async (req, res) => {
  */
 export const defaultReport = async (req, res) => {
     const userId = req.body.userId;
+    const storeName = req.bodyName;
     // fetch the user
-    const user = await User.findById(userId).populate('mainStore');
+    const user = await User.findById(userId).populate('stores');
     if (!user) {
         return res.status(400).json({
             success: false,
             msg: "User not found"
         })
     }
-    const storeId = user.mainStore._id;
+    const store = user.stores.find((s) => s.name === storeName);
+    if (!store) {
+        return res.status(400).json({
+            success: false,
+            msg: "Store not found"
+        })
+    }
+    const storeId = store._id;
     // search in reports collection by store_id
     const report = await Report.findOne({ store: storeId }).sort({ date: -1 }).limit(1);
     const data = processReport(report);
-    res.status(200).json(data);
+    res.status(200).json({
+        success: true,
+        data: data
+    });
 };
 
 
