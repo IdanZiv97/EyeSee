@@ -603,7 +603,7 @@ export const getAnalytcis = async (req, res) => {
     // Set the weekly intervals
     const endOfCurrentWeek = new Date();
     const startOfCurrentWeek = new Date(endOfCurrentWeek);
-    startOfCurrentWeek.setDate(endOfCurrentWeek.getDate() - 6); // including today
+    startOfCurrentWeek.setDate(endOfCurrentWeek.getDate() - 7); // including today
     // previuous week
     const endOfPreviousWeek = new Date(startOfCurrentWeek);
     const startOfPreviousWeek = new Date(endOfPreviousWeek);
