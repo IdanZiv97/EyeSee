@@ -6,9 +6,7 @@ Implementing Yonatan's API calls
     - [ ] Daily comparison
     - [ ] Weekly comparison
 - [ ] Testing:
-    - [ ] Gender Customer Count (server side) - by Idan
     - [ ] Gender Customer Count (client side) - by Yonatan
-    - [ ] Ages Customer Count (server side) - by Idan
     - [ ] Ages Customer Count (client side) - by Yonatan
     - [ ] Analytcis:
         - [ ] Daily comparison (server side) - by Idan
@@ -16,9 +14,11 @@ Implementing Yonatan's API calls
         - [ ] Weekly comparison (server side) - by Idan
         - [ ] Weekly comparison (client side) - by Yonatan
 ## In Progress
-- [ ] Ages Customer Count
-
+- [ ] Testing:
+    - [ ] Gender Customer Count (server side) - by Idan
+    - [ ] Ages Customer Count (server side) - by Idan
 ## Completed
+- [x] Ages Customer Count
 - [x] Created Data
 - [x] Average Dwell Time Per Day (Weekly Scope)
 - [x] Average Dwell Time Per Month (Yearly Scope)

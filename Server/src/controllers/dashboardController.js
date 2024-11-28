@@ -410,3 +410,148 @@ export const getWeeklyTotalGenderDistribution = async (req, res) => {
         })
     }
 }
+
+export const getMonthlyTotalAgeDistribution = async (req, res) => {
+    try {
+        const userId = req.body.userId;
+        const storeName = req.body.storeName;
+        // get user
+        const user = await User.findById(userId).populate('stores');
+        if (!user) {
+            return res.status(400).json({
+                success: false,
+                msg: "Couldn't find user, try again."
+            })
+        }
+        // check for the store in the user
+        const store = user.stores.find((s) => s.name === storeName);
+        if (!store) {
+            return res.status(400).json({
+                success: false,
+                msg: "Couldn't find store, try again"
+            })
+        }
+        // Get the current date, in order to calcualte the date a year ago
+        const today = new Date();
+        // Calcualte the date of exactly one year ago
+        const lastYear = new Date(today);
+        lastYear.setFullYear(today.getFullYear() - 1);
+        lastYear.setHours(0, 0, 0, 0); // in case the oldest report was created after 00:00:00
+        const storeId = store._id;
+        // Aggregate
+        const reports = await Report.aggregate([
+            {
+                // Filter reports from the last year for the specified store
+                $match: {
+                    store: storeId,
+                    date: { $gte: lastYear },
+                }
+            },
+            {
+                // Unwind the hourlyReports array
+                $unwind: "$hourlyReports"
+            },
+            {
+                // Convert the customersByAge map into an array of key-value pairs
+                $project: {
+                    date: 1,
+                    store: 1,
+                    hourlyReports: 1,
+                    customersByAge: {
+                        $objectToArray: "$hourlyReports.customersByAge"
+                    }
+                }
+            },
+            {
+                // Unwind the array created by objectToArray to access age group data
+                $unwind: "$customersByAge"
+            },
+            {
+                // Group by year, month, and age group, summing customers for each age group
+                $group: {
+                    _id: {
+                        year: { $year: "$date" },
+                        month: { $month: "$date" },
+                        ageGroup: "$customersByAge.k" // The age group key
+                    },
+                    totalCustomers: { $sum: "$customersByAge.v" } // Sum the values
+                }
+            },
+            {
+                // Restructure the data to group by month and year
+                $group: {
+                    _id: {
+                        year: "$_id.year",
+                        month: "$_id.month"
+                    },
+                    customersByAge: {
+                        $push: {
+                            ageGroup: "$_id.ageGroup",
+                            totalCustomers: "$totalCustomers"
+                        }
+                    }
+                }
+            },
+            {
+                // Format the date as YYYY-MM
+                $project: {
+                    _id: 0,
+                    date: {
+                        $concat: [
+                            { $toString: "$_id.year" },
+                            "-",
+                            {
+                                $cond: {
+                                    if: { $lt: ["$_id.month", 10] },
+                                    then: { $concat: ["0", { $toString: "$_id.month" }] },
+                                    else: { $toString: "$_id.month" }
+                                }
+                            }
+                        ]
+                    },
+                    customersByAge: 1
+                }
+            },
+            {
+                // Sort by date
+                $sort: { date: 1 }
+            }
+        ]);
+        const data = reports.map((rep) => ({date: rep.date, distribution: rep.customersByAge}));
+        // const results = await Report.aggregate([
+        //     {
+        //         $match: {
+        //             store: storeId,
+        //             date: { $gte: lastYear },
+        //         },
+        //     },
+        //     { $unwind: "$hourlyReports" },
+        //     {
+        //         $group: {
+        //             _id: {
+        //                 date: "$date",
+        //             },
+        //             customerByAge: {
+        //                 $mergeObjects: "$hourlyReports.customersByAge",
+        //             }
+        //         }
+        //     },
+        //     {
+        //         $project: {
+        //             date: "$_id.date"
+        //         },
+        //         customersByAge: 1
+        //     }
+        // ]);
+        return res.status(200).json({
+            success: true,
+            data: data
+        })
+    } catch (error) {
+        console.error('Error:', error);
+        return res.status(500).json({
+            success: false,
+            error: 'Iternal server error'
+        })
+    }
+}
