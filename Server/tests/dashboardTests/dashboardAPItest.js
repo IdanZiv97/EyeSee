@@ -7,8 +7,8 @@ const testWeeklyDwellTime = async () => {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            userId: '67448d410b5ddf2f8ffb834f',
-            storeName: 'Schulist LLC'
+            userId: '674857ee43ac1896622d5773',
+            storeName: 'Berge - Boyle'
         }),
     });
 
@@ -24,8 +24,8 @@ const testMonthlyDwellTime = async () => {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            userId: '67448d410b5ddf2f8ffb834f',
-            storeName: 'Schulist LLC'
+            userId: '674857ee43ac1896622d5773',
+            storeName: 'Berge - Boyle'
         }),
     });
 
@@ -41,8 +41,8 @@ const testMonthlyTotalCustomers = async () => {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            userId: '67448d410b5ddf2f8ffb834f',
-            storeName: 'Schulist LLC'
+            userId: '674857ee43ac1896622d5773',
+            storeName: 'Berge - Boyle'
         }),
     });
 
@@ -58,8 +58,8 @@ const testWeeklyTotalCustomers = async () => {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            userId: '67448d410b5ddf2f8ffb834f',
-            storeName: 'Schulist LLC'
+            userId: '674857ee43ac1896622d5773',
+            storeName: 'Berge - Boyle'
         }),
     });
 
@@ -75,8 +75,8 @@ const testMonthlyGenderDistribution = async () => {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            userId: '67448d410b5ddf2f8ffb834f',
-            storeName: 'Schulist LLC'
+            userId: '674857ee43ac1896622d5773',
+            storeName: 'Berge - Boyle'
         }),
     });
 
@@ -98,8 +98,8 @@ const testWeeklyGenderDistribution = async () => {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            userId: '67448d410b5ddf2f8ffb834f',
-            storeName: 'Schulist LLC'
+            userId: '674857ee43ac1896622d5773',
+            storeName: 'Berge - Boyle'
         }),
     });
 
@@ -122,8 +122,8 @@ const testMonthlyAgeDistribution = async () => {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            userId: '67448d410b5ddf2f8ffb834f',
-            storeName: 'Schulist LLC'
+            userId: '674857ee43ac1896622d5773',
+            storeName: 'Berge - Boyle'
         }),
     });
 
@@ -143,8 +143,8 @@ const testAnalytics = async () => {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            userId: '67448d410b5ddf2f8ffb834f',
-            storeName: 'Schulist LLC'
+            userId: '674857ee43ac1896622d5773',
+            storeName: 'Berge - Boyle'
         }),
     });
 

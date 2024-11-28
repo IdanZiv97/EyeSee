@@ -561,7 +561,7 @@ export const getMonthlyTotalAgeDistribution = async (req, res) => {
 export const getAnalytcis = async (req, res) => {
     // get params
     const userId = req.body.userId;
-    const storeName = req.body.userId;
+    const storeName = req.body.storeName;
     // find the user and store
     const user = await User.findById(userId).populate('stores');
     if (!user) {
@@ -619,5 +619,37 @@ export const getAnalytcis = async (req, res) => {
             }
         }
     ])
-    return res.json({ todayReport, yesterdayReport });
+    const thisWeek = await Report.aggregate([
+        {
+            $match: { store: storeId, date: { $gte: new Date(startOfCurrentWeek.setHours(0, 0, 0, 0)), $lte: new Date(endOfCurrentWeek.setHours(23, 59, 59, 59)) } }
+        },
+        { $unwind: "$hourlyReports" },
+        {
+            $group: {
+                _id: {
+                    year: { $year: "$date" },
+                    month: { $month: "$date" }
+                },
+                avgDwellTime: { $avg: "$hourlyReports.avgDwellTime" },
+                totalCustomers: { $sum: "$hourlyReports.totalCustomers" },
+            }
+        },
+    ]);
+    const lastWeek = await Report.aggregate([
+        {
+            $match: { store: storeId, date: { $gte: new Date(startOfPreviousWeek.setHours(0, 0, 0, 0)), $lte: new Date(endOfPreviousWeek.setHours(23, 59, 59, 59)) } }
+        },
+        { $unwind: "$hourlyReports" },
+        {
+            $group: {
+                _id: {
+                    year: { $year: "$date" },
+                    month: { $month: "$date" }
+                },
+                avgDwellTime: { $avg: "$hourlyReports.avgDwellTime" },
+                totalCustomers: { $sum: "$hourlyReports.totalCustomers" },
+            }
+        }
+    ]);
+    return res.json({ todayReport, yesterdayReport, thisWeek, lastWeek });
 }
