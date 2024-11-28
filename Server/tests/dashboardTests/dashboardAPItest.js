@@ -8,7 +8,7 @@ const testWeeklyDwellTime = async () => {
         },
         body: JSON.stringify({
             userId: '67448d410b5ddf2f8ffb834f',
-            storeName: 'Quitzon, Schimmel and Lemke'
+            storeName: 'Schulist LLC'
         }),
     });
 
@@ -25,7 +25,7 @@ const testMonthlyDwellTime = async () => {
         },
         body: JSON.stringify({
             userId: '67448d410b5ddf2f8ffb834f',
-            storeName: 'Quitzon, Schimmel and Lemke'
+            storeName: 'Schulist LLC'
         }),
     });
 
@@ -42,7 +42,7 @@ const testMonthlyTotalCustomers = async () => {
         },
         body: JSON.stringify({
             userId: '67448d410b5ddf2f8ffb834f',
-            storeName: 'Quitzon, Schimmel and Lemke'
+            storeName: 'Schulist LLC'
         }),
     });
 
@@ -59,7 +59,7 @@ const testWeeklyTotalCustomers = async () => {
         },
         body: JSON.stringify({
             userId: '67448d410b5ddf2f8ffb834f',
-            storeName: 'Quitzon, Schimmel and Lemke'
+            storeName: 'Schulist LLC'
         }),
     });
 
@@ -68,15 +68,90 @@ const testWeeklyTotalCustomers = async () => {
 
 }
 
+const testMonthlyGenderDistribution = async () => {
+    const response = await fetch('http://localhost:4000/api/gender-distribution/monthly', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            userId: '67448d410b5ddf2f8ffb834f',
+            storeName: 'Schulist LLC'
+        }),
+    });
+
+    const data = await response.json();
+    console.log(data);
+    console.log('Keys of data: ', Object.keys(data));
+    console.log('Keys of the data entry in the response: ', Object.keys(data.data[0]));
+    // accessing a random entry
+    const randomMonth = data.data[4].month
+    const randomDistibution = data.data[4].distribution
+    console.log('month: ', randomMonth);
+    console.log('distribution', randomDistibution);
+}
+
+const testWeeklyGenderDistribution = async () => {
+    const response = await fetch('http://localhost:4000/api/gender-distribution/weekly', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            userId: '67448d410b5ddf2f8ffb834f',
+            storeName: 'Schulist LLC'
+        }),
+    });
+
+    const data = await response.json();
+    console.log(data);
+    console.log('Keys of the response: ', Object.keys(data));
+    console.log('Keys of the data entry in the response: ', Object.keys(data.data[0]));
+    // accessing a random entry
+    // accessing a random entry
+    const randomDate = data.data[4].date
+    const randomDistibution = data.data[4].distribution
+    console.log('date: ', randomDate);
+    console.log('distribution', randomDistibution);
+}
+
+const testMonthlyAgeDistribution = async () => {
+    const response = await fetch('http://localhost:4000/api/age-distribution/monthly', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            userId: '67448d410b5ddf2f8ffb834f',
+            storeName: 'Schulist LLC'
+        }),
+    });
+
+    const data = await response.json();
+    console.log(data);
+    console.log('Keys of data: ', Object.keys(data));
+    console.log('Keys of the data entry in the response: ', Object.keys(data.data[0]));
+    const randomAges = data.data[0].distribution;
+    console.log("random cusomters by age:", randomAges);
+    
+}
+
 console.log("Testing\n\n");
 
-console.log("Testing Dweel Time");
+// console.log("Testing Dweel Time");
+// console.log("Testing Monthly");
+// await testMonthlyDwellTime().catch((error) => console.error('Error:', error));
+// console.log("Testing Weekly");
+// await testWeeklyDwellTime().catch((error) => console.error('Error:', error));
+// console.log("Testing Total Customers");
+// console.log("Testing Monthly");
+// await testMonthlyTotalCustomers().catch((error) => console.error('Error:', error));
+// console.log("Testing Weekly");
+// await testWeeklyTotalCustomers().catch((error) => console.error('Error:', error));
+console.log("Testing Gender Distribution");
 console.log("Testing Monthly");
-await testMonthlyDwellTime().catch((error) => console.error('Error:', error));
+await testMonthlyGenderDistribution();
 console.log("Testing Weekly");
-await testWeeklyDwellTime().catch((error) => console.error('Error:', error));
-console.log("Testing Total Customers");
-console.log("Testing Monthly");
-await testMonthlyTotalCustomers().catch((error) => console.error('Error:', error));
-console.log("Testing Weekly");
-await testWeeklyTotalCustomers().catch((error) => console.error('Error:', error));
+await testWeeklyGenderDistribution();
+console.log("Testing Age Distribution");
+await testMonthlyAgeDistribution();
