@@ -149,27 +149,34 @@ const testAnalytics = async () => {
     });
 
     const data = await response.json();
-    console.log(data);
+    console.log('Data:', data);
+
+    console.log('Daily Total Customers Difference: ', data.data.dailyTotal);
+    console.log('Daily Avg Dwell Time Difference: ', data.data.dailyDwell);
+    console.log('Weekly Total Customers Difference: ', data.data.weeklyTotal);
+    console.log('Weekly Avg Dwell Time Difference: ', data.data.weeklyDwell);
+    
+    
 }
 
 console.log("Testing\n\n");
 
-// console.log("Testing Dweel Time");
-// console.log("Testing Monthly");
-// await testMonthlyDwellTime().catch((error) => console.error('Error:', error));
-// console.log("Testing Weekly");
-// await testWeeklyDwellTime().catch((error) => console.error('Error:', error));
-// console.log("Testing Total Customers");
-// console.log("Testing Monthly");
-// await testMonthlyTotalCustomers().catch((error) => console.error('Error:', error));
-// console.log("Testing Weekly");
-// await testWeeklyTotalCustomers().catch((error) => console.error('Error:', error));
-// console.log("Testing Gender Distribution");
-// console.log("Testing Monthly");
-// await testMonthlyGenderDistribution();
-// console.log("Testing Weekly");
-// await testWeeklyGenderDistribution();
-// console.log("Testing Age Distribution");
-// await testMonthlyAgeDistribution();
+console.log("Testing Dweel Time");
+console.log("Testing Monthly");
+await testMonthlyDwellTime().catch((error) => console.error('Error:', error));
+console.log("Testing Weekly");
+await testWeeklyDwellTime().catch((error) => console.error('Error:', error));
+console.log("Testing Total Customers");
+console.log("Testing Monthly");
+await testMonthlyTotalCustomers().catch((error) => console.error('Error:', error));
+console.log("Testing Weekly");
+await testWeeklyTotalCustomers().catch((error) => console.error('Error:', error));
+console.log("Testing Gender Distribution");
+console.log("Testing Monthly");
+await testMonthlyGenderDistribution();
+console.log("Testing Weekly");
+await testWeeklyGenderDistribution();
+console.log("Testing Age Distribution");
+await testMonthlyAgeDistribution();
 console.log("Testing Analytics");
 await testAnalytics();

@@ -41,6 +41,23 @@ function calcualteTotalGenderDistribution(report) {
         (sum, hourlyReport) => sum + hourlyReport.totalFemaleCustomers, 0);
     return { date: date, distribution: { male: totalMaleCustomers, female: totalFemaleCustomers } };
 }
+
+/**
+ * This function calculates the difference in given parameter
+ */
+
+function calculateDifference(currentValue, prevValue) {
+    var difference = currentValue - prevValue;
+    const isLoss = difference >= 0 ? false : true;
+    difference = Math.abs(difference);
+    if (isLoss) {
+        const percentage =  parseFloat(((prevValue / currentValue) - 1).toFixed(2));
+        return {diff: difference, percentage: percentage, isLoss: isLoss}
+    } else {
+        const percentage = parseFloat(((currentValue / prevValue) - 1).toFixed(2));
+        return {diff: difference, percentage: percentage, isLoss: isLoss}
+    }
+}
 /*************** API  ***************/
 
 /**
@@ -651,5 +668,20 @@ export const getAnalytcis = async (req, res) => {
             }
         }
     ]);
-    return res.json({ todayReport, yesterdayReport, thisWeek, lastWeek });
+    // handle daily comparison
+    const dailyTotalCustomerDiff = calculateDifference(todayReport[0].totalCustomers, yesterdayReport[0].totalCustomers);
+    const dailyAvgDwellTimeDiff = calculateDifference(todayReport[0].avgDwellTime, yesterdayReport[0].avgDwellTime);
+    //handle weekly comparison
+    const weeklyTotalCustomersDiff = calculateDifference(thisWeek[0].totalCustomers, lastWeek[0].totalCustomers);
+    const weeklyAvgDwellTimeDiff = calculateDifference(thisWeek[0].avgDwellTime, lastWeek[0].avgDwellTime);
+    const data = {
+        dailyTotal: dailyTotalCustomerDiff,
+        dailyDwell: dailyAvgDwellTimeDiff,
+        weeklyTotal: weeklyTotalCustomersDiff,
+        weeklyDwell: weeklyAvgDwellTimeDiff
+    }
+    return res.status(200).json({
+        success: true,
+        data: data
+    });
 }
