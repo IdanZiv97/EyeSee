@@ -53,10 +53,10 @@ function calculateDifference(currentValue, prevValue) {
     difference = Math.abs(difference);
     if (isLoss) {
         const percentage = parseFloat(((prevValue / currentValue) - 1).toFixed(2));
-        return { diff: difference, percentage: percentage, isLoss: isLoss }
+        return { total: currentValue, diff: difference, percentage: percentage, isLoss: isLoss }
     } else {
         const percentage = parseFloat(((currentValue / prevValue) - 1).toFixed(2));
-        return { diff: difference, percentage: percentage, isLoss: isLoss }
+        return { total: currentValue, diff: difference, percentage: percentage, isLoss: isLoss }
     }
 }
 
@@ -68,7 +68,7 @@ function extractStats(reports) {
     const total = reports.reduce((total, report) => total + report.totalCustomers, 0);
     var avgDwell = reports.reduce((total, report) => total + report.avgDwellTime, 0);
     avgDwell = avgDwell / reports.length;
-    return {totalCustomers: total, avgDwellTime: avgDwell};
+    return { totalCustomers: total, avgDwellTime: avgDwell };
 }
 
 /**
@@ -615,7 +615,7 @@ export const getAnalytcis = async (req, res) => {
         { $unwind: "$hourlyReports" },
         {
             $group: {
-                _id: {date: "$date"},
+                _id: { date: "$date" },
                 totalCustomers: { $sum: "$hourlyReports.totalCustomers" },
                 avgDwellTime: { $avg: "$hourlyReports.avgDwellTime" },
             }
@@ -633,7 +633,7 @@ export const getAnalytcis = async (req, res) => {
         const date = rep.date.date.toISOString().split('T')[0];
         const total = rep.totalCustomers;
         const avgDwell = rep.avgDwellTime
-        return {date: date, totalCustomers: total, avgDwellTime: avgDwell}
+        return { date: date, totalCustomers: total, avgDwellTime: avgDwell }
     })
     data.sort((a, b) => new Date(b.date) - new Date(a.date)); // sort by dates
     // Create reports by time intervals
