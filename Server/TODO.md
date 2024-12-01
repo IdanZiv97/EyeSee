@@ -2,10 +2,10 @@
 Implementing Yonatan's API calls
 
 ## TODO
-
 ## In Progress
 - [ ] Modify the dashboard to support most recent reports and not by dates
 - [ ] Testing:
+    - [ ] Test changes - by Yonatan
     - [ ] Gender Customer Count (client side) - by Yonatan
     - [ ] Ages Customer Count (client side) - by Yonatan
     - [ ] Analytcis:
@@ -13,6 +13,7 @@ Implementing Yonatan's API calls
         - [ ] Weekly comparison (client side) - by Yonatan
 
 ## Completed
+- [x] Modify the dashboard to support most recent reports and not by dates
 - [x] Ages Customer Count
 - [x] Created Data
 - [x] Average Dwell Time Per Day (Weekly Scope)
