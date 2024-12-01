@@ -52,10 +52,10 @@ function calculateDifference(currentValue, prevValue) {
     difference = Math.abs(difference);
     if (isLoss) {
         const percentage =  parseFloat(((prevValue / currentValue) - 1).toFixed(2));
-        return {diff: difference, percentage: percentage, isLoss: isLoss}
+        return {total: currentValue, diff: difference, percentage: percentage, isLoss: isLoss}
     } else {
         const percentage = parseFloat(((currentValue / prevValue) - 1).toFixed(2));
-        return {diff: difference, percentage: percentage, isLoss: isLoss}
+        return {total: currentValue, diff: difference, percentage: percentage, isLoss: isLoss}
     }
 }
 /*************** API  ***************/
