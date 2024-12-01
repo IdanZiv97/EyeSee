@@ -1,10 +1,20 @@
 import fs from 'fs/promises';
 import { faker } from '@faker-js/faker';
+import bcrypt from 'bcrypt';
 import mongoose from 'mongoose';
 
 // Step 1: Create a single user with two stores
 const userId = new mongoose.Types.ObjectId();
 const storeIds = [new mongoose.Types.ObjectId(), new mongoose.Types.ObjectId()];
+const passwordToHashMap = [];
+
+async function createHashedPassowrd() {
+    const raw = faker.internet.password();
+    const salt = await bcrypt.genSalt();
+    const hash = await bcrypt.hash(raw, salt);
+    passwordToHashMap.push({passwor: raw, hash: hash});
+    return hash;
+}
 
 // Step 2: Generate a single user with two stores
 const fakeUser = {
@@ -12,6 +22,7 @@ const fakeUser = {
     username: faker.internet.username(),
     firstName: faker.person.firstName(),
     lastName: faker.person.lastName(),
+    password: await createHashedPassowrd(),
     email: faker.internet.email(),
     mainStore: { $oid: storeIds[0].toString() }, // First store is the main store
     stores: storeIds.map(storeId => ({ $oid: storeId.toString() })), // Both stores owned by this user
@@ -66,7 +77,7 @@ function generateHourlyReport(timeSlice) {
 
 // Generate all hourly time slices for a report
 function generateHourlyTimeSlices() {
-    const startHour = faker.number.int({ min: 7, max:  10}); // Determine the start of the work day
+    const startHour = faker.number.int({ min: 7, max: 10 }); // Determine the start of the work day
     return Array.from({ length: 12 }, (_, index) => {
         const start = (startHour + index) % 24;
         const end = (start + 1) % 24;
@@ -76,21 +87,30 @@ function generateHourlyTimeSlices() {
 }
 
 // Step 5: Generate reports with consecutive dates for each store
-const fakeReports = storeIds.flatMap(storeId => {
-    const numReports = 365; // A whole year worth of reports
-    const startDate = new Date('2023-11-25T00:00:00Z'); // Start a year from now
 
-    return Array.from({ length: numReports }, (_, i) => {
+// Update the start date to one year ago
+const startDate = new Date();
+startDate.setFullYear(startDate.getFullYear() - 1); // Set the start date to 1 year ago
+
+// Calculate the number of days between the start date and the end of this year
+const endDate = new Date();
+endDate.setMonth(11); // December
+endDate.setDate(31); // Last day of the year
+
+const totalReports = Math.floor((endDate - startDate) / (24 * 60 * 60 * 1000)); // Calculate the total number of reports
+
+const fakeReports = storeIds.flatMap(storeId => {
+    return Array.from({ length: totalReports }, (_, i) => {
         const hourlyReports = generateHourlyTimeSlices(); // Generate hourly reports for this report
 
-        // Convert the date to a timestamp and format it as { "$date": { "$numberLong": "timestamp" } }
-        const formattedDate = new Date(startDate.getTime() + i * 24 * 60 * 60 * 1000); // Add 'i' days for consecutive dates
+        // Add 'i' days to the start date to generate consecutive dates
+        const formattedDate = new Date(startDate.getTime() + i * 24 * 60 * 60 * 1000); 
         const dateInFormat = {
             $date: { $numberLong: formattedDate.getTime().toString() }
         };
         const reportId = new mongoose.Types.ObjectId();
         const report = {
-            _id: { $oid: reportId.toString()},
+            _id: { $oid: reportId.toString() },
             store: { $oid: storeId.toString() },
             date: dateInFormat,
             hourlyReports,
@@ -113,6 +133,10 @@ async function saveDataToJson() {
         
         await fs.writeFile('./single_fakeReportsYearly.json', JSON.stringify(fakeReports, null, 4));
         console.log('Single fake reports saved to single_fakeReports.json');
+
+        await fs.writeFile('./passwordsMap.json', JSON.stringify(passwordToHashMap, null, 4));
+        console.log('Password map saved to passwordsMap.json');
+        
     } catch (error) {
         console.error('Error saving data to JSON files:', error);
     }
