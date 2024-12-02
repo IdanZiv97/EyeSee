@@ -1,7 +1,6 @@
 # EyeSee - Feature/Media Upload
 
 ## TODO
-- [ ] Write workflow paper.
 - [ ] Video Upload:
     - [ ] handle client's request to upload a new video for analysis
     - [ ] post upload: pass the video to the Vision model to process it
@@ -11,7 +10,9 @@
 - [ ] Testing
 
 ## In Progress
-- [ ] Read about Cloudinary
-- [ ] Define the necessary schemas and relations
+- [ ] Brainstorming
 
 ## Completed
+- [x] Define the necessary schemas and relations
+- [x] Read about Cloudinary
+- [x] Write workflow paper.
