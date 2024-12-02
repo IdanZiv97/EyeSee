@@ -15,6 +15,11 @@ const jobSchema = new Schema({
     startTime: { type: String },
     endTime: { type: String },
     length: { type: Number }, // the length of the video
+    status: {
+        type: String,
+        default: "Pending",
+        enum: ["Pending", "Processing", "Completed", "Failed"]
+    }
 });
 
 export const Job = mongoose.model('Job', jobSchema);
