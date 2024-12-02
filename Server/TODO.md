@@ -1,6 +1,7 @@
 # EyeSee - Feature/Media Upload
 
 ## TODO
+- [ ] Write workflow paper.
 - [ ] Video Upload:
     - [ ] handle client's request to upload a new video for analysis
     - [ ] post upload: pass the video to the Vision model to process it
