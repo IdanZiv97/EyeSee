@@ -15,10 +15,11 @@ const jobSchema = new Schema({
     startTime: { type: String },
     endTime: { type: String },
     length: { type: Number }, // the length of the video
-    status: {
+    status: { // The idea here to have some sort of history for the user and for the app to manage
         type: String,
         default: "Pending",
-        enum: ["Pending", "Processing", "Completed", "Failed"]
+        enum: ["Pending", "Processing", "Completed", "Failed"],
+        index: true
     }
 });
 
