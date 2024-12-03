@@ -115,6 +115,52 @@ export const uploadVideo = async (req, res) => {
     }
 }
 
+/**
+ * Function to upload a heatmap.
+ * Note: this method is called only by the ML Service!
+ * Under the assumption we upload a heatmap for every time slice in the video given to the ML service.
+ * In order to create the heatmap the ML service will pass on in the body of the request:
+ *  1. jobId
+ *  2. timeSlice
+ *  3. link: the url to the uploaded image on the cloud
+ * 
+ */
+
+export const addHeatmap = async (req, res) => {
+    // get the params
+    const jobId = req.body.jobId;
+    const timeSlice = req.body.timeSlice;
+    const link = req.body.link;
+    // get the job
+    const job = await Job.findById(jobId);
+    // double check the status is processing
+    if (!job.status === "Processing") {
+        job.set('status', "Processing");
+        await job.save();
+    }
+    // create the heatmap
+    const user = await User.findById(job.userId).populate('store');
+    const store = user.stores.find((s) => s.name === job.storeName);
+    try {
+        const newHeatmap = new Heatmap({
+            store: store._id,
+            date: job.date,
+            timeSlice: timeSlice,
+            url: link,
+        });
+        await newHeatmap.save();
+        return res.status(200).json({
+            success: true
+        });
+    } catch(error) {
+        console.error('Error: ', error);
+        return res.status(400).json({
+            success: false
+        })
+    }
+
+}
+
 // Read Operations
 
 /**
@@ -338,7 +384,7 @@ export const deleteHeatmaps = async (req, res) => {
 
 /**
  * Function to delete a video.
- * Note: This method is called only by the server!
+ * Note: This method is called only by the ML service!
  * The body of the request will include only the  jobId
  * A video will remain saved on the cloud until the job is completed.
  * Once the job is completed we will delete the video.
