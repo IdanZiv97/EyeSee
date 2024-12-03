@@ -9,6 +9,18 @@ import User from "../models/userModel.js"
 import Report from '../models/reportModel.js';
 import { Job } from '../models/jobModel.js';
 import { Heatmap } from '../models/heatmapModel.js';
+
+// Configuring cloudinary access
+import dotenv from 'dotenv';
+import { v2 as cloudinary } from 'cloudinary';
+import { extractPublicId } from 'cloudinary-build-url' // open-source package to extract publicId from url
+dotenv.config();
+cloudinary.config({
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET
+})
+
 // Upload Operations
 
 export const uploadVideo = async (req, res) => {
@@ -257,3 +269,69 @@ export const getHeatmaps = async (req, res) => {
 }
 
 // Delete Operations
+
+/**
+ * This function handles the deleteion of the a heatmap image from the cloud.
+ * It required an heatmapId. It will receive the ids in an array.
+ * In case of a failure the success field will be set to false.
+ * In case of failed delete operations, an array of the failed heatmaps Ids will be sent with proper message
+ */
+
+export const deleteHeatmaps = async (req, res) => {
+    const heatmapsIds = req.body.ids;
+    if (!Array.isArray(heatmapsIds)) {
+        return res.status(400).json({
+            success: false,
+            msg: "Please pass a valid array of IDs"
+        });
+    }
+    var failedToDelete = [];
+    var failureFlag = false;
+    for (const heatmapId of heatmapsIds) {
+        try {
+            const heatmap = await Heatmap.findById(heatmapId);
+            if (!heatmap) {
+                const temp = {
+                    heatmapId: heatmapId,
+                    error: "Couldn't find heatmap"
+                }
+                if (!failureFlag) { failureFlag = true; }
+                failedToDelete.push(temp)
+            }
+            // get the public id
+            const publicId = extractPublicId(heatmap.url);
+            // delete from cloud
+            const isDeleted = await cloudinary.uploader.destroy(publicId, { resource_type: 'image' });
+            // handle error delete
+            if (!(isDeleted.result === "ok")) {
+                const temp = {
+                    heatmapId: heatmapId,
+                    error: "Failed to delete the report , try again"
+                }
+                if (!failureFlag) { failureFlag = true; }
+                failedToDelete.push(temp)
+            }
+            // delete from the server
+            await Heatmap.findByIdAndDelete(heatmapId);
+        } catch (error) {
+            console.error('Error: ', error);
+            const temp = {
+                heatmapId: heatmapId,
+                error: error
+            }
+        }
+    }
+    if (failedToDelete.length === 0) {
+        return res.status(200).json({
+            success: true,
+            failureFlag: failureFlag,
+            heatmaps: failedToDelete
+        })
+    } else {
+        return res.status(400).json({
+            success: false,
+            failureFlag: failureFlag,
+            heatmaps: failedToDelete
+        })
+    }
+}
