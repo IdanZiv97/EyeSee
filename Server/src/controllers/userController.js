@@ -92,10 +92,10 @@ export const updateUserInfo = async (req, res) => {
             const newMainStore = user.stores.find((s) => s.name === mainStore);
             updates.mainStore = newMainStore._id;
         }
-        if (firstName) {
+        if (firstName && !(firstName === user.firstName)) {
             updates.firstName = firstName;
         }
-        if (lastName) {
+        if (lastName && !(lastName === user.lastName)) {
             updates.lastName = lastName;
         }
         // check if no updates were made
