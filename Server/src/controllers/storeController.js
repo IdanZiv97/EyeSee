@@ -181,3 +181,28 @@ export const updateStore = async (req, res) => {
     }
 ;}
 
+/**
+ * Function to get analytics on the user stores.
+ * Given a userId you get for each store the following data:
+ *  1. number of reports
+ *  2. date of creation
+ */
+
+export const getAnalytics = async (req, res) => {
+    try {
+        const userId = req.body.userId;
+        const user = await User.findById(userId).populate('stores');
+        let data = {};
+        for (const store of user.stores) {
+            let numOfReports = store.reports.length || 0;
+            let createdAt = store.createAt || "No information found";
+            data[store.name] = {numOfReports: numOfReports, createdAt: createdAt};
+        }
+        return res.status(200).json(data);
+    } catch (error) {
+        return res.status(500).json({
+            success: true,
+            msg: "Iternal server error"
+        })
+    }
+}
