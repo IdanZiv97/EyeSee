@@ -14,7 +14,8 @@ import Store from "../models/storeModel.js";
  * When a login succeeds the response include the following data:
  *  1. id of the logged in user
  *  2. username of the logged in user
- *  3. id of the logged in user's main store
+ *  3. user info
+ *  4. stores info
  */
 export const loginUser = async (req, res) => {
     try {
@@ -44,6 +45,9 @@ export const loginUser = async (req, res) => {
             success: true,
             userId: user.id,
             username: user.username,
+            firstName: user.firstName,
+            lastName: user.lastName,
+            email: user.email,
             mainStoreId: user.mainStore,
             stores: storesNames
         })
@@ -67,8 +71,10 @@ export const loginUser = async (req, res) => {
  * Each response has the success field: true iff the sign up is successful
  * When a sign up fails, or in case of a server related error, the response includes a proper message.
  * When a sign up succeeds the response include the following data:
- *  1. id of the newly created user
- *  2. id of the newly created user's main store and name
+ *  1. id of the signed user
+ *  2. username of the signed user
+ *  3. user info
+ *  4. stores info
  */
 export const signupUser = async (req, res) => {
     try {
@@ -118,7 +124,11 @@ export const signupUser = async (req, res) => {
             msg: "User registered successfuly",
             userId: newUser._id,
             storeId: newStore._id,
-            storeName: newStore.name
+            storeName: newStore.name, // not passing stores name since new user has only one store
+            username: newUser.username,
+            firstName: newUser.firstName,
+            lastName: newUser.lastName,
+            email: newUser.email,
         })
     } catch (error) {
         res.status(400).json({
