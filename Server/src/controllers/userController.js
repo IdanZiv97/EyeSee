@@ -98,6 +98,12 @@ export const updateUserInfo = async (req, res) => {
         if (lastName) {
             updates.lastName = lastName;
         }
+        // check if no updates were made
+        if (Object.keys(updates).length === 0) {
+            return res.status(200).json({
+                message: "No updates detected, user not updated"
+            })
+        }
         // update the user
         const updatedUser = await User.findByIdAndUpdate(userId, updates, { new: true }).populate('mainStore');
         return res.status(200).json({
