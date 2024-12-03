@@ -86,7 +86,7 @@ export const uploadVideo = async (req, res) => {
             newJob.set('status', "Failed");
             await newJob.save();
             // fetch user's jobs
-            const jobs = await Job.find({user: userId});
+            const jobs = await Job.find({ user: userId });
             return res.status(400).json({
                 success: false,
                 msg: "Failed to send the video URL to AI service, try again later",
@@ -107,7 +107,7 @@ export const uploadVideo = async (req, res) => {
 
 /**
  * Function that the client uses to recive the most recent heatmap link
- * This function recieves the following information:
+ * This function receives the following information:
  *  1. userId: to handle the store search
  *  2. storeName: to fetch the store's id from the database
  * The most recent report is by date, the latest, and by time slice.
@@ -154,6 +154,98 @@ export const getRecentHeatmap = async (req, res) => {
             date: heatmap.date,
             timeSlice: heatmap.timeSlice,
             link: heatmap.url
+        })
+    } catch (error) {
+        console.error('Error:', error);
+        return res.status(500).json({
+            success: false,
+            msg: "Internal server error, try again"
+        })
+    }
+}
+
+/**
+ * Function that fetches all the heatmaps of a store from a given time span.
+ * The function receives in the request's body the following data:
+ *  1. userId
+ *  2. storeName
+ *  3. startDate: a date in the format YYYY-MM-DD, the start date of the time span
+ *  4. endDate: a date in the format YYYY-MM-DD, the end date of the time span
+ * Note: the startDate should be earlier than the end date
+ * Note: For a time span of a day set the startDate and endDate to the same 
+ * * In case of an error the 'success' field will be set to false with a proper message, as described in the code.
+ * In case of a match, the 'success' field will be set ot true and the following data will be passed in the response:
+ *  1. heatmaps: an array of json each with the following filed:
+ *      1.1 slug: a string of the format "YYYY-MM-DD HH:00-HH:00" to indicate the time stamp of the heatmap.
+ *          Easy to seperate using split(" ") command.
+ *      1.2 url: the link for downloading the image
+ *      1.3 _id: the heatmap id, useful for later usage
+ */
+
+export const getHeatmaps = async (req, res) => {
+    try {
+        // get parans
+        const userId = req.body.userId;
+        const storeName = req.body.storeName;
+        const date1 = req.body.startDate;
+        const date2 = req.body.endDate;
+        // serach the user
+        const user = await User.findById(userId).populate('stores');
+        if (!user) {
+            return res.status(400).json({
+                success: false,
+                msg: "User not found, try again later."
+            })
+        }
+        const store = user.stores.find((s) => s.name === storeName);
+        if (!store) {
+            return res.status(400).json({
+                succes: false,
+                msg: "Store not found, try again later."
+            })
+        }
+        const storeId = store._id;
+        // create the time span
+        const start = date1 + 'T00:00:00.000Z';
+        const end = date2 + 'T23:59:59.999Z';
+        const startDate = new Date(start);
+        const endDate = new Date(end);
+        const heatmaps = await Heatmap.aggregate([
+            {
+                $match: {
+                    store: storeId,
+                    date: { $gte: startDate, $lte: endDate }
+                }
+            },
+            {
+                $addFields: {
+                    slug: {
+                        $concat: [
+                            { $dateToString: { format: "%Y-%m-%d", date: "$date" } },
+                            " ",
+                            "$timeSlice"
+                        ]
+                    }
+                }
+            },
+            {
+                $project: {
+                    _id: 1,
+                    slug: 1,
+                    url: 1
+                }
+            }
+        ]);
+        const length = heatmaps.length;
+        if (length === 0) {
+            return res.status(400).json({
+                success: false,
+                msg: "No heatamps found for given time span."
+            })
+        }
+        return res.status(200).json({
+            success: true,
+            heatmaps: heatmaps
         })
     } catch (error) {
         console.error('Error:', error);
