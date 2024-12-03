@@ -1,0 +1,23 @@
+[
+    {
+        "_id": {
+            "$oid": "6745ad4bb4114903043134d0"
+        },
+        "username": "Maryse52",
+        "firstName": "Arne",
+        "lastName": "Hackett-Pfeffer",
+        "password": "$2b$10$xV5SMGjThzvWr/S3pLs3.u1.yG1JFZJAubv.TnNB/FtBkyz8cvbam",
+        "email": "Stephania_Beer@hotmail.com",
+        "mainStore": {
+            "$oid": "6745ad4bb4114903043134d1"
+        },
+        "stores": [
+            {
+                "$oid": "6745ad4bb4114903043134d1"
+            },
+            {
+                "$oid": "6745ad4bb4114903043134d2"
+            }
+        ]
+    }
+]
