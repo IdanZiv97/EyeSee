@@ -82,6 +82,13 @@ export const updateUserInfo = async (req, res) => {
             updates.email = email;
         }
         if (mainStore && !(mainStore === user.mainStore.name)) {
+            // check if the input store name is a name of an existing store
+            const isValidStoreName = user.stores.some((s) => s.name === mainStore);
+            if (!isValidStoreName) {
+                return res.status(400).json({
+                    message: "New store name must be a name of an existing store"
+                })
+            }
             const newMainStore = user.stores.find((s) => s.name === mainStore);
             updates.mainStore = newMainStore._id;
         }
