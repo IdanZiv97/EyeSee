@@ -22,7 +22,7 @@ export const loginUser = async (req, res) => {
         const username = req.body.username;
         const password = req.body.password;
         // check if user exists
-        const user = await User.findOne({ username }).populate('stores', 'name');
+        const user = await User.findOne({ username }).populate('stores', 'name').populate('mainStore');
         if (!user) {
             return res.status(400).json({
                 success: false,
@@ -48,7 +48,7 @@ export const loginUser = async (req, res) => {
             firstName: user.firstName,
             lastName: user.lastName,
             email: user.email,
-            mainStoreId: user.mainStore,
+            mainStore: user.mainStore.name,
             stores: storesNames
         })
     } catch (error) {
