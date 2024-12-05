@@ -194,8 +194,11 @@ export const getAnalytics = async (req, res) => {
         const user = await User.findById(userId).populate('stores');
         let data = {};
         for (const store of user.stores) {
-            let numOfReports = store.reports.length || 0;
-            let createdAt = store.createAt || "No information found";
+            var numOfReports = store.reports.length || 0;
+            var createdAt = store.createdAt || "No information was found";
+            // if (!createdAt) {
+            //     createdAt = "No information was found";
+            // }
             data[store.name] = {numOfReports: numOfReports, createdAt: createdAt};
         }
         return res.status(200).json(data);
