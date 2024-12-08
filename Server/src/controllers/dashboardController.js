@@ -2,7 +2,6 @@ import mongoose from "mongoose";
 import User from "../models/userModel.js"
 import Store from "../models/storeModel.js"
 import Report from "../models/reportModel.js"
-import { report } from "node:process";
 
 // Helper fucntions:
 
@@ -60,16 +59,16 @@ function calculateDifference(currentValue, prevValue) {
     }
 }
 
-/**
- * This function helps to extract the data from a group of reports
- */
-/*************** API  ***************/
 function extractStats(reports) {
     const total = reports.reduce((total, report) => total + report.totalCustomers, 0);
     var avgDwell = reports.reduce((total, report) => total + report.avgDwellTime, 0);
     avgDwell = avgDwell / reports.length;
     return { totalCustomers: total, avgDwellTime: avgDwell };
 }
+/**
+ * This function helps to extract the data from a group of reports
+ */
+/*************** API  ***************/
 
 /**
  * This function creates 
@@ -102,6 +101,12 @@ export const getAverageDwellTimeWeekly = async (req, res) => {
         const reports = await Report.find({ store: storeId }).sort({ date: -1 }).limit(7);
         // calculate for each report day its dwell time
         const data = reports.map((rep) => calcualteAvgDwellTime(rep))
+        if (data.length === 0) {
+            return res.status(200).json({
+                success: false,
+                msg: "No reports found"
+            })
+        }
         return res.status(200).json({
             success: true,
             data: data
@@ -185,6 +190,12 @@ export const getAverageDwellTimeMonthly = async (req, res) => {
             // Sort by date (optional)
             { $sort: { date: 1 } },
         ]);
+        if (reports.length === 0) {
+            return res.stauts(200).json({
+                success: false,
+                msg: "No reports found"
+            })
+        }
         const data = reports.map((rep) => ({ date: rep.date, avgDwellTime: rep.avgDwellTime }));
         return res.status(200).json({
             success: true,
@@ -263,7 +274,13 @@ export const getMonthlyTotalCustomers = async (req, res) => {
                 }
             },
             { $sort: { date: 1 } }
-        ])
+        ]);
+        if (reports.length === 0) {
+            return res.status(200).json({
+                success: false,
+                msg: "No reports found"
+            })
+        }
         const data = reports.map((rep) => ({ date: rep.date, totalCustomers: rep.totalCustomers }))
         return res.json({
             success: true,
@@ -300,6 +317,12 @@ export const getWeeklyTotalCustomers = async (req, res) => {
         // get the last 7 days worth of reports
         const storeId = store._id;
         const reports = await Report.find({ store: storeId }).sort({ date: -1 }).limit(7);
+        if (reports.length === 0) {
+            return res.status(200).json({
+                success: false,
+                msg: "No reports found"
+            })
+        }
         const data = reports.map((rep) => calcualteTotalCustomers(rep));
         return res.status(200).json({
             success: true,
@@ -381,6 +404,12 @@ export const getMonthlyTotalGenderDistribution = async (req, res) => {
             },
             { $sort: { date: 1 } }
         ])
+        if (reports.length === 0) {
+            return res.status(200).json({
+                success: false,
+                msg: "No reports found"
+            })
+        }
         const data = reports.map((rep) => ({
             month: rep.date,
             distribution: {
@@ -424,6 +453,12 @@ export const getWeeklyTotalGenderDistribution = async (req, res) => {
         // get the last 7 days worth of reports
         const storeId = store._id;
         const reports = await Report.find({ store: storeId }).sort({ date: -1 }).limit(7);
+        if (reports.length === 0) {
+            return res.status(200).json({
+                success: false,
+                msg: "No reports found"
+            })
+        }
         // procceess the reportts
         const data = reports.map((rep) => calcualteTotalGenderDistribution(rep));
         return res.status(200).json({
@@ -545,32 +580,13 @@ export const getMonthlyTotalAgeDistribution = async (req, res) => {
                 $sort: { date: 1 }
             }
         ]);
+        if (reports.length === 0) {
+            return res.status(200).json({
+                success: false,
+                msg: "No reports found"
+            })
+        }
         const data = reports.map((rep) => ({ date: rep.date, distribution: rep.customersByAge }));
-        // const results = await Report.aggregate([
-        //     {
-        //         $match: {
-        //             store: storeId,
-        //             date: { $gte: lastYear },
-        //         },
-        //     },
-        //     { $unwind: "$hourlyReports" },
-        //     {
-        //         $group: {
-        //             _id: {
-        //                 date: "$date",
-        //             },
-        //             customerByAge: {
-        //                 $mergeObjects: "$hourlyReports.customersByAge",
-        //             }
-        //         }
-        //     },
-        //     {
-        //         $project: {
-        //             date: "$_id.date"
-        //         },
-        //         customersByAge: 1
-        //     }
-        // ]);
         return res.status(200).json({
             success: true,
             data: data
@@ -629,6 +645,17 @@ export const getAnalytcis = async (req, res) => {
             }
         },
     ])
+    if (reports.length === 0) {
+        return res.status(200).json({
+            success: false,
+            msg: "No reports found"
+        })
+    } else if (reports.length < 14) {
+        return res.status(200).json({
+            success: false,
+            msg: "Not enought reports to perform analytics calculautions"
+        })
+    }
     const data = reports.map((rep) => {
         const date = rep.date.date.toISOString().split('T')[0];
         const total = rep.totalCustomers;
