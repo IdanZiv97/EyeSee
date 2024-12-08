@@ -129,7 +129,6 @@ export const uploadVideo = async (req, res) => {
 export const addHeatmap = async (req, res) => {
     // get the params
     const jobId = req.body.jobId;
-    const timeSlice = req.body.timeSlice;
     const link = req.body.link;
     // get the job
     const job = await Job.findById(jobId);
@@ -145,14 +144,13 @@ export const addHeatmap = async (req, res) => {
         const newHeatmap = new Heatmap({
             store: store._id,
             date: job.date,
-            timeSlice: timeSlice,
             url: link,
         });
         await newHeatmap.save();
         return res.status(200).json({
             success: true
         });
-    } catch(error) {
+    } catch (error) {
         console.error('Error: ', error);
         return res.status(400).json({
             success: false
@@ -173,8 +171,7 @@ export const addHeatmap = async (req, res) => {
  * In case of an error the 'success' field will be set to false with a proper message, as described in the code.
  * In case of a match, the 'success' field will be set ot true and the following data will be passed in the response:
  *  1. date: the date of the heatmap
- *  2. timeSlice: the exact time slice the heatmap relates to
- *  3. link: the url from which the client code can download the image.
+ *  2. link: the url from which the client code can download the image.
  */
 
 export const getRecentHeatmap = async (req, res) => {
@@ -200,7 +197,7 @@ export const getRecentHeatmap = async (req, res) => {
         const storeId = store._id;
         // find the most recent heatmap
         const heatmap = await Heatmap.findOne({ store: storeId })
-            .sort({ date: -1, timeSlice: -1 });
+            .sort({ date: -1 });
         if (!heatmap) {
             return res.status(400).json({
                 success: false,
@@ -210,7 +207,6 @@ export const getRecentHeatmap = async (req, res) => {
         return res.status(200).json({
             success: true,
             date: heatmap.date,
-            timeSlice: heatmap.timeSlice,
             link: heatmap.url
         })
     } catch (error) {
@@ -234,8 +230,7 @@ export const getRecentHeatmap = async (req, res) => {
  * * In case of an error the 'success' field will be set to false with a proper message, as described in the code.
  * In case of a match, the 'success' field will be set ot true and the following data will be passed in the response:
  *  1. heatmaps: an array of json each with the following filed:
- *      1.1 slug: a string of the format "YYYY-MM-DD HH:00-HH:00" to indicate the time stamp of the heatmap.
- *          Easy to seperate using split(" ") command.
+ *      1.1 slug: a string of the format "YYYY-MM-DD" to indicate the time stamp of the heatmap.
  *      1.2 url: the link for downloading the image
  *      1.3 _id: the heatmap id, useful for later usage
  */
@@ -277,13 +272,7 @@ export const getHeatmaps = async (req, res) => {
             },
             {
                 $addFields: {
-                    slug: {
-                        $concat: [
-                            { $dateToString: { format: "%Y-%m-%d", date: "$date" } },
-                            " ",
-                            "$timeSlice"
-                        ]
-                    }
+                    slug: { $dateToString: { format: "%Y-%m-%d", date: "$date" } },
                 }
             },
             {
