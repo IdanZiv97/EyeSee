@@ -1,7 +1,7 @@
 import express from 'express';
 import {
     getRecentHeatmap, getHeatmaps,
-    addHeatmap,
+    addHeatmap, uploadVideo, 
     deleteHeatmaps, deleteVideo
 } from '../controllers/mediaController.js';
 
@@ -11,5 +11,6 @@ router.post('/heatmap', getRecentHeatmap);
 router.post('/heatmap/byDates', getHeatmaps);
 router.post('/heatmap/add', addHeatmap);
 router.delete('/heatmap/delete', deleteHeatmaps);
+router.post('/video/upload', uploadVideo);
 router.delete('/video/delete', deleteVideo);
 export default router;
