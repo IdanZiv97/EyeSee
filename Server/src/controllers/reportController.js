@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import User from "../models/userModel.js";
 import Store from "../models/storeModel.js";
 import Report from "../models/reportModel.js"
-import Job from "../models/jobModel.js"
+import {Job as Job} from "../models/jobModel.js"
 // Helper functions
 
 /**
