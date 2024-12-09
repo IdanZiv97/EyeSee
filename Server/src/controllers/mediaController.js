@@ -21,6 +21,12 @@ cloudinary.config({
     api_secret: process.env.CLOUDINARY_API_SECRET
 })
 
+// Testing
+
+export const test = async (req, res) => {
+    return res.status(400).json();
+}
+
 // Upload Operations
 
 export const uploadVideo = async (req, res) => {
