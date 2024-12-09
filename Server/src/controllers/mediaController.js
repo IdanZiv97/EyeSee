@@ -106,7 +106,7 @@ export const uploadVideo = async (req, res) => {
             // fetch user's jobs
             const jobs = await Job.find({ userId: userId });
             return res.status(400).json({
-                success: false,
+                success: true,
                 msg: "Failed to send the video URL to AI service, try again later",
                 newJobId: jobId,
                 jobs: jobs
