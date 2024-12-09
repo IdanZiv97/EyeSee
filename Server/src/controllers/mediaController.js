@@ -327,6 +327,12 @@ export const deleteHeatmaps = async (req, res) => {
             msg: "Please pass a valid array of IDs"
         });
     }
+    if (heatmapsIds.length === 0) {
+        return res.status(400).json({
+            success: false,
+            msg: "Please choose at least one heatmap to delete"
+        })
+    }
     var failedToDelete = [];
     var failureFlag = false;
     for (const heatmapId of heatmapsIds) {
@@ -339,6 +345,7 @@ export const deleteHeatmaps = async (req, res) => {
                 }
                 if (!failureFlag) { failureFlag = true; }
                 failedToDelete.push(temp)
+                continue;
             }
             // get the public id
             const publicId = extractPublicId(heatmap.url);
