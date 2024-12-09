@@ -9,19 +9,38 @@ cloudinary.config({
     api_secret: process.env.CLOUDINARY_API_SECRET
 })
 
-const response = await cloudinary.uploader.upload('/Users/idanziv/dev/EyeSee/Server/tests/test_data/mediaUploadData/fake_images/heatmap3.jpeg', {
+const PATH_TO_IMG = '/Users/idanziv/dev/EyeSee/Server/tests/test_data/mediaUploadData/fake_images/heatmap3.jpeg';
+const PATH_TO_VID = '/Users/idanziv/dev/EyeSee/Server/tests/test_data/mediaUploadData/fake_videos/video1.mp4';
+
+
+// Heatmap upload and deletion workflow
+const image_upload_response = await cloudinary.uploader.upload(PATH_TO_IMG, {
     asset_folder: 'heatmaps',
     resource_type: 'image'
 })
-console.log(response, "\n");
-console.log("URL:", response.url);
-console.log("publicID: ", response.public_id);
-console.log("Extracted publicID: ", extractPublicId(response.url));
+console.log(image_upload_response, "\n");
+console.log("URL:", image_upload_response.url);
+console.log("publicID: ", image_upload_response.public_id);
+console.log("Extracted publicID: ", extractPublicId(image_upload_response.url));
 
-const del_resp = await cloudinary.uploader.destroy(
+const image_del_resp = await cloudinary.uploader.destroy(
     extractPublicId(response.url),
     { resource_type: 'image' }
 )
 
-console.log("Delete response: ", del_resp);
+console.log("Delete response: ", image_del_resp);
 
+// Video upload and deletion workflow
+const video_upload_response = await cloudinary.uploader.upload(PATH_TO_VID, {
+    asset_folder: 'videos',
+    resource_type: 'video'
+})
+console.log(video_upload_response, "\n");
+console.log("URL:", video_upload_response.url);
+console.log("publicID: ", video_upload_response.public_id);
+console.log("Extracted publicID: ", extractPublicId(video_upload_response.url));
+
+const video_del_resp = await cloudinary.uploader.destroy(
+    extractPublicId(video_upload_response.url),
+    { resource_type: 'video' }
+)
