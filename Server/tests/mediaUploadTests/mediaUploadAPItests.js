@@ -72,7 +72,23 @@ const testDeleteHeatmaps = async () => {
     const data = await response.json();
     console.log(data);
 }
+
+const testJobs = async () => {
+    const response = await fetch('http://localhost:4000/jobs', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            userId: "6745ad4bb4114903043134d0",
+        }),
+    });
+
+    const data = await response.json();
+    console.log(data);
+}
 // await testVideoUpload();
 // await testRecentHeatmap();
 // await testHeatmapsByDates();
-await testDeleteHeatmaps();
+// await testDeleteHeatmaps();
+await testJobs();
