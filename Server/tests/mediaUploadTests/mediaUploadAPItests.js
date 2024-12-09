@@ -38,5 +38,25 @@ const testRecentHeatmap = async () => {
     console.log(data);
 }
 
-// await testVideoUpload();
+const testHeatmapsByDates = async () => {
+    const response = await fetch('http://localhost:4000/heatmap/byDates', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            userId: '6756e0c0dd0c9b2be7a21f45',
+            storeName: 'Yundt - West',
+            startDate: "2024-03-07",
+            endDate: "2024-07-07"
+        }),
+    });
+
+    const data = await response.json();
+    console.log(data);
+    
+}
+
+await testVideoUpload();
 await testRecentHeatmap();
+await testHeatmapsByDates();
