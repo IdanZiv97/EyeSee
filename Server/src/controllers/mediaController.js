@@ -103,7 +103,7 @@ export const uploadVideo = async (req, res) => {
             newJob.set('status', "Failed");
             await newJob.save();
             // fetch user's jobs
-            return res.status(400).json({
+            return res.status(200).json({
                 success: true,
                 msg: "Failed to send the video URL to AI service, try again later",
             })
