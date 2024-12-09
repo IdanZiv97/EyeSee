@@ -55,4 +55,19 @@ const testUpdateStore = async () => {
     
 }
 
-testUpdateStore().catch((error) => console.error('Error:', error));
+const testGetAnalytcis = async () => {
+    const response = await fetch('http://localhost:4000/store', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            userId: '674857ee43ac1896622d5773',
+        })
+    })
+    const data = await response.json();
+    console.log(data);
+    
+}
+
+testGetAnalytcis().catch((error) => console.error('Error:', error));
