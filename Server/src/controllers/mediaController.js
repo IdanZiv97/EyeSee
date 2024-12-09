@@ -3,7 +3,7 @@
  * It is merely a managing tool of the process.
  * The actual upload 
  */
-import uuidv4 from 'uuid';
+import { v4 as uuidv4 } from 'uuid';
 import fetch from 'node-fetch';
 import User from "../models/userModel.js"
 import Report from '../models/reportModel.js';
