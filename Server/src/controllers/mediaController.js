@@ -55,7 +55,7 @@ export const uploadVideo = async (req, res) => {
         const startDate = new Date(start);
         const endDate = new Date(end);
         const existingReport = await Report.find({ store: store._id, date: { $gte: startDate, $lte: endDate } });
-        if (existingReport) {
+        if (!(existingReport.length === 0)) {
             return res.status(400).json({
                 success: false,
                 msg: "A report for that date already exists, check for a correct store/date"
@@ -76,7 +76,7 @@ export const uploadVideo = async (req, res) => {
         })
         await newJob.save();
         // try to send the request
-        const mlServiceResponse = await fetch('http://mlServiceURL/video-upload', {
+        const mlServiceResponse = await fetch('http://localhost:4000/video/test', { // TODO: add url of ML service
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -93,7 +93,7 @@ export const uploadVideo = async (req, res) => {
             newJob.set('status', "Processing");
             await newJob.save();
             // fetch user's jobs
-            const jobs = await Job.find({ user: userId });
+            const jobs = await Job.find({ userId: userId });
             return res.status(200).json({
                 success: true,
                 msg: "Video uploaded successfuly.",
@@ -104,7 +104,7 @@ export const uploadVideo = async (req, res) => {
             newJob.set('status', "Failed");
             await newJob.save();
             // fetch user's jobs
-            const jobs = await Job.find({ user: userId });
+            const jobs = await Job.find({ userId: userId });
             return res.status(400).json({
                 success: false,
                 msg: "Failed to send the video URL to AI service, try again later",
@@ -113,6 +113,7 @@ export const uploadVideo = async (req, res) => {
             })
         }
     } catch (error) {
+        // TODO: in case of error: do delete created job!
         console.error('Error:', error);
         return res.status(500).json({
             success: false,
