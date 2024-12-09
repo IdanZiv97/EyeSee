@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import User from "../models/userModel.js";
 import Store from "../models/storeModel.js";
 import Report from "../models/reportModel.js"
-
+import Job from "../models/jobModel.js"
 // Helper functions
 
 /**
@@ -49,9 +49,13 @@ function processReport(report) {
  * @returns 
  */
 export const createReport = async (req, res) => {
-    const storeId = req.body.storeId;
+    const jobId = req.body.jobId;
     const subReports = [...req.body.reports];
-    const store = await Store.findById(storeId).populate('reports');
+    const job = await Job.findById(jobId);
+    const userId = job.userId;
+    const user = await User.findById(userId).populate('stores');
+    const storeName = job.storeName;
+    const store = user.stores.find((s) => s.name === storeName);
     if (!store) {
         return res.status(400).json({
             error: "Store not found, try again"
@@ -59,7 +63,7 @@ export const createReport = async (req, res) => {
     }
     // given storeId.
     const report = new Report({
-        store: storeId,
+        store: store._id,
         hourlyReports: subReports
     })
     await report.save();
