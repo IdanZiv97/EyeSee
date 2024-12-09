@@ -22,4 +22,21 @@ const testVideoUpload = async () => {
     
 }
 
-await testVideoUpload();
+const testRecentHeatmap = async () => {
+    const response = await fetch('http://localhost:4000/heatmap', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            userId: '6756e0c0dd0c9b2be7a21f45',
+            storeName: 'Yundt - West',
+        }),
+    });
+
+    const data = await response.json();
+    console.log(data);
+}
+
+// await testVideoUpload();
+await testRecentHeatmap();
