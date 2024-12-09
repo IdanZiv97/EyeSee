@@ -1,4 +1,5 @@
 /node_modules
 .env
 .vscode/
-
+/tests/test_data/mediaUploadData/fake_videos
+/tests/test_data/mediaUploadData/fake_images
