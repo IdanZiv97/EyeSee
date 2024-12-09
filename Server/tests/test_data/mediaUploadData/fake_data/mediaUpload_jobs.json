@@ -1,0 +1,40 @@
+[
+    {
+        "_id": {
+            "$oid": "6756e0c4dd0c9b2be7a220ce"
+        },
+        "jobId": "1a0f6680-a6a6-4517-a738-1051c8aa07ad",
+        "userId": {
+            "$oid": "6756e0c0dd0c9b2be7a21f45"
+        },
+        "storeName": "Yundt - West",
+        "date": {
+            "$date": {
+                "$numberLong": "1733746884908"
+            }
+        },
+        "startTime": "16:00",
+        "endTime": "17:00",
+        "length": 60,
+        "status": "Processing"
+    },
+    {
+        "_id": {
+            "$oid": "6756e0c4dd0c9b2be7a220cf"
+        },
+        "jobId": "8056f6c9-2a8a-4da1-b405-36aaae68ceeb",
+        "userId": {
+            "$oid": "6756e0c0dd0c9b2be7a21f45"
+        },
+        "storeName": "Yundt - West",
+        "date": {
+            "$date": {
+                "$numberLong": "1733660484908"
+            }
+        },
+        "startTime": "16:00",
+        "endTime": "17:00",
+        "length": 60,
+        "status": "Processing"
+    }
+]

@@ -1,0 +1,44 @@
+[
+    {
+        "_id": {
+            "$oid": "6756e0c4dd0c9b2be7a220cb"
+        },
+        "store": {
+            "$oid": "6756e0c1dd0c9b2be7a21f46"
+        },
+        "url": "http://res.cloudinary.com/dhvimkgc4/image/upload/v1733746710/g1bgx7epnm28lahxcdpi.jpg",
+        "date": {
+            "$date": {
+                "$numberLong": "1733746884908"
+            }
+        }
+    },
+    {
+        "_id": {
+            "$oid": "6756e0c4dd0c9b2be7a220cc"
+        },
+        "store": {
+            "$oid": "6756e0c1dd0c9b2be7a21f46"
+        },
+        "url": "http://res.cloudinary.com/dhvimkgc4/image/upload/v1733746725/qxiyv26knafii73gkcun.jpg",
+        "date": {
+            "$date": {
+                "$numberLong": "1733660484908"
+            }
+        }
+    },
+    {
+        "_id": {
+            "$oid": "6756e0c4dd0c9b2be7a220cd"
+        },
+        "store": {
+            "$oid": "6756e0c1dd0c9b2be7a21f46"
+        },
+        "url": "http://res.cloudinary.com/dhvimkgc4/image/upload/v1733746738/ahp6y7zzs0gfexx29cin.jpg",
+        "date": {
+            "$date": {
+                "$numberLong": "1733574084908"
+            }
+        }
+    }
+]
