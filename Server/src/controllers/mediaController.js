@@ -83,6 +83,8 @@ export const uploadVideo = async (req, res) => {
             },
             body: JSON.stringify({
                 jobId: newJob.jobId,
+                url: newJob.url,
+                date: newJob.date,
                 start: newJob.startTime,
                 end: newJob.endTime,
                 length: newJob.length
@@ -93,23 +95,17 @@ export const uploadVideo = async (req, res) => {
             newJob.set('status', "Processing");
             await newJob.save();
             // fetch user's jobs
-            const jobs = await Job.find({ userId: userId });
             return res.status(200).json({
                 success: true,
                 msg: "Video uploaded successfuly.",
-                newJobId: jobId,
-                jobs: jobs
             });
         } else {
             newJob.set('status', "Failed");
             await newJob.save();
             // fetch user's jobs
-            const jobs = await Job.find({ userId: userId });
             return res.status(400).json({
                 success: true,
                 msg: "Failed to send the video URL to AI service, try again later",
-                newJobId: jobId,
-                jobs: jobs
             })
         }
     } catch (error) {
