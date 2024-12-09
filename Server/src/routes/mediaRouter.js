@@ -3,7 +3,7 @@ import {
     getRecentHeatmap, getHeatmaps,
     addHeatmap, uploadVideo, 
     deleteHeatmaps, deleteVideo,
-    test
+    test, getJobs
 } from '../controllers/mediaController.js';
 
 const router = express.Router();
@@ -14,5 +14,6 @@ router.post('/heatmap/add', addHeatmap);
 router.delete('/heatmap/delete', deleteHeatmaps);
 router.post('/video/upload', uploadVideo);
 router.delete('/video/delete', deleteVideo);
-router.post('/video/test');
+router.post('/video/test', test);
+router.post('/jobs', getJobs);
 export default router;

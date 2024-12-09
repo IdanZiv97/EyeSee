@@ -421,3 +421,40 @@ export const deleteVideo = async (req, res) => {
         })
     }
 }
+
+// Jobs
+
+export const getJobs = async (req, res) => {
+    try {
+        // get params
+        const userId = req.body.userId;
+        // validate user
+        const user = await User.findById(userId).populate('stores');
+        if (!user) {
+            return res.status(400).json({
+                success: false,
+                msg: "User not found, try again later."
+            })
+        }
+        // fetch jobs
+        const jobs = await Job.find({ userId: userId }).sort({ date: -1 });
+        if (jobs.length === 0) {
+            return res.status(400).json({
+                success: true,
+                msg: "User don't have jobs to present"
+            })
+        }
+        return res.status(200).json({
+            success: true,
+            jobs: jobs
+        })
+
+    } catch (error) {
+        console.error("Error:", error);
+        return res.status(500).json({
+            success: false,
+            msg: "Internal error, try again"
+        })
+
+    }
+}
