@@ -209,8 +209,7 @@ export const getRecentHeatmap = async (req, res) => {
         }
         return res.status(200).json({
             success: true,
-            date: heatmap.date,
-            link: heatmap.url
+            heatmap: heatmap
         })
     } catch (error) {
         console.error('Error:', error);
