@@ -100,6 +100,12 @@ export const defaultReport = async (req, res) => {
     const storeId = store._id;
     // search in reports collection by store_id
     const report = await Report.findOne({ store: storeId }).sort({ date: -1 }).limit(1);
+    if (!report) {
+        return res.status(200).json({
+            success: false,
+            msg: "No reports found"
+        })
+    }
     const data = processReport(report);
     res.status(200).json({
         success: true,
