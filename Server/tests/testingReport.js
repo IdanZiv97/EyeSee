@@ -34,7 +34,7 @@ const createReport = async () => {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            storeId: '672a2de08acced6cea612f86',
+            jobId: '1a0f6680-a6a6-4517-a738-1051c8aa07ad',
             reports: hourlyReports
         }),
     });

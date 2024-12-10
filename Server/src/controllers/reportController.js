@@ -51,10 +51,11 @@ function processReport(report) {
 export const createReport = async (req, res) => {
     const jobId = req.body.jobId;
     const subReports = [...req.body.reports];
-    const job = await Job.find({jobId: jobId});
+    const job = await Job.findOne({jobId: jobId});
     const userId = job.userId;
     const user = await User.findById(userId).populate('stores');
     const storeName = job.storeName;
+    const date = job.date;
     const store = user.stores.find((s) => s.name === storeName);
     if (!store) {
         return res.status(400).json({
@@ -64,12 +65,14 @@ export const createReport = async (req, res) => {
     // given storeId.
     const report = new Report({
         store: store._id,
-        hourlyReports: subReports
+        hourlyReports: subReports,
+        date: date
     })
     await report.save();
     store.reports.push(report._id);
     await store.save();
-    res.status(200).json({ msg: "Report was added sucssesfuly", reportId: report._id });
+    //TODO handle delete of video
+    return res.status(200).json({ msg: "Report was added sucssesfuly", reportId: report._id });
     // TODO: update the client side with a trigger
 }
 
