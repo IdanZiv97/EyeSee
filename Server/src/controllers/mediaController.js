@@ -382,47 +382,6 @@ export const deleteHeatmaps = async (req, res) => {
     }
 }
 
-/**
- * Function to delete a video.
- * Note: This method is called only by the ML service!
- * The body of the request will include only the  jobId
- * A video will remain saved on the cloud until the job is completed.
- * Once the job is completed we will delete the video.
- * The response will be success with value 'true' or 'false' if the video is deleted or not, respectively.
- */
-
-export const deleteVideo = async (req, res) => {
-    // get the params
-    const jobId = req.body.jobId;
-    // fetch the job
-    const job = await Job.findById(jobId);
-    if (job.status === "Completed") {
-        return res.status(200).json({
-            success: true,
-        })
-    }
-    // handle the deletion of the video
-    const url = job.url;
-    try {
-        const publicId = extractPublicId(url);
-        const response = await cloudinary.uploader.destroy(publicId, { resource_type: 'video' });
-        if (!(response.result === "ok")) {
-            return res.status(400).json({
-                success: false,
-            })
-        }
-        job.set('status', "Completed");
-        await job.save();
-        return res.status(200).json({
-            success: true,
-        })
-    } catch (error) {
-        return res.status(400).json({
-            success: false,
-        })
-    }
-}
-
 // Jobs
 
 export const getJobs = async (req, res) => {
