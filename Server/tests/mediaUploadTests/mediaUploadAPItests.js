@@ -88,7 +88,7 @@ const testJobs = async () => {
     console.log(data);
 }
 // await testVideoUpload();
-// await testRecentHeatmap();
+await testRecentHeatmap();
 // await testHeatmapsByDates();
 // await testDeleteHeatmaps();
-await testJobs();
+// await testJobs();

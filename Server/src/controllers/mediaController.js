@@ -207,9 +207,10 @@ export const getRecentHeatmap = async (req, res) => {
                 msg: "No heatmap was found for this store."
             })
         }
+        const data = [heatmap];
         return res.status(200).json({
             success: true,
-            heatmap: heatmap
+            heatmap: data
         })
     } catch (error) {
         console.error('Error:', error);
