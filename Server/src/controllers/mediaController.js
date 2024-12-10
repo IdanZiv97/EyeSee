@@ -355,9 +355,10 @@ export const deleteHeatmaps = async (req, res) => {
                 }
                 if (!failureFlag) { failureFlag = true; }
                 failedToDelete.push(temp)
+            } else {
+                await Heatmap.findByIdAndDelete(heatmapId);
             }
             // delete from the server
-            await Heatmap.findByIdAndDelete(heatmapId);
         } catch (error) {
             console.error('Error: ', error);
             const temp = {

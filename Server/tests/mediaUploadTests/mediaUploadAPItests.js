@@ -58,7 +58,7 @@ const testHeatmapsByDates = async () => {
 }
 
 const testDeleteHeatmaps = async () => {
-    const ids = ["6756e0c4dd0c9b2be7a220d0", "6756e0c4dd0c9b2be7a220d1", "6756e0c4dd0c9b2be7a220d2"];
+    const ids = ["6756e0c4dd0c9b2be7a220cb"];
     const response = await fetch('http://localhost:4000/heatmap/delete', {
         method: 'DELETE',
         headers: {
@@ -88,7 +88,7 @@ const testJobs = async () => {
     console.log(data);
 }
 // await testVideoUpload();
-await testRecentHeatmap();
+// await testRecentHeatmap();
 // await testHeatmapsByDates();
-// await testDeleteHeatmaps();
+await testDeleteHeatmaps();
 // await testJobs();
