@@ -51,7 +51,7 @@ function processReport(report) {
 export const createReport = async (req, res) => {
     const jobId = req.body.jobId;
     const subReports = [...req.body.reports];
-    const job = await Job.findById(jobId);
+    const job = await Job.find({jobId: jobId});
     const userId = job.userId;
     const user = await User.findById(userId).populate('stores');
     const storeName = job.storeName;
