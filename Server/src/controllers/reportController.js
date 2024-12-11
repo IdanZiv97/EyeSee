@@ -2,7 +2,8 @@ import mongoose from "mongoose";
 import User from "../models/userModel.js";
 import Store from "../models/storeModel.js";
 import Report from "../models/reportModel.js"
-
+import { Job as Job } from "../models/jobModel.js"
+import { extractPublicId } from "cloudinary-build-url";
 // Helper functions
 
 /**
@@ -49,9 +50,14 @@ function processReport(report) {
  * @returns 
  */
 export const createReport = async (req, res) => {
-    const storeId = req.body.storeId;
+    const jobId = req.body.jobId;
     const subReports = [...req.body.reports];
-    const store = await Store.findById(storeId).populate('reports');
+    const job = await Job.findOne({ jobId: jobId });
+    const userId = job.userId;
+    const user = await User.findById(userId).populate('stores');
+    const storeName = job.storeName;
+    const date = job.date;
+    const store = user.stores.find((s) => s.name === storeName);
     if (!store) {
         return res.status(400).json({
             error: "Store not found, try again"
@@ -59,13 +65,22 @@ export const createReport = async (req, res) => {
     }
     // given storeId.
     const report = new Report({
-        store: storeId,
-        hourlyReports: subReports
+        store: store._id,
+        hourlyReports: subReports,
+        date: date
     })
     await report.save();
     store.reports.push(report._id);
     await store.save();
-    res.status(200).json({ msg: "Report was added sucssesfuly", reportId: report._id });
+    // Delete the video
+    const url = job.url;
+    const publicId = extractPublicId(url);
+    await cloudinary.uploader.destroy(publicId, { resource_type: 'video' });
+    if (!(job.status === "Completed")) {
+        job.set("status", "Completed");
+        await job.save();
+    }
+    return res.status(200).json({ msg: "Report was added sucssesfuly", reportId: report._id });
     // TODO: update the client side with a trigger
 }
 
@@ -343,54 +358,54 @@ export const deleteReport = async (req, res) => {
  * It returns a success status and a proper message
  */
 export const deleteReports = async (req, res) => {
-        // get the reports
-        const reportsIds = req.body.reportsIds;
-        // check for valid foramt
-        if (!Array.isArray(reportsIds) || reportsIds.length < 1) {
-            return res.status(400).json({
-                success: false,
-                msg: "Please pass a valid array of IDs"
-            });
-        }
-        // find all the reports
-        var failedToDelete = [];
-        var missingFlag = false;
-        var failureFlag = false;
-        for (const reportId of reportsIds) {
-            try {
-                const requestedReport = await Report.findById(reportId);
-                if (!requestedReport) {
-                    const temp = {
-                        reportId: reportId,
-                        error: "Could not find report"
-                    }
-                    if (!missingFlag) {missingFlag = true;}
-                    failedToDelete.push(temp);
-                    continue;
-                }
-                const deletedReport = await Report.findOneAndDelete({ _id: requestedReport._id });
-            } catch (error) {
+    // get the reports
+    const reportsIds = req.body.reportsIds;
+    // check for valid foramt
+    if (!Array.isArray(reportsIds) || reportsIds.length < 1) {
+        return res.status(400).json({
+            success: false,
+            msg: "Please pass a valid array of IDs"
+        });
+    }
+    // find all the reports
+    var failedToDelete = [];
+    var missingFlag = false;
+    var failureFlag = false;
+    for (const reportId of reportsIds) {
+        try {
+            const requestedReport = await Report.findById(reportId);
+            if (!requestedReport) {
                 const temp = {
-                    reprotId: reportId,
-                    error: "Failed to delete report"
+                    reportId: reportId,
+                    error: "Could not find report"
                 }
-                if (!failureFlag) {failureFlag = true;}
+                if (!missingFlag) { missingFlag = true; }
                 failedToDelete.push(temp);
+                continue;
             }
+            const deletedReport = await Report.findOneAndDelete({ _id: requestedReport._id });
+        } catch (error) {
+            const temp = {
+                reprotId: reportId,
+                error: "Failed to delete report"
+            }
+            if (!failureFlag) { failureFlag = true; }
+            failedToDelete.push(temp);
         }
-        if (failedToDelete.length === 0) {
-            return res.status(200).json({
-                success: true,
-                missingReports: missingFlag,
-                failureToDelete: failureFlag,
-                reports: failedToDelete
-            })
-        } else {
-            return res.status(400).json({
-                success: false,
-                missingReports: missingFlag,
-                failureToDelete: failureFlag,
-                reports: failedToDelete
-            })
-        }
+    }
+    if (failedToDelete.length === 0) {
+        return res.status(200).json({
+            success: true,
+            missingReports: missingFlag,
+            failureToDelete: failureFlag,
+            reports: failedToDelete
+        })
+    } else {
+        return res.status(400).json({
+            success: false,
+            missingReports: missingFlag,
+            failureToDelete: failureFlag,
+            reports: failedToDelete
+        })
+    }
 }
