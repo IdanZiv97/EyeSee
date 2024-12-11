@@ -8,6 +8,7 @@ import storeRoutes from './routes/storeRouter.js'
 import reportRoutes from './routes/reportsRouter.js'
 import dashboardRoutes from './routes/dashboardRouter.js'
 import mediaRoutes from './routes/mediaRouter.js'
+import userRoutes from './routes/userRouter.js'
 
 dotenv.config();
 const app = express();
@@ -22,6 +23,7 @@ app.use(authRoutes)
 app.use(reportRoutes);
 app.use(dashboardRoutes);
 app.use(mediaRoutes);
+app.use(userRoutes);
 
 const PORT = process.env.PORT || 5000;
 

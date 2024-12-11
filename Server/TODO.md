@@ -1,3 +1,4 @@
+
 # EyeSee - Feature/Media Upload
 
 ## TODO
@@ -16,3 +17,23 @@
 - [x] Define the necessary schemas and relations
 - [x] Read about Cloudinary
 - [x] Write workflow paper.
+
+# EyeSee - Server - feature/stores TODO
+
+# TODO
+- Testing:
+    - [ ] Add store (client side) - by Yonatan
+    - [ ] Delete store (client side) - by Yonatan
+    - [ ] Edit store [rename only] (client side) - by Yonatan
+
+# In Progress
+
+# Completed
+- [x] Testing:
+    - [x] Delete store (server side) - by Idan
+    - [x] Add store (server side) - by Idan
+    - [x] Edit store [rename only] (server side) - by Idan
+- [x] Add store
+- [x] Delete store
+- [x] Edit store (rename only)
+
