@@ -1,0 +1,86 @@
+[
+    {
+        "_id": {
+            "$oid": "6756e0c4dd0c9b2be7a220fb"
+        },
+        "store": {
+            "$oid": "6759c3a83fb30a66d7ecc78b"
+        },
+        "url": "http://res.cloudinary.com/dhvimkgc4/image/upload/v1733853638/heatmaps/ncmr2jri8gxgk9pcal8w.jpg",
+        "date": {
+            "$date": {
+                "$numberLong": "1733746884908"
+            }
+        }
+    },
+    {
+        "_id": {
+            "$oid": "6756e0c4dd0c9b2be7a220cc"
+        },
+        "store": {
+            "$oid": "6759c3a83fb30a66d7ecc78b"
+        },
+        "url": "https://res.cloudinary.com/dhvimkgc4/image/upload/v1733853638/heatmaps/ise1zum7nfjoko8huxha.jpg",
+        "date": {
+            "$date": {
+                "$numberLong": "1733660484908"
+            }
+        }
+    },
+    {
+        "_id": {
+            "$oid": "6756e0c4dd0c9b2be7a220cd"
+        },
+        "store": {
+            "$oid": "6759c3a83fb30a66d7ecc78b"
+        },
+        "url": "http://res.cloudinary.com/dhvimkgc4/image/upload/v1733853638/heatmaps/we4ensy28vbawgdtda6w.webp",
+        "date": {
+            "$date": {
+                "$numberLong": "1733574084908"
+            }
+        }
+    },
+    {
+        "_id": {
+            "$oid": "6756e0c4dd0c9b2be7a220ce"
+        },
+        "store": {
+            "$oid": "6759c3a83fb30a66d7ecc78b"
+        },
+        "url": "http://res.cloudinary.com/dhvimkgc4/image/upload/v1733853637/heatmaps/gc1p1jmm4drtzmkrj9dv.png",
+        "date": {
+            "$date": {
+                "$numberLong": "1733487684908"
+            }
+        }
+    },
+    {
+        "_id": {
+            "$oid": "6756e0c4dd0c9b2be7a220cf"
+        },
+        "store": {
+            "$oid": "6759c3a83fb30a66d7ecc78b"
+        },
+        "url": "http://res.cloudinary.com/dhvimkgc4/image/upload/v1733853637/heatmaps/aygxeqevaumcq38odf8s.jpg",
+        "date": {
+            "$date": {
+                "$numberLong": "1733401284908"
+            }
+        }
+    },
+    {
+        "_id": {
+            "$oid": "6756e0c4dd0c9b2be7a220d0"
+        },
+        "store": {
+            "$oid": "6759c3a83fb30a66d7ecc78b"
+        },
+        "url": "http://res.cloudinary.com/dhvimkgc4/image/upload/v1733853637/heatmaps/ghfdmqvniu6cqbnz7smg.webp",
+        "date": {
+            "$date": {
+                "$numberLong": "1733314884908"
+            }
+        }
+    }
+]

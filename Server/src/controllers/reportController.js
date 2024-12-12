@@ -30,13 +30,10 @@ function processReport(report) {
         male: hourlyReport.totalMaleCustomers || 0,
         female: hourlyReport.totalFemaleCustomers || 0,
         avgDwellTime: hourlyReport.avgDwellTime || 0,
-        '0-9': hourlyReport.customersByAge?.get('0-9') || 0,
-        '10-19': hourlyReport.customersByAge?.get('10-19') || 0,
-        '20-29': hourlyReport.customersByAge?.get('20-29') || 0,
-        '30-39': hourlyReport.customersByAge?.get('30-39') || 0,
-        '40-49': hourlyReport.customersByAge?.get('40-49') || 0,
-        '50-59': hourlyReport.customersByAge?.get('50-59') || 0,
-        '60+': hourlyReport.customersByAge?.get('60+') || 0,
+        'young': hourlyReport.customersByAge?.get('young') || 0,
+        'children': hourlyReport.customersByAge?.get('children') || 0,
+        'adult': hourlyReport.customersByAge?.get('adult') || 0,
+        'elder': hourlyReport.customersByAge?.get('elder') || 0,
     }));
     const response = { reportId: reportId, hourlyReports: transformedReports };
     return response;
