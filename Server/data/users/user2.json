@@ -1,0 +1,26 @@
+[
+    {
+        "_id": {
+            "$oid": "675feb83ea8e93b665dc3197"
+        },
+        "username": "Cecile.Mante",
+        "firstName": "Elody",
+        "lastName": "Leuschke",
+        "password": "$2b$10$pzVUCLml0jufjwwHWGFeVOMmu8dkE8Byt0g61Rr0ptpshwD.JRTnm",
+        "email": "Princess_Gerlach34@hotmail.com",
+        "mainStore": {
+            "$oid": "675feb83ea8e93b665dc319d"
+        },
+        "stores": [
+            {
+                "$oid": "675feb83ea8e93b665dc319c"
+            },
+            {
+                "$oid": "675feb83ea8e93b665dc319d"
+            },
+            {
+                "$oid": "675feb83ea8e93b665dc319e"
+            }
+        ]
+    }
+]

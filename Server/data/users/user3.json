@@ -1,0 +1,26 @@
+[
+    {
+        "_id": {
+            "$oid": "675feb83ea8e93b665dc3198"
+        },
+        "username": "Gudrun.Marks",
+        "firstName": "Ricardo",
+        "lastName": "Nitzsche",
+        "password": "$2b$10$ShtGHnirC4OQ4AUGJtMnPeFuszybN0etOJPTi9K0rDah84TRNBTuO",
+        "email": "Brian60@yahoo.com",
+        "mainStore": {
+            "$oid": "675feb83ea8e93b665dc319f"
+        },
+        "stores": [
+            {
+                "$oid": "675feb83ea8e93b665dc319f"
+            },
+            {
+                "$oid": "675feb83ea8e93b665dc31a0"
+            },
+            {
+                "$oid": "675feb83ea8e93b665dc31a1"
+            }
+        ]
+    }
+]

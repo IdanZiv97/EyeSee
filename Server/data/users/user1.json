@@ -1,0 +1,26 @@
+[
+    {
+        "_id": {
+            "$oid": "675feb83ea8e93b665dc3196"
+        },
+        "username": "Roxane_Fadel75",
+        "firstName": "Maximo",
+        "lastName": "Swift",
+        "password": "$2b$10$eszqtrwkKv1aeklJVKLOued/XsjtrUke2nzihLROoZ1IME2.zQxDi",
+        "email": "Kenton_Gulgowski@hotmail.com",
+        "mainStore": {
+            "$oid": "675feb83ea8e93b665dc319b"
+        },
+        "stores": [
+            {
+                "$oid": "675feb83ea8e93b665dc3199"
+            },
+            {
+                "$oid": "675feb83ea8e93b665dc319a"
+            },
+            {
+                "$oid": "675feb83ea8e93b665dc319b"
+            }
+        ]
+    }
+]
