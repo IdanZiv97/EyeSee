@@ -4,6 +4,7 @@ import Store from "../models/storeModel.js";
 import Report from "../models/reportModel.js"
 import { Job as Job } from "../models/jobModel.js"
 import { extractPublicId } from "cloudinary-build-url";
+import {v2 as cloudinary} from 'cloudinary';
 // Helper functions
 
 /**
