@@ -198,23 +198,39 @@ passwordToHashMap.forEach((doc, index) => {
 
 async function saveDataToJSON() {
     try {
-        await fs.writeFile('./data/testUser.json', JSON.stringify(fakeUsers, null, 4));
-        console.log('Test user saved to ./testUser.json');
+// write each user
+        await fs.writeFile('./data/users/user1.json', JSON.stringify([fakeUser1], null, 4));
+        console.log('User1 saved to ./data/user1.json');
 
-        await fs.writeFile('./data/testStores.json', JSON.stringify(fakeStores, null, 4));
-        console.log('Test stores saved to ./testStores.json');
+        await fs.writeFile('./data/stores/user1_stores.json', JSON.stringify(user1Stores, null, 4));
+        console.log('User1 stores saved to ./data/stores.json');
+        
+        await fs.writeFile('./data/reports/user1_reports.json', JSON.stringify(user1Reports, null, 4));
+        console.log('User1 reports saved to ./data/reports/user1_reports.json');
 
-        await fs.writeFile('./data/testReports.json', JSON.stringify(fakeReports, null, 4));
-        console.log('Test reports saved to ./testReports.json');
+        await fs.writeFile('./data/heatmaps/user1_heatmaps.json', JSON.stringify(user1Heatmaps, null, 4));
+        console.log('User1 heatmaps saved to ./data/heatmaps/user1_heatmaps.json');
 
-        await fs.writeFile('./data/testHeatmaps.json', JSON.stringify(fakeHeatmaps, null, 4));
-        console.log('Test heatmaps saved to ./testHeatmaps.json');
+        await fs.writeFile('./data/jobs/user1Jobs.json', JSON.stringify(user1Jobs, null, 4));
+        console.log('User1 jobs saved to ./data/jobs.json');
+        // general data
+        await fs.writeFile('./data/general/users.json', JSON.stringify(fakeUsers, null, 4));
+        console.log('Users saved to ./data/general/users.json');
 
-        await fs.writeFile('./data/testJobs.json', JSON.stringify(fakeJobs, null, 4));
-        console.log('Test jobs saved to ./testJobs.json');
+        await fs.writeFile('./data/general/stores.json', JSON.stringify(fakeStores, null, 4));
+        console.log('Test stores saved to ./data/general/stores.json');
 
-        await fs.writeFile('./data/passwordsMap.json', JSON.stringify(passwordToHashMap, null, 4));
-        console.log('Password to hash map saved to ./passwordMap.json');
+        await fs.writeFile('./data/general/reports.json', JSON.stringify(fakeReports, null, 4));
+        console.log('Test reports saved to ./data/general/reports.json');
+
+        await fs.writeFile('./data/general/heatmaps.json', JSON.stringify(fakeHeatmaps, null, 4));
+        console.log('Test heatmaps saved to ./data/general/heatmaps.json');
+
+        await fs.writeFile('./data/general/jobs.json', JSON.stringify(fakeJobs, null, 4));
+        console.log('Test jobs saved to ./data/general/jobs.json');
+
+        await fs.writeFile('./data/general/passwordsMap.json', JSON.stringify(passwordToHashMap, null, 4));
+        console.log('Password to hash map saved to ./data/general/passwordsMap.json');
 
     } catch (error) {
         console.error('Error saving data to JSON files: ', error);
