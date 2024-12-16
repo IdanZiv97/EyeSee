@@ -192,6 +192,10 @@ for (const store of user1Stores) {
 }
 user1Jobs.forEach(job => fakeJobs.push(job));
 
+passwordToHashMap.forEach((doc, index) => {
+    doc.username = fakeUsers[index].username;
+})
+
 async function saveDataToJSON() {
     try {
         await fs.writeFile('./data/testUser.json', JSON.stringify(fakeUsers, null, 4));
