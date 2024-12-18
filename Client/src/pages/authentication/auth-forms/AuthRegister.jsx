@@ -4,15 +4,12 @@ import axios from 'axios';
 
 // Material-UI Components
 import Button from '@mui/material/Button';
-import FormControl from '@mui/material/FormControl';
 import FormHelperText from '@mui/material/FormHelperText';
 import Grid from '@mui/material/Grid';
-import Link from '@mui/material/Link';
 import InputAdornment from '@mui/material/InputAdornment';
 import IconButton from '@mui/material/IconButton';
 import InputLabel from '@mui/material/InputLabel';
 import OutlinedInput from '@mui/material/OutlinedInput';
-import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 
@@ -25,50 +22,60 @@ import EyeOutlined from '@ant-design/icons/EyeOutlined';
 import EyeInvisibleOutlined from '@ant-design/icons/EyeInvisibleOutlined';
 
 import UserSession from 'pages/utils/UserSession';
+import config from 'config';
 
 export default function AuthRegister() {
     const navigate = useNavigate();
     const [showPassword, setShowPassword] = useState(false);
-    const [errorMessage, setErrorMessage] = useState(''); // New state for handling error messages
+    const [errorMessage, setErrorMessage] = useState('');
 
     const handleClickShowPassword = () => setShowPassword(!showPassword);
     const handleMouseDownPassword = (event) => event.preventDefault();
 
     const handleFormSubmit = async (values, { setSubmitting }) => {
-      try {
-          const response = await axios.post(`${config.SERVER_DOMAIN}/signup`, {
-              username: values.username,
-              password: values.password,
-              email: values.email,
-              storename: values.company,
-              firstname: values.firstname,
-              lastname: values.lastname
-          });
-          // Check for successful response; make sure this matches your actual API response structure
-          if (response.status === 200 && response.data.success) {
-            // Store user info in local storage
-            UserSession.storeUserInfo({
-                userId: response.data.userId,
-                username: response.data.username,
-                firstName: response.firstName,
-                lastName: response.lastName,
-                mainStoreId: response.data.mainStore,
-                stores: [response.data.storeName]
+        console.log('Submitting form with values:', values); // Debugging
+        try {
+            const serverDomain = config.SERVER_DOMAIN; // Updated to use Vite environment variables
+            if (!serverDomain) {
+                throw new Error('Server domain is not defined in environment variables');
+            }
+
+            const response = await axios.post(`${serverDomain}/signup`, {
+                username: values.username,
+                password: values.password,
+                email: values.email,
+                storename: values.company,
+                firstname: values.firstname,
+                lastname: values.lastname
             });
-            navigate('/dashboard/default'); // Navigate to the dashboard
-        } else {
-            setErrorMessage(response.data.msg); // Handle setting the error message if not successful
-        }        
-      } catch (error) {
-          setErrorMessage(error.response ? error.response.data.msg : 'Server error'); // Handle potential errors from the server or network
-      } finally {
-          setSubmitting(false);
-      }
+
+            console.log('Server response:', response.data); // Debugging
+
+            if (response.status === 200 && response.data.success) {
+                UserSession.storeUserInfo({
+                    userId: response.data.userId,
+                    username: response.data.username,
+                    firstName: response.data.firstName,
+                    lastName: response.data.lastName,
+                    mainStoreId: response.data.mainStore,
+                    stores: [response.data.storeName]
+                });
+                navigate('/dashboard/default');
+            } else {
+                setErrorMessage(response.data.msg || 'An unknown error occurred.');
+            }
+        } catch (error) {
+            console.error('Error occurred:', error.message); // Debugging
+            setErrorMessage(error.response ? error.response.data.msg : error.message);
+        } finally {
+            setSubmitting(false);
+        }
     };
-    useEffect(()=>{
-        //logoff the current user.
+
+    useEffect(() => {
+        console.log('Clearing user session'); // Debugging
         UserSession.clearUserSession();
-    },[])  
+    }, []);
 
     return (
         <Box sx={{ maxWidth: 480, mx: 'auto', mt: 4 }}>
@@ -94,16 +101,23 @@ export default function AuthRegister() {
                 {({ errors, handleChange, handleSubmit, isSubmitting, touched, values }) => (
                     <form noValidate onSubmit={handleSubmit}>
                         <Grid container spacing={2}>
-                            {['firstname', 'lastname', 'username', 'email', 'main store', 'password'].map((field, index) => (
+                            {[
+                                { name: 'firstname', label: 'First Name' },
+                                { name: 'lastname', label: 'Last Name' },
+                                { name: 'username', label: 'Username' },
+                                { name: 'email', label: 'Email' },
+                                { name: 'company', label: 'Company' },
+                                { name: 'password', label: 'Password' }
+                            ].map((field, index) => (
                                 <Grid item xs={12} key={index}>
-                                    <InputLabel htmlFor={field}>{field.charAt(0).toUpperCase() + field.slice(1)}</InputLabel>
+                                    <InputLabel htmlFor={field.name}>{field.label}</InputLabel>
                                     <OutlinedInput
-                                        id={field}
-                                        type={field === 'password' ? (showPassword ? 'text' : 'password') : 'text'}
-                                        name={field}
-                                        value={values[field]}
+                                        id={field.name}
+                                        type={field.name === 'password' ? (showPassword ? 'text' : 'password') : 'text'}
+                                        name={field.name}
+                                        value={values[field.name]}
                                         onChange={handleChange}
-                                        endAdornment={field === 'password' ? (
+                                        endAdornment={field.name === 'password' ? (
                                             <InputAdornment position="end">
                                                 <IconButton
                                                     aria-label="toggle password visibility"
@@ -116,10 +130,9 @@ export default function AuthRegister() {
                                             </InputAdornment>
                                         ) : null}
                                         fullWidth
-                                        error={Boolean(touched[field] && errors[field])}
-                                        helperText={touched[field] && errors[field]}
+                                        error={Boolean(touched[field.name] && errors[field.name])}
                                     />
-                                    <FormHelperText error>{touched[field] && errors[field]}</FormHelperText>
+                                    <FormHelperText error>{touched[field.name] && errors[field.name]}</FormHelperText>
                                 </Grid>
                             ))}
                             <Grid item xs={12}>
