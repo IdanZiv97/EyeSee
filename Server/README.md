@@ -1,2 +1,6 @@
-# EyeSee - Server - Feature/Media Upload
-This branch focus is on developing a media upload mechanism.
+# EyeSee - Server
+
+Backend server written in Node.Js using Express.
+Connects to a an atlas database using mongoose.
+
+In the directory ```data``` you can find the data inside the database for the presentation.
