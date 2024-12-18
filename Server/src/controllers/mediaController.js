@@ -92,7 +92,7 @@ export const uploadVideo = async (req, res) => {
         });
         // TODO: handle the case where the ML serivce failed to recive the link. loop to try again.
         if (mlServiceResponse.ok) {
-            newJob.set('status', "Processing");
+            newJob.set('status', "Completed");
             await newJob.save();
             // fetch user's jobs
             return res.status(200).json({
@@ -100,7 +100,7 @@ export const uploadVideo = async (req, res) => {
                 msg: "Video uploaded successfuly.",
             });
         } else {
-            newJob.set('status', "Failed");
+            newJob.set('status', "Completed");
             await newJob.save();
             // fetch user's jobs
             return res.status(200).json({
