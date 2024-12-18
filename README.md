@@ -37,10 +37,6 @@ cd Client
 ```
 and then into the eyesee directory
 
-```bash
-cd eyesee
-```
-
 Install all the requirements
 
 ```bash
