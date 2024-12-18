@@ -1,25 +1,25 @@
 [
     {
         "_id": {
-            "$oid": "6762e5e2ef237b9cb03db1ba"
+            "$oid": "67635cf672ea52a36c855e40"
         },
-        "username": "Norbert.Ryan",
-        "firstName": "Moises",
-        "lastName": "Pfeffer",
-        "password": "$2b$10$lU943nqpw6w9mcz7mkFF2.tfZo7XpUHFDS1s7PUQAhTtGGTwsx7be",
-        "email": "Kenya.Roberts@hotmail.com",
+        "username": "Kenneth.Steuber89",
+        "firstName": "Enoch",
+        "lastName": "Cassin",
+        "password": "$2b$10$/3zS6MFmhlJ3NGZpRGz2veRJVrUeWn1dCEKro/gaVfbDjAM5PbyZO",
+        "email": "Grayce31@yahoo.com",
         "mainStore": {
-            "$oid": "6762e5e2ef237b9cb03db1c1"
+            "$oid": "67635cf672ea52a36c855e47"
         },
         "stores": [
             {
-                "$oid": "6762e5e2ef237b9cb03db1c1"
+                "$oid": "67635cf672ea52a36c855e47"
             },
             {
-                "$oid": "6762e5e2ef237b9cb03db1c2"
+                "$oid": "67635cf672ea52a36c855e48"
             },
             {
-                "$oid": "6762e5e2ef237b9cb03db1c3"
+                "$oid": "67635cf672ea52a36c855e49"
             }
         ]
     }
