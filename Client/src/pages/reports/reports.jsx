@@ -1,14 +1,26 @@
 import React, { useEffect, useState, useMemo } from 'react';
-import { Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, TablePagination, CircularProgress, Alert } from '@mui/material';
+import {
+  Button,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+  TablePagination,
+  CircularProgress,
+  Alert,
+} from '@mui/material';
 import config from 'config';
 
-function Reports({ 
-  data, 
-  defaultReportsPerPage = 5, 
-  showButtons = true, 
-  store = null, 
-  startDate = null, 
-  endDate = null 
+function Reports({
+  data,
+  defaultReportsPerPage = 5,
+  showButtons = true,
+  store = null,
+  startDate = null,
+  endDate = null,
 }) {
   const [loading, setLoading] = useState(false);
   const [deleteSuccess, setDeleteSuccess] = useState(false);
@@ -53,6 +65,39 @@ function Reports({
     } finally {
       setLoading(false);
     }
+  };
+
+  const downloadCSV = () => {
+    if (!filteredData || filteredData.length === 0) {
+      console.error('No data available to download');
+      return;
+    }
+
+    // Define CSV headers
+    const headers = columns.map(column => column.header).join(',');
+
+    // Map data to CSV rows
+    const rows = allHourlyReports.map(row =>
+      columns.map(column => row[column.key] ?? '').join(',')
+    );
+
+    // Combine headers and rows
+    const csvContent = [headers, ...rows].join('\n');
+
+    // Create a Blob and trigger download
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+
+    // Determine filename with date range and store
+    const fileName = 'reports.csv';
+
+    // Create a temporary link
+    const link = document.createElement('a');
+    link.href = url;
+    link.setAttribute('download', fileName); // Dynamic filename
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link); // Clean up
   };
 
   const columns = [
@@ -134,7 +179,7 @@ function Reports({
       )}
       {showButtons && !loading && !deleteSuccess && (
         <div style={{ marginTop: '10px', display: 'flex', gap: '10px' }}>
-          <Button variant="contained" color="primary" onClick={() => {}}>
+          <Button variant="contained" color="primary" onClick={downloadCSV}>
             Download CSV
           </Button>
           <Button variant="contained" color="secondary" onClick={deleteReports}>
