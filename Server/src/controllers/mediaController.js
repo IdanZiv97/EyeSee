@@ -76,7 +76,7 @@ export const uploadVideo = async (req, res) => {
         })
         await newJob.save();
         // try to send the request
-        const mlServiceResponse = await fetch('http://localhost:4000/video/test', { // TODO: add url of ML service
+        const mlServiceResponse = await fetch('http://localhost:6000/video/upload', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
