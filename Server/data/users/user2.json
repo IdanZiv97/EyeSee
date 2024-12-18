@@ -1,25 +1,25 @@
 [
     {
         "_id": {
-            "$oid": "675feb83ea8e93b665dc3197"
+            "$oid": "6762e5e2ef237b9cb03db1b9"
         },
-        "username": "Cecile.Mante",
-        "firstName": "Elody",
-        "lastName": "Leuschke",
-        "password": "$2b$10$pzVUCLml0jufjwwHWGFeVOMmu8dkE8Byt0g61Rr0ptpshwD.JRTnm",
-        "email": "Princess_Gerlach34@hotmail.com",
+        "username": "Alberta46",
+        "firstName": "Eryn",
+        "lastName": "Schultz",
+        "password": "$2b$10$e6U3LqSO8lPW8.z/QpzvNeBXKzweGbNw6gaHyJ.RkjnVg9AgUlhqK",
+        "email": "Lennie.Treutel@gmail.com",
         "mainStore": {
-            "$oid": "675feb83ea8e93b665dc319d"
+            "$oid": "6762e5e2ef237b9cb03db1bf"
         },
         "stores": [
             {
-                "$oid": "675feb83ea8e93b665dc319c"
+                "$oid": "6762e5e2ef237b9cb03db1be"
             },
             {
-                "$oid": "675feb83ea8e93b665dc319d"
+                "$oid": "6762e5e2ef237b9cb03db1bf"
             },
             {
-                "$oid": "675feb83ea8e93b665dc319e"
+                "$oid": "6762e5e2ef237b9cb03db1c0"
             }
         ]
     }

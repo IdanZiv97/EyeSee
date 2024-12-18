@@ -28,10 +28,6 @@ var images_paths = [
     '/Users/idanziv/dev/EyeSee/Server/data/images/heatmap6.jpg',
 ]
 
-var videos_paths = [
-    '/Users/idanziv/dev/EyeSee/Server/data/videos/video1.mp4',
-    '/Users/idanziv/dev/EyeSee/Server/data/videos/video2.mp4'
-]
 
 // Globals
 
@@ -45,7 +41,7 @@ const startDate = new Date();
 startDate.setFullYear(startDate.getFullYear() - 1);
 const endDate = new Date();
 endDate.setMonth(11);
-endDate.setDate(15);
+endDate.setDate(18);
 const usersId = Array.from({ length: 3 }, () => new mongoose.Types.ObjectId());
 const storesIds = Array.from({ length: 9 }, () => new mongoose.Types.ObjectId());
 
@@ -152,40 +148,27 @@ user1Heatmaps.forEach((heatmap) => fakeHeatmaps.push(heatmap));
 // create the jobs
 const user1Jobs = [];
 for (const store of user1Stores) {
-    let index = 0;
-    for (const path of videos_paths) {
+    for (let index = 0; index < 30; index++) {
         const jobId = new mongoose.Types.ObjectId();
         const formattedDate = new Date(endDate.getTime() - index * 24 * 60 * 60 * 1000);
         const dateInFormat = {
             $date: { $numberLong: formattedDate.getTime().toString() }
         };
-        try {
-            const response = await cloudinary.uploader.upload(
-                path,
-                {
-                    asset_folder: 'videos',
-                    resource_type: 'video'
-                }
-            );
-            const url = response.url;
-            const uuid = uuidv4();
-            const new_job = {
-                _id: { $oid: jobId.toString() },
-                jobId: uuid,
-                userId: { $oid: store.owner.$oid },
-                storeName: store.name,
-                date: dateInFormat,
-                url: url,
-                startTime: "10:00",
-                endTime: "13:00",
-                length: "180",
-                status: "Processing"
-            }
-            user1Jobs.push(new_job)
-        } catch (error) {
-            console.error('Error: ', error);
-            process.exit(-1);
+        const url = faker.internet.url();
+        const uuid = uuidv4();
+        const new_job = {
+            _id: { $oid: jobId.toString() },
+            jobId: uuid,
+            userId: { $oid: store.owner.$oid },
+            storeName: store.name,
+            date: dateInFormat,
+            url: url,
+            startTime: "10:00",
+            endTime: "13:00",
+            length: "180",
+            status: "Completed"
         }
+        user1Jobs.push(new_job)
     }
 }
 user1Jobs.forEach(job => fakeJobs.push(job));
@@ -240,7 +223,6 @@ user2Reports.forEach(report => fakeReports.push(report));
 // create heatmaps
 const user2Heatmaps = [];
 // iterate through the stores and for each store upload all the photos
-const currentHeatmaps = [];
 for (const store of user2Stores) {
     let index = 0;
     for (const path of images_paths) {
@@ -278,41 +260,27 @@ user2Heatmaps.forEach((heatmap) => fakeHeatmaps.push(heatmap));
 // create the jobs
 const user2Jobs = [];
 for (const store of user2Stores) {
-    const currentJobs = [];
-    let index = 0;
-    for (const path of videos_paths) {
+    for (let index = 0; index < 30; index++) {
         const jobId = new mongoose.Types.ObjectId();
         const formattedDate = new Date(endDate.getTime() - index * 24 * 60 * 60 * 1000);
         const dateInFormat = {
             $date: { $numberLong: formattedDate.getTime().toString() }
         };
-        try {
-            const response = await cloudinary.uploader.upload(
-                path,
-                {
-                    asset_folder: 'videos',
-                    resource_type: 'video'
-                }
-            );
-            const url = response.url;
-            const uuid = uuidv4();
-            const new_job = {
-                _id: { $oid: jobId.toString() },
-                jobId: uuid,
-                userId: { $oid: store.owner.$oid },
-                storeName: store.name,
-                date: dateInFormat,
-                url: url,
-                startTime: "10:00",
-                endTime: "13:00",
-                length: "180",
-                status: "Processing"
-            }
-            user2Jobs.push(new_job)
-        } catch (error) {
-            console.error('Error: ', error);
-            process.exit(-1);
+        const url = faker.internet.url();
+        const uuid = uuidv4();
+        const new_job = {
+            _id: { $oid: jobId.toString() },
+            jobId: uuid,
+            userId: { $oid: store.owner.$oid },
+            storeName: store.name,
+            date: dateInFormat,
+            url: url,
+            startTime: "10:00",
+            endTime: "13:00",
+            length: "180",
+            status: "Completed"
         }
+        user2Jobs.push(new_job)
     }
 }
 user2Jobs.forEach(job => fakeJobs.push(job));
@@ -404,40 +372,27 @@ user3Heatmaps.forEach((heatmap) => fakeHeatmaps.push(heatmap));
 // create the jobs
 const user3Jobs = [];
 for (const store of user3Stores) {
-    let index = 0;
-    for (const path of videos_paths) {
+    for (let index = 0; index < 30; index++) {
         const jobId = new mongoose.Types.ObjectId();
         const formattedDate = new Date(endDate.getTime() - index * 24 * 60 * 60 * 1000);
         const dateInFormat = {
             $date: { $numberLong: formattedDate.getTime().toString() }
         };
-        try {
-            const response = await cloudinary.uploader.upload(
-                path,
-                {
-                    asset_folder: 'videos',
-                    resource_type: 'video'
-                }
-            );
-            const url = response.url;
-            const uuid = uuidv4();
-            const new_job = {
-                _id: { $oid: jobId.toString() },
-                jobId: uuid,
-                userId: { $oid: store.owner.$oid },
-                storeName: store.name,
-                date: dateInFormat,
-                url: url,
-                startTime: "10:00",
-                endTime: "13:00",
-                length: "180",
-                status: "Processing"
-            }
-            user3Jobs.push(new_job)
-        } catch (error) {
-            console.error('Error: ', error);
-            process.exit(-1);
+        const url = faker.internet.url();
+        const uuid = uuidv4();
+        const new_job = {
+            _id: { $oid: jobId.toString() },
+            jobId: uuid,
+            userId: { $oid: store.owner.$oid },
+            storeName: store.name,
+            date: dateInFormat,
+            url: url,
+            startTime: "10:00",
+            endTime: "13:00",
+            length: "180",
+            status: "Completed"
         }
+        user3Jobs.push(new_job)
     }
 }
 user3Jobs.forEach(job => fakeJobs.push(job));
@@ -455,7 +410,7 @@ async function saveDataToJSON() {
 
         await fs.writeFile('./data/stores/user1_stores.json', JSON.stringify(user1Stores, null, 4));
         console.log('User1 stores saved to ./data/stores/user1_stores.json');
-        
+
         await fs.writeFile('./data/reports/user1_reports.json', JSON.stringify(user1Reports, null, 4));
         console.log('User1 reports saved to ./data/reports/user1_reports.json');
 
@@ -464,14 +419,14 @@ async function saveDataToJSON() {
 
         await fs.writeFile('./data/jobs/user1_jobs.json', JSON.stringify(user1Jobs, null, 4));
         console.log('User1 jobs saved to ./data/jobs/user1_jobs.json');
-        
+
         // User2 
         await fs.writeFile('./data/users/user2.json', JSON.stringify([fakeUser2], null, 4));
         console.log('User1 saved to ./data/users/user2.json');
 
         await fs.writeFile('./data/stores/user2_stores.json', JSON.stringify(user2Stores, null, 4));
         console.log('User2 stores saved to ./data/stores/user2_stores.json');
-        
+
         await fs.writeFile('./data/reports/user2_reports.json', JSON.stringify(user2Reports, null, 4));
         console.log('User2 reports saved to ./data/reports/user2_reports.json');
 
@@ -480,14 +435,14 @@ async function saveDataToJSON() {
 
         await fs.writeFile('./data/jobs/user2_jobs.json', JSON.stringify(user2Jobs, null, 4));
         console.log('User2 jobs saved to ./data/jobs/user2_jobs.json');
-        
+
         // User 3
         await fs.writeFile('./data/users/user3.json', JSON.stringify([fakeUser3], null, 4));
         console.log('User3 saved to ./data/users/user3.json');
 
         await fs.writeFile('./data/stores/user3_stores.json', JSON.stringify(user3Stores, null, 4));
         console.log('User3 stores saved to ./data/stores/user3_stores.json');
-        
+
         await fs.writeFile('./data/reports/user3_reports.json', JSON.stringify(user3Reports, null, 4));
         console.log('User3 reports saved to ./data/reports/user3_reports.json');
 
@@ -496,7 +451,7 @@ async function saveDataToJSON() {
 
         await fs.writeFile('./data/jobs/user3Jobs.json', JSON.stringify(user3Jobs, null, 4));
         console.log('User3 jobs saved to ./data/jobs/user3Jobs.json');
-        
+
         // General Data
         await fs.writeFile('./data/general/users.json', JSON.stringify(fakeUsers, null, 4));
         console.log('Users saved to ./data/general/users.json');
