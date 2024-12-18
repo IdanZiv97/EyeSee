@@ -87,8 +87,26 @@ const testJobs = async () => {
     const data = await response.json();
     console.log(data);
 }
+
+const testAddHeatmap = async () => {
+    const url = 'https://res.cloudinary.com/dhvimkgc4/image/upload/clean2025-06-11_15-32-00_2025-06-11_15-32-13';
+    const response = await fetch('http://localhost:4000/heatmap/add', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            jobId: '25598dfd-2325-49f3-8fd9-1e23b0f72e69',
+            link: url
+        }),
+    });
+
+    const data = await response.json();
+    console.log(data);
+}
 // await testVideoUpload();
 // await testRecentHeatmap();
 // await testHeatmapsByDates();
-await testDeleteHeatmaps();
+// await testDeleteHeatmaps();
 // await testJobs();
+await testAddHeatmap();

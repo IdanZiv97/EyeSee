@@ -1,9 +1,10 @@
+from flask import jsonify
 import requests
 from PIL import Image, PngImagePlugin
 import cv2
 from ultralytics.utils import LOGGER
 
-from util import (SERVER_URL, REPORT_ENDPOINT, HeatmapType, DwellTime, make_dirs,
+from util import (SERVER_URL, REPORT_ENDPOINT, HEATMAP_ADD,HeatmapType, DwellTime, ResponseStatus, make_dirs,
                   open_csv_file, export_to_local_csv, export_to_local_txt)
 
 
@@ -99,6 +100,12 @@ class DataProvider:
         self.local_save_heatmap(annotated_heatmap, HeatmapType.ANNOTATED.value)
         image_path, public_image_id = self.local_save_heatmap(clean_heatmap, HeatmapType.CLEAN.value)
         url = self.cloudinary_service.upload_heatmap(image_path, public_image_id)
+        try:
+            data = {"jobId": self.video_manager.get_job_id(), "link": url}
+            response = requests.post(SERVER_URL + HEATMAP_ADD, json=data)
+        except Exception as e:
+            print(e)
+            raise e
         print("****2. Upload an image****\nDelivery URL: ", url, "\n")
 
     def provide_metrics(self, url):

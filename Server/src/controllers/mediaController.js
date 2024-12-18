@@ -76,7 +76,7 @@ export const uploadVideo = async (req, res) => {
         })
         await newJob.save();
         // try to send the request
-        const mlServiceResponse = await fetch('http://localhost:6000/video/upload', {
+        const mlServiceResponse = await fetch('http://127.0.0.1:5000/video/upload', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -134,14 +134,14 @@ export const addHeatmap = async (req, res) => {
     const jobId = req.body.jobId;
     const link = req.body.link;
     // get the job
-    const job = await Job.findById(jobId);
+    const job = await Job.findOne({jobId: jobId});
     // double check the status is processing
     if (!job.status === "Processing") {
         job.set('status', "Processing");
         await job.save();
     }
     // create the heatmap
-    const user = await User.findById(job.userId).populate('store');
+    const user = await User.findById(job.userId).populate('stores');
     const store = user.stores.find((s) => s.name === job.storeName);
     try {
         const newHeatmap = new Heatmap({

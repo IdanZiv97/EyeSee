@@ -30,9 +30,11 @@ class VideoManager:
     def populate_video_data(self, video_cap, data):
 
         # Global time related population
-        self.date = data["date"]
-        self.analysis_start_time = datetime.datetime.strptime(f"{data['date']} {data['start']}", "%Y-%m-%d %H:%M:%S")
-        self.analysis_end_time = datetime.datetime.strptime(f"{data['date']} {data['end']}", "%Y-%m-%d %H:%M:%S")
+        self.date = data["date"].split('T')[0]
+        temp_start = data["start"] + ":00"
+        temp_end = data["end"] + ":00"
+        self.analysis_start_time = datetime.datetime.strptime(f"{self.date} {temp_start}", "%Y-%m-%d %H:%M:%S")
+        self.analysis_end_time = datetime.datetime.strptime(f"{self.date} {temp_end}", "%Y-%m-%d %H:%M:%S")
         self.current_time = self.analysis_start_time
 
         # Video Capture object that is already initialized by the data provider.
