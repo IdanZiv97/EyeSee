@@ -31,7 +31,7 @@ export default function Insights() {
             return;
           }
           // Extract date from the first entry in hourlyReports
-          const firstDate = rsp.heatmap.date || dayjs().format("YYYY-MM-DD");
+          const firstDate = rsp.heatmap[0].date || dayjs().format("YYYY-MM-DD");
           setSelectedStartDate(dayjs(firstDate));
           setSelectedEndDate(dayjs(firstDate));
           setComponent(<HeatMapTable data={rsp} store={selectedStore} startDate={selectedStartDate} endDate={selectedEndDate}/>);
