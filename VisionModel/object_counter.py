@@ -58,8 +58,12 @@ class ObjectCounter:
         self.dirty_out_count += 1
         self.classwise_counts[self.model.names[cls]][CountType.DIRTY_IN.value] -= 1
 
-    def display_counts(self):
-        return self.classwise_counts
+    def display_counts(self, cls=0):
+        class_count = {
+            self.model.names[cls]: {CountType.CLEAN_IN.value: self.classwise_counts[self.model.names[cls]][CountType.CLEAN_IN.value],
+                                    CountType.CLEAN_OUT.value: self.classwise_counts[self.model.names[cls]][CountType.CLEAN_OUT.value]}
+        }
+        return class_count
 
     def calculate_current_count(self):
         return self.in_count - self.out_count
