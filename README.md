@@ -34,9 +34,9 @@ EyeSee provides the following main features:
 
 ---
 
-## 🎥 Presentation Opener
+## 🎥 Project Presentation
 
-Check out how we opened our [presentation to the professor](https://www.youtube.com/watch?v=V07g594JBJ8)!
+Check out our [video on YouTube](https://www.youtube.com/watch?v=V07g594JBJ8)!
 
 ---
 
@@ -75,7 +75,9 @@ $PROJECT_ROOT (EyeSee)
 
 ---
 
-## 📜 License
-This project is licensed under the [MIT License](LICENSE).
+## Using The Project
+
+In a file named <code>run_locally.md</code>, you can find instructions and demo data to run the project locally.
+Please make sure you create your Cloudinary account and generate your own data using <code>fakeDataGenerate.js</code>.
 
 ---
