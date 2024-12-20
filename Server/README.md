@@ -6,7 +6,7 @@
 <div align="center" style="margin-top: 20px;">
   <img src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg" alt="Node.js" style="width: 60px; margin-right: 10px;">
   <img src="https://upload.wikimedia.org/wikipedia/commons/6/64/Expressjs.png" alt="Express.js" style="width: 120px; margin-right: 10px;">
-  <img src="https://https://upload.wikimedia.org/wikipedia/en/5/5a/MongoDB_Fores-Green.svg" alt="MongoDB" style="width: 80px; margin-right: 10px;">
+  <img src="../public/mongodb-seeklogo.svg" alt="MongoDB" style="width: 80px; margin-right: 10px;">
   <img src="https://res.cloudinary.com/demo/image/upload/cloudinary_icon_blue.png" alt="Cloudinary" style="width: 80px;">
 </div>
 
@@ -75,17 +75,15 @@ Run it to create your own fake data to use the project with.
 ---
 
 ## 👨‍💻 Authors
-<ul>
-  <li><strong>Idan Ziv</strong>  
-    - [LinkedIn](https://www.linkedin.com/in/idanziv7/)  
-    - [GitHub](https://github.com/IdanZiv97)</li>
-  <li><strong>Dan Marom</strong>  
-    - [LinkedIn](https://www.linkedin.com/in/dan-marom/)  
-    - [GitHub](https://github.com/danmarom16)</li>
-  <li><strong>Yonatan Radai</strong>  
-    - [LinkedIn](https://www.linkedin.com/in/yonatan-radai-074616211/)  
-    - [GitHub](https://github.com/YonatanRadai)</li>
-</ul>
+- **Idan Ziv**  
+  - [LinkedIn](https://www.linkedin.com/in/idanziv7/)  
+  - [GitHub](https://github.com/IdanZiv97)
+- **Dan Marom**  
+  - [LinkedIn](https://www.linkedin.com/in/dan-marom/)  
+  - [GitHub](https://github.com/danmarom16)
+- **Yonatan Radai**  
+  - [LinkedIn](https://www.linkedin.com/in/yonatan-radai-074616211/)  
+  - [GitHub](https://github.com/YonatanRadai)
 
 ---
 
