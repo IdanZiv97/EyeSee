@@ -32,16 +32,16 @@ Key responsibilities include:
 
 ```
 $PROJECT_ROOT/Server
-├── controllers
-│   # Business logic and API endpoint handlers
-├── models
-│   # Mongoose schemas and database operations
-├── routes
-│   # Defines API routes
-├── services
-│   # Auxiliary services for media management, communication with the Vision Model, etc.
-├── utils
-    # Helper functions and configurations
+├──src/
+  ├── controllers
+  │   # Business logic and API endpoint handlers
+  ├── models
+  │   # Mongoose schemas and database operations
+  ├── routes
+  │   # Defines API routes
+  ├── utils
+      # Helper functions and configurations
+  app.js
 ```
 
 ---
