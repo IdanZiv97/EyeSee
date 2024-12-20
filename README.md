@@ -1,121 +1,81 @@
-# EyeSee - Final Project
+<div align="center">
+  <h1>👁️ EyeSee - AI for Customer Traffic Analysis 👁️</h1>
+  <p><i>Analyzing retail store customer traffic using cutting-edge machine learning.</i></p>
+</div>
 
-In order to run the project run the following command
+<div align="center" style="display: flex; justify-content: center; gap: 10px; margin-top: 20px;">
+  <img src="./public/eyesee-dashboardscreenshot.png" alt="EyeSee Dashboard" style="width: 45%; border: 1px solid #ccc; border-radius: 8px;">
+  <img src="./public/eyesee-visionmodelscreentshot.png" alt="EyeSee Vision Model" style="width: 45%; border: 1px solid #ccc; border-radius: 8px;">
+</div>
 
-```bash
-git clone git@github.com:IdanZiv97/EyeSee.git
+---
+
+EyeSee is our graduation project for our B.Sc. in Computer Science at Bar-Ilan University. The project leverages advancements in computer vision and machine learning to analyze retail store customer traffic and provide actionable insights.
+
+---
+
+## 🚀 Our Model
+
+We customized and trained the **Ultralytics YOLO** model to perform three major tasks:
+- **👥 Person Detection and Tracking**: Identifies and follows individuals within the store.
+- **📅 Age Classification**: Categorizes detected individuals into age groups.
+- **⚥ Gender Classification**: Determines the gender of detected individuals.
+
+These capabilities enable EyeSee to analyze customer traffic patterns from video footage, offering detailed insights into store activity.
+
+---
+
+## 🌟 Features
+
+EyeSee provides the following main features:
+- **📊 Detailed Reports**: Generates comprehensive reports based on analyzed footage.
+- **📈 Dashboard**: Displays weekly and yearly trends in customer traffic.
+- **🔥 Heatmaps**: Visualizes customer activity within the store for better spatial insights.
+
+---
+
+## 🎥 Presentation Opener
+
+Check out how we opened our [presentation to the professor](https://www.youtube.com/watch?v=V07g594JBJ8)!
+
+---
+
+## 🗂️ Project Structure
 ```
-
-You will have the following directory structure:
-```
-$PROJECT_ROOT(EyeSee)
+$PROJECT_ROOT (EyeSee)
 ├── Client
-│   # Client-Side code
+│   # Client-side code
 ├── Server
-│   # Server Side code
+│   # Server-side code
 ├── VisionModel
     # AI model files (code, weights, etc)
 ```
 
-Make sure to navigate and run each part of the project on a seperate terminal tab.
+---
 
-## Client
+## 🛠️ Tech Stack
+- **Frontend:** React with Material UI
+- **Backend:** Node.js with Express
+- **Database:** MongoDB (Atlas)
+- **Machine Learning:** Python with TensorFlow/PyTorch and Ultralytics YOLO
+- **Media Management:** Cloudinary
 
-In order to run the server make sure you have the following .env file:
-```bash
-# cloudinary config credentials to connect to clouadinary
-CLOUDINARY_CLOUD_NAME= 
-CLOUDINARY_API_KEY=
-CLOUDINARY_API_SECRET=
-```
+---
 
-Move into the directory of the Client code
+## 👨‍💻 Authors
+- **Idan Ziv**  
+  - [LinkedIn](https://www.linkedin.com/in/idanziv7/)  
+  - [GitHub](https://github.com/IdanZiv97)
+- **Dan Marom**  
+  - [LinkedIn](https://www.linkedin.com/in/dan-marom/)  
+  - [GitHub](https://github.com/danmarom16)
+- **Yonatan Radai**  
+  - [LinkedIn](https://www.linkedin.com/in/yonatan-radai-074616211/)  
+  - [GitHub](https://github.com/YonatanRadai)
 
+---
 
-```bash
-cd Client
-```
-and then into the eyesee directory
+## 📜 License
+This project is licensed under the [MIT License](LICENSE).
 
-Install all the requirements
-
-```bash
-yarn
-```
-
-After you successfuly installed the requiredments you can start the project:
-
-```bash
-yarn start
-```
-
-Once the app runs, it will open the browser and navigate to:
-```
-http://localhost:3000
-```
-
-## Server
-
-This directory contains the Node.JS server and MongoDB Atlas database.
-In order to run the server make sure you have the following .env file:
-```bash
-PORT= # server port
-MONGO_URI= # string to connect to atlas server
-# cloudinary config credentials to connect to clouadinary
-CLOUDINARY_CLOUD_NAME= 
-CLOUDINARY_API_KEY=
-CLOUDINARY_API_SECRET=
-```
-And fill the proper input to each variable.
-
-After you done that make you navigate to the server code directory
-
-```bash
-cd Server
-```
-
-And install the requirements
-
-```bash
-npm install
-```
-
-and then run
-
-```bash
-npm run
-```
-
-### Vision Model
-In order to run the server make sure you have the following .env file:
-```bash
-# cloudinary config credentials to connect to clouadinary
-CLOUDINARY_CLOUD_NAME= 
-CLOUDINARY_API_KEY=
-CLOUDINARY_API_SECRET=
-```
-
-After you done that make you navigate to the server code directory
-
-```bash
-cd VisionModel
-```
-
-Create a virutal environment for the project
-
-```bash
-python3 -m venv .venv
-source .venv/bin/activate # in order to activate the virtual env
-```
-
-And install the requirements
-
-```bash
-pip install -r requirements.txt
-```
-
-and then run
-
-```bash
-python3 api.py
-```
+---
