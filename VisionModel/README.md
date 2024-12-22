@@ -1,11 +1,29 @@
-# VisionModel
+### 🔗 EyeSee VisionModel 🔗 
 
-The **VisionModel** is the business logic component of the EyeSee project. Its purpose is to analyze CCTV footage uploaded by store owners and extract actionable data, such as:
-- 👤 **Person Count** - Tracks the number of people visible in the footage.
-- 🚻 **Gender Classification** - Determines the gender of individuals.
-- 🎂 **Age Classification** - Estimates age groups for each detected person.
+<div align="center">
+   <h1>🔗 EyeSee VisionModel - AI 🔗</h1>
+   <p><i>The intelligent engine that translates raw CCTV footage into precise demographic insights and actionable visualizations.</i></p>
+</div>
 
+<div align="center" style="margin-top: 20px;">
+  <img src="../public/flask-horizontal.webp" alt="Flask" style="width: 100px; margin-right: 10px;">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python" style="width: 60px; margin-right: 10px;">
+  <img src="https://res.cloudinary.com/demo/image/upload/cloudinary_icon_blue.png" alt="Cloudinary" style="width: 80px;">
+  <img src="../public/ultralytics_logo.png" alt="UltraLytics" style="width: 80px;">
+</div>
+
+---
+<p>
+The <strong> EyeSee VisionModel</strong> is the business logic component of the EyeSee project. Its purpose is to analyze CCTV footage uploaded by store owners and extract actionable data, such as:
+<ul>
+<li> 👤 <strong> Person Count </strong> - Tracks the number of people visible in the footage.</li>
+<li> 🚻 <strong> Gender Classification </strong> - Determines the gender of individuals.</li>
+<li> 🎂 <strong> Age Classification </strong> - Estimates age groups for each detected person.</li>
+</ul>
 This data empowers businesses to understand customer demographics and optimize their operations effectively.
+</p>
+
+---
 
 ## ✨ Features
 
@@ -20,7 +38,9 @@ This data empowers businesses to understand customer demographics and optimize t
 ---
 
 ## 🛠️ Class Diagram
-![class diagram](https://github.com/user-attachments/assets/e4191718-5acf-4c6e-a96c-d4fe7fd27bdd)
+![class diagram](../public/class_diagram.png)
+
+---
 
 ## 📌 Class Descriptions
 
@@ -57,35 +77,15 @@ This data empowers businesses to understand customer demographics and optimize t
 
 ---
 
-## ⚙️ Installation
-
-1. 📂 Clone the repository:
-
-```bash
-git clone https://github.com/IdanZiv97/EyeSee.git
-cd EyeSee/VisionModel
-```
-
-2. 🛠️ Install dependencies:
-
-```
-pip install -r requirements.txt
-```
-
-3. ☁️ Configure Cloudinary credentials in the .env file.
+## 👨‍💻 Authors
+- **Idan Ziv**  
+  - [LinkedIn](https://www.linkedin.com/in/idanziv7/)  
+  - [GitHub](https://github.com/IdanZiv97)
+- **Dan Marom**  
+  - [LinkedIn](https://www.linkedin.com/in/dan-marom/)  
+  - [GitHub](https://github.com/danmarom16)
+- **Yonatan Radai**  
+  - [LinkedIn](https://www.linkedin.com/in/yonatan-radai-074616211/)  
+  - [GitHub](https://github.com/YonatanRadai)
 
 ---
-
-## 🚀 Usage
-This model is not directly exposed to the end user, and is triggered only by the uploading of CCTV footage via UI.
-
----
-
-## 📬 Contact
-For questions or feedback, reach out to:
-
-👤 Name: Dan Marom
-📧 Email: [dan.marom3@gmail.com]
-
-
-
