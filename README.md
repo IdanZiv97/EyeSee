@@ -77,7 +77,5 @@ $PROJECT_ROOT (EyeSee)
 
 ## Using The Project
 
-In a file named <code>run_locally.md</code>, you can find instructions and demo data to run the project locally.
-Please make sure you create your Cloudinary account and generate your own data using <code>fakeDataGenerate.js</code>.
-
+In the file <code>run_locally.md</code>, you'll find step-by-step instructions and demo data to set up and run the project locally. It also outlines the prerequisites needed to get started
 ---
