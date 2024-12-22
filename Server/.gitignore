@@ -3,3 +3,5 @@
 .vscode/
 /tests/test_data/mediaUploadData/fake_videos
 /tests/test_data/mediaUploadData/fake_images
+data/presentation_data
+data/tests
