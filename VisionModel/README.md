@@ -7,20 +7,6 @@ The **VisionModel** is the business logic component of the EyeSee project. Its p
 
 This data empowers businesses to understand customer demographics and optimize their operations effectively.
 
----
-
-## 📚 Table of Contents
-
-1. [🎯 Project Purpose](#-project-purpose)
-2. [✨ Features](#-features)
-3. [🛠️ Class Diagram](#-class-diagram)
-4. [⚙️ Installation](#️-installation)
-5. [🚀 Usage](#-usage)
-6. [🤝 Contributing](#-contributing)
-7. [📬 Contact](#-contact)
-
----
-
 ## ✨ Features
 
 - 🔍 **YOLOv11 Models**: 
@@ -28,6 +14,7 @@ This data empowers businesses to understand customer demographics and optimize t
   - **Gender Classification**: Classifies detected individuals into gender categories.
   - **Age Classification**: Estimates age groups of individuals.
 - 📹 **Optimized for CCTV**: Specifically trained with real-world CCTV data to overcome low-resolution challenges.
+- 🧑‍🎨**SOLID**: Designed with an Object-Oriented Programming approach, adhering to key principles such as Single Responsibility, Dependency Inversion, and Open-Closed. It leverages design patterns like Singleton and Dependency Injection to ensure scalability, maintainability, and robust architecture.
 - ☁️ **Cloud Integration**: Uses Cloudinary for seamless asset management.
 
 ---
@@ -35,7 +22,7 @@ This data empowers businesses to understand customer demographics and optimize t
 ## 🛠️ Class Diagram
 ![class diagram](https://github.com/user-attachments/assets/e4191718-5acf-4c6e-a96c-d4fe7fd27bdd)
 
-### 📌 Class Descriptions
+## 📌 Class Descriptions
 
 1. **`api.py`**: Receives API requests for analysis and triggers the `ComputerVisionService`.
 2. **`ComputerVisionService`**: 
@@ -48,7 +35,7 @@ This data empowers businesses to understand customer demographics and optimize t
    - Manages data persistence and metrics saving.
    - Sends API requests upon analysis completion.
 5. **`VideoAnalyzer`**: 
-   - Orchestrates the analysis process by managing global frame counts and calling frame analysis.
+   - Orchestrates the analysis process by managing global frame counts and calling frame analysis, triggering save before analysis termination.
 6. **`FrameAnalyzer`**: 
    - Guides frame analysis, object tracking, and heatmap management.
    - Handles line crossings and entry validations.
@@ -73,28 +60,28 @@ This data empowers businesses to understand customer demographics and optimize t
 ## ⚙️ Installation
 
 1. 📂 Clone the repository:
-   
-   ```bash
-   git clone https://github.com/IdanZiv97/EyeSee.git
-   cd EyeSee/VisionModel
-  ```
+
+```bash
+git clone https://github.com/IdanZiv97/EyeSee.git
+cd EyeSee/VisionModel
+```
 
 2. 🛠️ Install dependencies:
 
-  ```
-  pip install -r requirements.txt
-  ```
+```
+pip install -r requirements.txt
+```
 
 3. ☁️ Configure Cloudinary credentials in the .env file.
 
 ---
 
-🚀 Usage
+## 🚀 Usage
 This model is not directly exposed to the end user, and is triggered only by the uploading of CCTV footage via UI.
 
 ---
 
-📬 Contact
+## 📬 Contact
 For questions or feedback, reach out to:
 
 👤 Name: Dan Marom
